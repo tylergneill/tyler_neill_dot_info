@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Options - Kalpataru Diaries</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../index.html" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <a href="../about.html">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../blog.html">Blog: Kalpataru Diaries</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>OCR Options</h1>
+        <p style="margin-top: 1rem; opacity: 0.9;">April 2024</p>
+    </div>
+
+    <article class="page-content">
+        <div class="container blog-post-content">
+            <p>Optical Character Recognition (OCR) for Sanskrit and Devanagari texts has come a long way. This post surveys the main options available for converting scanned Sanskrit documents into editable text.</p>
+
+            <h2>Available Tools</h2>
+            <p>Several OCR solutions work with Devanagari script:</p>
+
+            <ul>
+                <li><strong>Google Cloud Vision / Google Drive</strong>: Surprisingly effective for printed Devanagari. Upload a PDF to Google Drive and open with Google Docs.</li>
+                <li><strong>Tesseract</strong>: Open-source OCR engine with Devanagari support. Available through <a href="https://skrutable.com" target="_blank">Skrutable</a>.</li>
+                <li><strong>Sanskrit OCR (IHDIA)</strong>: Specialized model trained specifically on Sanskrit texts.</li>
+            </ul>
+
+            <h2>Practical Tips</h2>
+            <p>OCR quality depends heavily on scan quality. Clean, high-resolution scans of modern printed texts will give much better results than low-quality scans of old books or manuscripts.</p>
+
+            <p>For quick OCR of Devanagari images, you can use the OCR feature in <a href="https://skrutable.com" target="_blank">Skrutable</a>.</p>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
+                <a href="../blog.html">&larr; Back to Blog</a>
+            </div>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Tyler Neill. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -13,6 +13,11 @@
     <header class="site-header">
         <div class="header-content">
             <a href="index.html" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav class="main-nav">
                 <a href="about.html">About</a>
                 <a href="projects.html">Projects</a>
@@ -59,8 +64,9 @@
                     <h3>Panditya & SETI</h3>
                     <p>Panditya is a visual exploration tool for Sanskrit intellectual networks. It helps researchers understand connections between scholars, texts, and traditions across the history of Sanskrit literature. SETI (Sanskrit E-Text Index) is a register of Sanskrit electronic texts, helping scholars discover and locate digitized Sanskrit materials across various repositories.</p>
                     <div class="project-links">
-                        <a href="https://github.com/tylergneill/panditya" target="_blank">Panditya GitHub</a>
-                        <a href="https://github.com/tylergneill/seti" target="_blank">SETI GitHub</a>
+                        <a href="http://panditya.info" target="_blank">Panditya Web App</a>
+                        <a href="http://panditya.info/seti" target="_blank">SETI Web App</a>
+                        <a href="https://github.com/tylergneill/panditya" target="_blank">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -77,23 +83,25 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" id="hansel">
                 <img src="images/my_project_screenshots/hansel_screenshot.png" alt="HANSEL screenshot">
                 <div class="project-info">
                     <h3>HANSEL</h3>
                     <p>A companion interface for reading texts from GRETIL (Goettingen Register of Electronic Texts in Indian Languages). HANSEL provides a cleaner reading experience for the treasure trove of digitized Sanskrit texts available through GRETIL.</p>
                     <div class="project-links">
+                        <a href="https://hansel-library.info" target="_blank">Web App</a>
                         <a href="https://github.com/tylergneill/hansel" target="_blank">GitHub</a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" id="kalpataru-grove">
                 <img src="images/my_project_screenshots/kalpataru-grove.png" alt="Kalpataru Grove screenshot">
                 <div class="project-info">
                     <h3>Kalpataru Grove</h3>
                     <p>A curated collection of resources and tools for Sanskrit study, bringing together various digital resources in one accessible place.</p>
                     <div class="project-links">
+                        <a href="https://kalpataru-grove.info" target="_blank">Web App</a>
                         <a href="https://github.com/tylergneill/kalpataru-grove" target="_blank">GitHub</a>
                     </div>
                 </div>
@@ -111,5 +119,22 @@
             <p>&copy; 2025 Tyler Neill. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

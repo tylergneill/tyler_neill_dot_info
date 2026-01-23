@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panditya: A New Visual Exploration Tool for Sanskrit Intellectual Networks - Kalpataru Diaries</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../index.html" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <a href="../about.html">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../blog.html">Blog: Kalpataru Diaries</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>Panditya: A New Visual Exploration Tool for Sanskrit Intellectual Networks</h1>
+        <p style="margin-top: 1rem; opacity: 0.9;">February 2025</p>
+    </div>
+
+    <article class="page-content">
+        <div class="container blog-post-content">
+            <h2>The Challenge of Navigating Sanskrit's Intellectual Networks</h2>
+
+            <p>As a student of Sanskrit, I've always struggled to keep track of the vast network of works and authors. Simply remembering who wrote what and which texts comment on others is challenging enough, let alone the many other factors, like dates, locations, layers of intertextual engagement, etc., that shape Sanskrit intellectual history. During grad school, I remember placing sticky notes on my bedroom wall, hoping to arrange and rearrange them as my understanding deepened. I can't say my wall project was all that successful, but years later, I think it symbolizes clearly the need I had.</p>
+
+            <p>To deal with this problem, my go-to resource from around 2010 onward was Karl Potter's <em>Encyclopedia of Indian Philosophies Bibliography</em>, an invaluable online reference I referred to constantly. The <a href="http://faculty.washington.edu/kpotter/xhome.htm" target="_blank">site</a> is no longer maintained after Prof. Potter's passing in 2022, but it is still available through Archive.org's Wayback Machine (see discussion and link on <a href="https://www.mail-archive.com/indology@list.indology.info/msg01330.html" target="_blank">this Indology forum post</a>).</p>
+
+            <p>Then, in late 2016 and early 2017, came <a href="http://www.panditproject.org/" target="_blank"><em>Pandit Project</em></a>, also known as the <em>Pandit Prosopographical Database of Indic Texts</em>, led by Yigal Bronner. This initiative not only re-digitized Potter's bibliography in a more machine-actionable format but also expanded it significantly over the years by creating and incorporating new datasets, including a substantial collection of Vedanta materials. I first encountered <em>Pandit</em> during a May 2017 workshop on SARIT at the Vienna Academy of Sciences. While the site offers a wealth of information, what stood out to me was its hyperlinked presentation of authors and works—a feature that directly addressed the comprehension challenges I had faced. (For a glimpse of its earlier design, see <a href="https://web.archive.org/web/20240819153727/https://www.panditproject.org/" target="_blank">this August 2024 snapshot</a>; the site received a facelift the following month.)</p>
+
+            <p>Still, something was missing. From other contexts—like the <a href="https://en.wikipedia.org/wiki/Wikipedia:Getting_to_Philosophy" target="_blank">Wikipedia philosophy game</a> or <a href="https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon" target="_blank">Six Degrees of Kevin Bacon</a>—I knew how linked information could reveal surprising relationships within just a few "hops." But with Sanskrit works and authors, that kind of fluid, networked exploration still felt out of reach. Then I discovered <a href="https://oracleofbacon.org/" target="_blank">The Oracle of Bacon</a>, a playful online tool that visually maps "Kevin Bacon connections" among movie actors, and it inspired me to get bolder about the <em>Pandit</em> data. I started playing around with "scraping" the website (i.e., programmatically grabbing and parsing the HTML) and "surfing" the wiki structure, jumping from page to page and collecting connected groups of nodes without manually clicking through the site. Eventually, I realized it would be even better to work offline, and fortunately, the full database—or even just the Works subset which was all I needed—was available for export.</p>
+
+            <figure>
+                <img src="../images/my_project_screenshots/pandit_export_works.png" alt="Exporting all works with Pandit v1">
+                <figcaption>Exporting all works with Pandit v1.</figcaption>
+            </figure>
+
+            <p>The final key piece was incorporating the NetworkX library, which allowed me to structure the data as a network of nodes and edges while also enabling basic on-the-fly visualization. With that, <em>Pandit Grapher</em> was born: a simple Python script that generated graphs and, perhaps more importantly, exported them for use in the open-source Gephi visualization software. I shared everything on GitHub (see <a href="https://zenodo.org/records/14768846" target="_blank">this archived v1 release on Zenodo</a>) and even included a particularly busy graph as a figure in my PhD dissertation on Bhasarvajña's Nyayabhusana.</p>
+
+            <figure>
+                <img src="../images/my_project_screenshots/pandit_grapher.jpg" alt="Pandit network visualization in Gephi">
+                <figcaption>Outer: A view of the entire Pandit network (August 2020 data) in Gephi using the Yufan-Hu layout. Insert: A simpler subset focused on Raghuvamsa and Mallinatha Suri, which should be all connected together, highlighting room for improvement.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images/my_project_screenshots/pandit_grapher_nbhu_diagram.png" alt="Pandit Grapher NBhu diagram">
+                <figcaption>A diagram created with Pandit Grapher and manually customized and visualized with Gephi, showing Bhasarvajña's Nyayasara, his Nyayabhusana auto-commentary, and other texts of intertextual relevance.</figcaption>
+            </figure>
+
+            <p>I knew, however, that <em>Pandit Grapher</em> in its original form wasn't particularly useful to most Sanskritists. It needed to be far more user-friendly, but at the time, I wasn't confident enough to start working with more advanced front-end frameworks like D3.js. Over the years, however, I got better at building and maintaining web apps, and when ChatGPT made it dramatically easier to learn new programming technologies and tackle ambitious projects, I got bolder again. This past December, with some free time on my hands, I revisited the project.</p>
+
+            <p>Now, <em>Pandit Grapher</em> has evolved into <em>Panditya</em> (full name <em>Pandityataraka</em>). With interactive, in-browser visualization, it makes exploring these networks not only accessible to more people but also more intuitive, and even fun. <em>Panditya</em> finally bridges the gap between structured data and human comprehension, allowing non-technical users to dynamically explore how Sanskrit thinkers relate to one another through their texts, at least as revealed by traditionally transmitted associations of commentary and authorship.</p>
+
+            <h2>How to Get Started with Panditya</h2>
+
+            <p>Head over to <a href="http://panditya.info" target="_blank">panditya.info</a> and try it out. Use the auto-complete dropdown to select an entity—say, Bhasarvajña's <em>Nyayasara (89000)</em>—leave the Hops setting at the default 1, then hit the big red Generate Graph button. An interactive graph will appear, showing your selected entity along with all those connected to it within one hop (Authors are purple, Works are red). Now, increase the Hops setting to 2 and regenerate the graph. If the entity has enough connections, the network will expand. Go up to 3, and the complexity grows further, and you may need to zoom out (<em>pinch to zoom</em> on Mac) or move around (click and drag the background). Even with just this much, you can quickly start to grasp the web of authorial and commentarial relationships.</p>
+
+            <figure>
+                <img src="../images/my_project_screenshots/panditya.png" alt="Using an auto-complete drop-down menu to select an entity of interest">
+                <figcaption>Using an auto-complete drop-down menu to select an entity of interest.</figcaption>
+            </figure>
+
+            <p>Now, go back to a simpler graph if needed, and right-click (<em>Cmd + click</em> on Mac) on a node. A context menu will appear, showing the entity's unique ID within <em>Pandit</em>. The first submenu, View on, lets you jump to an external site to explore the entity. Currently this is just <em>Pandit</em>, but I plan to add links to multiple e-text repositories. The second submenu, Recenter, allows you to quickly generate a new graph centered on a different node, with 1-3 hops. The third submenu, Exclusions - Collapse, lets you simplify the view by preventing a selected node from expanding while regenerating the graph—with more refinements planned in the future.</p>
+
+            <p><em>But wait!</em> you might be thinking, <em>the graph that I'm seeing is way too crowded! The labels overlap, and it's hard to read!</em> And yes, that's often true, because it turns out there's no single setting that works perfectly for every graph. To help with this, you'll find a set of controls below the graph that lets you tweak the forces in the D3 simulation. Adjusting these can help spread things out for better clarity. There's even a Freeze button that temporarily disables all forces while still allowing you to manually drag nodes around for a clearer view, whether for a screenshot or just to understand better.</p>
+
+            <p>That's it! I hope you start using it whenever you have a question about Sanskrit authors and/or works that such a visual aid could help answer.</p>
+
+            <h2>Conclusion: Why it Matters and How You Can Help</h2>
+
+            <p><em>Pandit</em> has done a tremendous service by preserving the Potter <em>Bibliography</em>, making it machine-actionable, and expanding the effort to document Sanskrit works and authors. However, a wiki format doesn't provide an easy way to grasp connections at a glance. <em>Panditya</em>, derived from and building directly on <em>Pandit</em>, finally unlocks this potential, making it easier for more people to explore, understand, and ultimately contribute to improving <em>Pandit</em> itself.</p>
+
+            <p>Interactive visualization isn't just about aesthetics—it transforms how we engage with information. For students, <em>Panditya</em> gamifies Sanskrit intellectual history, making complex traditions more intuitive to explore. For researchers, it streamlines reference work and reveals relationships and inconsistencies that may otherwise have remained hidden, sparking new insights and discoveries. And for digital humanists, it demonstrates how structured data can be more fully utilized for meaningful, interactive scholarship.</p>
+
+            <p><em>Panditya</em> is still at a young stage of development, but it's poised to develop fast. If you're interested, visit <a href="https://panditya.info/about" target="_blank">panditya.info/about</a> to learn more. If you've got an idea, regarding data suggestions, feature requests, or whatever else, reach out to me directly, or come to the <a href="https://github.com/tylergneill/panditya" target="_blank">GitHub page</a> and open an Issue. For a deeper technical dive, keep an eye out for my write-up at the <em>ISCLS (Computational)</em> Panel of the <em>World Sanskrit Conference</em> in Kathmandu this year, or feel free to contact me for a draft.</p>
+
+            <p>(EDIT 2 May 2025: For those who want more detail, the pre-print of my Panditya-SETI paper for WSC 19 is <a href="https://www.academia.edu/129148441/P%C4%81%E1%B9%87%E1%B8%8Ditya_Visualizing_Sanskrit_Intellectual_Networks" target="_blank">available now to read on Academia</a>.</p>
+
+            <p>EDIT 16 May 2025: I was also interviewed about the project by Raj Balkaran for the <em>Indian Religion</em> podcast of the <em>New Books Network</em>: <a href="https://newbooksnetwork.com/p%C4%81%E1%B9%87%E1%B8%8Ditya-mapping-sanskrit-texts-online" target="_blank"><em>Panditya: Mapping Sanskrit Texts Online</em></a>.)</p>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
+                <a href="../blog.html">&larr; Back to Blog</a>
+            </div>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Tyler Neill. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

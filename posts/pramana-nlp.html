@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pramana NLP - Kalpataru Diaries</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../index.html" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <a href="../about.html">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../blog.html">Blog: Kalpataru Diaries</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>Pramana NLP</h1>
+        <p style="margin-top: 1rem; opacity: 0.9;">2019</p>
+    </div>
+
+    <article class="page-content">
+        <div class="container blog-post-content">
+            <p>Pramana NLP is a curated corpus of Sanskrit philosophy texts, specifically designed to facilitate natural language processing research. The corpus focuses on epistemological (pramana) literature from the classical Indian philosophical traditions.</p>
+
+            <figure>
+                <img src="../images/my_project_screenshots/Pram%C4%81%E1%B9%87a%20NLP.png" alt="Pramana NLP">
+                <figcaption>Pramana NLP corpus structure</figcaption>
+            </figure>
+
+            <h2>Why This Corpus?</h2>
+            <p>When I started my doctoral research in Leipzig, I needed a well-curated corpus of Sanskrit philosophy texts to work with. Existing digital resources were scattered, inconsistently formatted, and often lacked the metadata needed for serious NLP work.</p>
+
+            <p>Pramana NLP is my model of simple but informative text digitization for facilitating NLP work. The texts are carefully segmented, consistently encoded, and documented with the information researchers need.</p>
+
+            <h2>Open Source</h2>
+            <p>Like my other work, Pramana NLP is open source and licensed under a Creative Commons Attribution-ShareAlike 4.0 International License. You can view and download it from the <a href="https://github.com/tylergneill/pramana-nlp" target="_blank">GitHub repository</a>.</p>
+
+            <p>For more details on the corpus and its construction, see the <a href="https://aclanthology.org/W19-7505/" target="_blank">2019 publication</a>.</p>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
+                <a href="../blog.html">&larr; Back to Blog</a>
+            </div>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Tyler Neill. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

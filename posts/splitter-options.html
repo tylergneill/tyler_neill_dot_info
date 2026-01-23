@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splitter Options - Kalpataru Diaries</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../index.html" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <a href="../about.html">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../blog.html">Blog: Kalpataru Diaries</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>Splitter Options</h1>
+        <p style="margin-top: 1rem; opacity: 0.9;">May 2024</p>
+    </div>
+
+    <article class="page-content">
+        <div class="container blog-post-content">
+            <p><em>Special thanks to Sebastian Nehrdich for his help in co-authoring this post!</em></p>
+
+            <h2>The Problem with Splitting</h2>
+            <p>For many, it's hard to reliably split (or "segment") a Sanskrit sentence into its component words. This requires resolving complex linguistic issues, including sandhi, ligature-based scripts, compounding, synonymy (many words per meaning), and polysemy (many meanings per word), all basically at the same time.</p>
+
+            <h2>Splitter System Options</h2>
+            <p>Fortunately, thanks to the hard work of various teams, several Sanskrit splitter systems exist. Here are the main options you can try out online today:</p>
+
+            <ol>
+                <li><strong>Sanskrit Reader Companion</strong> (The Sanskrit Heritage Site): Provides color-coded, interactive HTML with various possible word splits plus additional linguistic information.</li>
+                <li><strong>Sanskrit Sandhi and Compound Splitter</strong> (2018): Outputs one best-guess plaintext answer, available on <a href="https://skrutable.com" target="_blank">Skrutable</a>.</li>
+                <li><strong>Joint splitter/stemmer/tagger</strong> (2020): Deployed on the <a href="https://buddhanexus.net/sanskrit-tools" target="_blank">BuddhaNexus web app</a>.</li>
+                <li><strong>ByT5-Sanskrit</strong> (2024): The newest option, available through Skrutable as the default model.</li>
+            </ol>
+
+            <h2>Which Should You Use?</h2>
+            <p>For most users, the ByT5-Sanskrit model (2024) available through Skrutable will give the best results. It represents a significant accuracy improvement over earlier models while maintaining ease of use.</p>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
+                <a href="../blog.html">&larr; Back to Blog</a>
+            </div>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Tyler Neill. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
