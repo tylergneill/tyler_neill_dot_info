@@ -28,23 +28,25 @@
 
     <div class="page-header">
         <h1>Kalpataru Grove</h1>
-        <p style="margin-top: 1rem; opacity: 0.9;">2024</p>
+        <p style="margin-top: 1rem; opacity: 0.9;">January 2026</p>
     </div>
 
     <article class="page-content">
         <div class="container blog-post-content">
-            <p>Kalpataru Grove is a curated collection of digital Sanskrit resources, bringing together various tools and materials in one accessible place. The name refers to the mythical "wish-fulfilling tree" (kalpataru) - the idea being that this grove of resources can help fulfill the wishes of Sanskrit learners and researchers.</p>
+            <p>People who visit this personal website of mine and its <a href="/projects.html">Projects page</a> might have a decent idea of the range of what I'm working on, but I know it's a lot and hard to keep track of. Meanwhile, the various projects have been coming together and forming more of a coherent ecosystem than I had consciously planned for.</p>
+
+            <p>I hereby dub this emerging vision "Kalpataru Grove", using the same <a href="first-post.html">metaphor</a> that illustrates this blog. And because I seem to love making new websites, I made one to illustrate the idea and link everything together:</p>
+
+            <h3 style="text-align: center;"><a href="https://kalpataru-grove.info" target="_blank">kalpataru-grove.info</a></h3>
 
             <figure>
                 <img src="../images/my_project_screenshots/kalpataru-grove.png" alt="Kalpataru Grove">
-                <figcaption>Kalpataru Grove resource collection</figcaption>
+                <figcaption>Kalpataru Grove landing page</figcaption>
             </figure>
 
-            <h2>What's Included</h2>
-            <p>The collection includes links to dictionaries, grammar resources, text repositories, digital tools, and learning materials. Rather than being a comprehensive encyclopedia, it's a curated selection of resources I've found genuinely useful.</p>
+            <p>Go ahead and check it out! It's basically links and one-line descriptions, plus a system diagram that spells out how things connect. I'll probably add an intro video before very long, to talk up the vision itself.</p>
 
-            <h2>Visit the Grove</h2>
-            <p>Explore the collection at <a href="https://kalpataru-grove.info" target="_blank">kalpataru-grove.info</a>.</p>
+            <p>Oh, and I've also included a link (password-protected, but the hint is right there) to a new tool called <strong>Firewatch</strong> which I've built to help me keep an eye on the "grove" and make sure bot-traffic problems don't get out of hand. It basically just does some clever analytics on Nginx's detailed access logs — probably nothing that serious programmers will find useful for their purposes, but you never know, so I'm sharing access to both the interface and the code. I also think that giving people access to my usage statistics is a rad way to promote project transparency. I've never seen anyone do it before, but why not?</p>
 
             <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
                 <a href="../blog.html">&larr; Back to Blog</a>
@@ -61,12 +63,10 @@
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const mainNav = document.querySelector('.main-nav');
-
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             mainNav.classList.toggle('active');
         });
-
         mainNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');

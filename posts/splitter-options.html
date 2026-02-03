@@ -28,7 +28,7 @@
 
     <div class="page-header">
         <h1>Splitter Options</h1>
-        <p style="margin-top: 1rem; opacity: 0.9;">May 2024</p>
+        <p style="margin-top: 1rem; opacity: 0.9;">October 2024</p>
     </div>
 
     <article class="page-content">
@@ -36,20 +36,77 @@
             <p><em>Special thanks to Sebastian Nehrdich for his help in co-authoring this post!</em></p>
 
             <h2>The Problem with Splitting</h2>
-            <p>For many, it's hard to reliably split (or "segment") a Sanskrit sentence into its component words. This requires resolving complex linguistic issues, including sandhi, ligature-based scripts, compounding, synonymy (many words per meaning), and polysemy (many meanings per word), all basically at the same time.</p>
+
+            <p>For many, it's hard to reliably split (or "segment") a Sanskrit sentence into its component words. For example, here's a well-known verse from the story of Shakuntalā, about the deer fleeing from King Dushyanta:</p>
+
+            <blockquote style="margin-left: 40px;">
+                <p>ग्रीवाभङ्गाभिरामं मुहुरनुपतति स्यन्दने दत्तदृष्टिः पश्चार्धेन प्रविष्टः शरपतनभयाद्भूयसा पूर्वकायम् /</p>
+                <p>दर्भैरर्धावलीढैः श्रमविवृतमुखभ्रंशिभिः कीर्णवर्त्मा पश्योदग्रप्लुतत्वाद्वियति बहुतरं स्तोकमुर्व्यां प्रयाति //</p>
+            </blockquote>
+
+            <p>Splitting this into individual words while maintaining readability can look like this:</p>
+
+            <blockquote style="margin-left: 40px;">
+                <p>ग्रीवा-भङ्ग-अभिरामम् मुहुर् अनुपतति स्यन्दने दत्त-दृष्टिः पश्च-अर्धेन प्रविष्टः शर-पतन-भयात् भूयसा पूर्व-कायम् /</p>
+                <p>दर्भैः अर्ध-अवलीढैः श्रम-विवृत-मुख-भ्रंशिभिः कीर्ण-वर्त्मा पश्य उदग्र-प्लुत-त्वात् वियति बहुतरम् स्तोकम् उर्व्याम् प्रयाति //</p>
+            </blockquote>
+
+            <p>This requires resolving complex linguistic issues, including sandhi, ligature-based scripts, compounding, synonymy (many words per meaning), and polysemy (many meanings per word), all basically at the same time. With enough grammar knowledge, reading experience, and context, humans eventually manage this well enough. But developing a computational system to reliably do it is another matter altogether, for the similar reason that there are just so many degrees of freedom to control for. Some uses of such a computer system would be: helping students learn this skill for themselves, preprocessing NLP data, or giving an experienced reader a second opinion.</p>
 
             <h2>Splitter System Options</h2>
-            <p>Fortunately, thanks to the hard work of various teams, several Sanskrit splitter systems exist. Here are the main options you can try out online today:</p>
+
+            <p>Fortunately, thanks to the hard work of various teams, several Sanskrit splitter systems do exist (one of which actually split the above verse). Let's go through the main options you can try out online today:</p>
 
             <ol>
-                <li><strong>Sanskrit Reader Companion</strong> (The Sanskrit Heritage Site): Provides color-coded, interactive HTML with various possible word splits plus additional linguistic information.</li>
-                <li><strong>Sanskrit Sandhi and Compound Splitter</strong> (2018): Outputs one best-guess plaintext answer, available on <a href="https://skrutable.com" target="_blank">Skrutable</a>.</li>
-                <li><strong>Joint splitter/stemmer/tagger</strong> (2020): Deployed on the <a href="https://buddhanexus.net/sanskrit-tools" target="_blank">BuddhaNexus web app</a>.</li>
-                <li><strong>ByT5-Sanskrit</strong> (2024): The newest option, available through Skrutable as the default model.</li>
+                <li><strong>Sanskrit Reader Companion</strong> (since early 2000s, deployed on <a href="https://sanskrit.inria.fr/DICO/reader.html" target="_blank">The Sanskrit Heritage Site</a>): Provides color-coded, interactive HTML with various possible word splits plus additional linguistic information (lemmata, parts of speech, inflection details) to help a user arrive at their own decision. Max one sentence at a time.</li>
+                <li><strong>Sanskrit Sandhi and Compound Splitter</strong> (2018, on <a href="https://github.com/OliverHellwig/sanskrit/tree/master/papers/2018emnlp" target="_blank">GitHub</a>): Outputs one best-guess plaintext answer with words and parts of compounds separated by whitespace, as offered since 2021 on <a href="https://www.skrutable.info/" target="_blank">Skrutable</a> (choose the "2018" model option on settings page). Input of nearly any length and punctuation preservation supported.</li>
+                <li><strong>Joint splitter/stemmer/tagger</strong> (2020, deployed as a supplementary tool on the <a href="https://buddhanexus.net/sanskrit-tools" target="_blank">BuddhaNexus web app</a>): Offers grammatical analysis for detected words, including lemmata, parts of speech, and inflection details. Max 100 characters = one modest sentence.</li>
+                <li><strong>ByT5-Sanskrit</strong> (2024, deployed as an integral part of the <a href="https://dharmamitra.org" target="_blank">Dharmamitra web app</a>): For word splitting per se, access, input, and output are similar to the 2018 predecessor above, namely through <a href="https://www.skrutable.info/" target="_blank">Skrutable</a> (default "Dharmamitra Sept 2024" model option on settings page). Compounds can also be differentiated with hyphens.</li>
             </ol>
 
-            <h2>Which Should You Use?</h2>
-            <p>For most users, the ByT5-Sanskrit model (2024) available through Skrutable will give the best results. It represents a significant accuracy improvement over earlier models while maintaining ease of use.</p>
+            <p>Spoiler alert: This last one is probably going to be your new go-to after reading this.</p>
+
+            <h2>Historical and Technical Context</h2>
+
+            <p>Arguably the most significant milestone in early computational Sanskrit word splitting was Oliver Hellwig's <strong>SanskritTagger</strong>, which combined custom grammar and lexical databases, first-generation machine learning (Hidden Markov Models), and human-in-the-loop data curation (see <a href="https://refubium.fu-berlin.de/handle/fub188/5429" target="_blank">2003 dissertation</a>). The result was the Digital Corpus of Sanskrit (DCS), a resource available for <a href="http://www.sanskrit-linguistics.org/dcs/index.php" target="_blank">reading and limited querying online</a> and, as of a few years ago, also as <a href="https://github.com/OliverHellwig/sanskrit/tree/master/dcs/data/conllu" target="_blank">open-source data</a>.</p>
+
+            <p>Starting around the same time in the 1990s, Gerard Huet developed the <strong>Sanskrit Heritage</strong> system, which focuses on Pāṇinian grammar and finite-state methods (see <a href="https://sanskrit.inria.fr/manual.html" target="_blank">manual</a>). The specific <strong>Sanskrit Reader Companion</strong> tool which splits and analyzes sentences has been usable online for a long time, and it works well as a pedagogical resource to demonstrate to students the kind of explicit analysis they are expected to do when learning to read. Improvements over the years have included integrating with the similarly oriented Saṃsādhanī project (using its dependency parsing) and recently adding a best-guess extension relying on DCS data.</p>
+
+            <p>In the last decade, though, it has been second-generation machine learning, i.e., neural networks, that have driven major advancements in the space. Oliver laid the groundwork e.g. with key papers in <a href="https://www.semanticscholar.org/paper/Using-Recurrent-Neural-Networks-for-joint-compound-Hellwig/9e54eda9a0d1889010d405ac8b2b7156fde65b91" target="_blank">2015</a> and <a href="https://www.semanticscholar.org/paper/Improving-the-Morphological-Analysis-of-Classical-Hellwig/3c4a58989261d76bf738b73722e6d692011f6e4e" target="_blank">2016</a>, and in <a href="https://www.semanticscholar.org/paper/Sanskrit-Word-Segmentation-Using-Character-level-Hellwig-Nehrdich/d27a6a5a498b1551b879e7cad298d7f74d7761b3" target="_blank">2018</a>, the first publicly usable tool, the <strong>Sanskrit Sandhi and Compound Splitter</strong>, was released with a Python interface. This implementation, combining recurrent neural networks (RNN) and convolutional neural networks (CNN), is focused on efficiency. Its relatively small number of parameters (5-10 million) keeps it fast even on personal laptop CPUs, yet it is also quite effective, achieving around 85% accuracy on large datasets. Sebastian Nehrdich collaborated with Oliver to implement the model and applied it to BuddhaNexus Sanskrit data. I myself was convinced of its potential after using it for my <a href="/projects/#vatayana">Vātāyana</a> project and integrated it into Skrutable in 2021.</p>
+
+            <p>The <strong>BuddhaNexus joint splitter/stemmer/tagger</strong> tool is another key milestone in Sebastian's work. It extends the 2018 architecture into a transformer model with 80 million parameters, making GPU execution essential to unlock the model's full potential, which the current CPU-based online interface does not achieve.</p>
+
+            <p>This work on neural networks has fully blossomed in 2024 through the MITRA project at the Berkeley AI Research lab — under which the more specific Dharmamitra project falls — which introduces two new transformer models. The first is <strong>ByT5-Sanskrit</strong> (<a href="https://arxiv.org/abs/2409.13920" target="_blank">paper on arXiv</a>), which at 580 million parameters is still too small to be considered a "large language model" (LLM) by today's standards. This model handles sentence splitting and other NLP tasks, accessible via the "Grammar" sidebar widget on the Dharmamitra web app. For word splitting specifically, without further analysis, Skrutable provides easiest access, at least for now. (EDIT Nov 8: A <a href="https://pypi.org/project/dharmamitra-sanskrit-grammar/">dharmamitra-sanskrit-grammar Python package</a> now also exists to give direct access to the underlying model server endpoint.)</p>
+
+            <p>The second model, built on Google's Gemma 2 LLM with 10 billion parameters, powers the English translation at the heart of the Dharmamitra experience so far. Hopefully in the coming weeks, with this or similar LLMs now actively undergoing testing, users will be able to request explanations that combine grammar analysis with translation. The idea at the moment is to continue relying on the more specialized ByT5-Sanskrit for grammatical preprocessing, rather than use the LLMs for this task, as this seems to produce a better result, albeit at the cost of more overall processing per request. Note, then, that, for now at least, this largest model is not being used to do splitting.</p>
+
+            <h2>Quantitative Comparison: 2018 vs. 2024</h2>
+
+            <p>Exactly how well do these systems work? Comparing them can be tricky, since they don't all share the same goals or user expectations — for example, some offer a single best-guess response, while others intend for users to make their own choices. However, if we focus specifically on the similar splitting capabilities of the 2018 and 2024 models available on Skrutable, then a meaningful comparison emerges.</p>
+
+            <h3>Accuracy</h3>
+
+            <p>Above all, splitting accuracy has substantially improved. Below is Table 3 from the above-mentioned 2024 arXiv paper giving accuracy in terms of percentage of sentences without errors. Benchmarks from left to right include a relatively large subset of the DCS and two smaller subsets of the DCS which play nicely with the Heritage system. (The middle row is another model with a <a href="https://sanskritshala.github.io" target="_blank">nonfunctional online interface</a>, for which reason I omit it from the discussion here.)</p>
+
+            <p>From around <strong>80-85%</strong> with the 2018 Splitter model ("rcNN-SS"), accuracy goes up to <strong>90-95%</strong> with the 2024 ByT5-Sanskrit model — a whopping 5-10% gain, depending on the benchmark.</p>
+
+            <p>But evaluating accuracy in Sanskrit sentence splitting is itself not straightforward — it depends on how we define "errors" or the "right answer." For example, there can easily be disagreement on whether proper names like <em>Kurukshetra</em> or <em>Yudhishthira</em> should be split. Similarly, one can question how or whether to split non-proper compound nouns or adjectives, like <em>arthakriyā</em>, as well as words with prefixes like <em>a(n)-</em> or suffixes like <em>-tva</em>. The situation becomes even more complex with compound verbs, indeclinables, or, more rarely, the use of <em>ślesha</em> (wordplay which allows for multiple valid interpretations).</p>
+
+            <p>In spite of this potential range of how to define "rightness", the same table above hints at the fact that, for better or worse, measuring accuracy nowadays typically involves comparing against the DCS gold standard, which is the only resource with the appropriate size and design for this task. However, deviation from this benchmark isn't always a mistake. In fact, a manual error analysis (see Figure 3 of the referenced paper) shows that only 46% of errors are clear model mistakes. The remaining discrepancies reflect the inherent variability of the task: 32% are valid alternate interpretations, and 22% are due to limitations or inconsistencies in the benchmark itself.</p>
+
+            <p>That said, the upward trend in accuracy is clear from the numbers. However, beyond the metrics — which would be difficult for most to replicate — you can try both models yourself on Skrutable. Personally, I prefer the 2024 model, which is why it's now the default, though I believe the 2018 model still serves as a useful second opinion.</p>
+
+            <h3>Speed</h3>
+
+            <p>Beyond accuracy, speed also matters. For instance, how long does it take to split the 700 verses of the Bhagavadgītā? For this input size, the 2018 model averages about 90 verses per second, or roughly 8 seconds total. Note that the server for this model, the <a href="https://github.com/tylergneill/splitter_server" target="_blank">implementation</a> of which is my own, could likely be optimized further. The 2024 model, meanwhile, running on a proper GPU cluster at Berkeley, is considerably faster at about 175 verses per second, or 4 seconds total, and with better accuracy. Using the option to hyphenate compounds slows the 2024 model down significantly, making it slightly slower than the 2018 model for texts of this particular size. Exactly how speed varies with input size is shown in the graph below; note that 700 lines is very nearly the breakeven point where the 2018 model starts to outpace 2024-with-hyphens.</p>
+
+            <p>The overall takeaway? These tools are appropriately and righteously fast for most purposes.</p>
+
+            <h2>Conclusion and Future</h2>
+
+            <p>The early years of Sanskrit word splitting saw Oliver using SanskritTagger to quietly build up the massive DCS dataset, while Gerard's Sanskrit Reader Companion provided users with an accessible pedagogical tool for day-to-day use. The release of the 2018 Splitter model marked the beginning of a new era of high-powered neural processing, and the 2024 ByT5-Sanskrit model has taken things even further, offering enhanced functionality, higher accuracy, and impressive speed. Since these models operate within complex systems aimed at broader scientific objectives, Skrutable provides practical API and front-end access for plain-text word splitting.</p>
+
+            <p>If we ever want to retrain these models to align with different standards of correctness — such as a specific idiom or dialect of Sanskrit — we can certainly do so. However, retraining requires significant hardware resources and careful data engineering, making it feasible only for dedicated scientific teams. For now, then, the best course of action is to engage with these tools thoughtfully, use them with care, and provide feedback. I think the more people familiarize themselves with this technology, the more we'll be excited to continue innovating together.</p>
 
             <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
                 <a href="../blog.html">&larr; Back to Blog</a>

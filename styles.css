@@ -161,12 +161,16 @@ img {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2rem;
     font-weight: 400;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.7);
     margin: 0.25rem 0;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    display: inline-block;
 }
 
 .hero-tagline.indent {
-    padding-left: 4rem;
+    margin-left: 4rem;
 }
 
 /* Intro Section */
@@ -266,6 +270,69 @@ img {
     text-align: center;
     font-size: 1.75rem;
     margin-bottom: 2.5rem;
+}
+
+/* Carousel styles */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto 1rem;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    flex: 1;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.carousel-track .showcase-item {
+    flex: 0 0 33.333%;
+    padding: 0 0.75rem;
+    box-sizing: border-box;
+}
+
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--text-light);
+    font-size: 2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.carousel-dot.active {
+    background: var(--text-light);
 }
 
 .showcase-grid {
@@ -414,6 +481,7 @@ img {
     margin-bottom: 2.5rem;
     padding-bottom: 2.5rem;
     border-bottom: 1px solid #eee;
+    align-items: center;
 }
 
 .project-card:last-child {
@@ -457,15 +525,37 @@ img {
 .blog-item {
     padding: 1.5rem 0;
     border-bottom: 1px solid #eee;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
 }
 
 .blog-item:last-child {
     border-bottom: none;
 }
 
+.blog-item-thumb {
+    flex-shrink: 0;
+    width: 384px;
+    height: 288px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.blog-item-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.blog-item-content {
+    flex: 1;
+    min-width: 0;
+}
+
 .blog-item h3 {
     margin-bottom: 0.5rem;
-    font-size: 1.35rem;
+    font-size: 2rem;
 }
 
 .blog-item h3 a {
@@ -477,14 +567,14 @@ img {
 }
 
 .blog-date {
-    font-size: 0.85rem;
+    font-size: 1.275rem;
     color: #777;
     margin-bottom: 0.5rem;
 }
 
 .blog-excerpt {
     color: #555;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 /* Blog post page */
@@ -511,6 +601,21 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
+}
+
+/* Family photos gallery */
+.family-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.family-photos img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 /* ==================== */
@@ -578,7 +683,7 @@ img {
     }
 
     .hero-tagline.indent {
-        padding-left: 2rem;
+        margin-left: 2rem;
     }
 
     /* Mobile Sections */
@@ -633,6 +738,16 @@ img {
 
     .showcase-item h4 {
         font-size: 1rem;
+    }
+
+    .carousel-track .showcase-item {
+        flex: 0 0 100%;
+    }
+
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.5rem;
     }
 
     /* Mobile Contact */
@@ -693,18 +808,37 @@ img {
     }
 
     /* Mobile Blog */
+    .blog-item {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .blog-item-thumb {
+        width: 240px;
+        height: 180px;
+    }
+
     .blog-item h3 {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
     }
 
     .blog-excerpt {
-        font-size: 0.95rem;
+        font-size: 1.425rem;
     }
 
     /* Mobile About Grid */
     .about-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    /* Mobile Family Photos */
+    .family-photos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .family-photos img {
+        height: 180px;
     }
 
     /* Mobile Footer */
@@ -728,7 +862,7 @@ img {
     }
 
     .hero-tagline.indent {
-        padding-left: 1.5rem;
+        margin-left: 1.5rem;
     }
 
     .btn {

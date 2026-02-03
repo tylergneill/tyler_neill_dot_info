@@ -28,20 +28,104 @@
 
     <div class="page-header">
         <h1>E-Text Icebergs, Part 1: Sanskrit Wikisource</h1>
-        <p style="margin-top: 1rem; opacity: 0.9;">2024</p>
+        <p style="margin-top: 1rem; opacity: 0.9;">January 2026</p>
     </div>
 
     <article class="page-content">
         <div class="container blog-post-content">
-            <p>When exploring digital Sanskrit resources, it's easy to look at the obvious repositories like GRETIL and think you've seen everything. But like icebergs, there's often much more beneath the surface.</p>
+            <p>In my various adventures with online Sanskrit e-texts, I've come across certain collections which I believe are vastly underestimated in the academic circles I travel in — maybe for quality, but definitely for quantity. These collections, largely untouched by the academics who instead rely on GRETIL and eclectic offline collections, are structured in ways that make it very hard for non-technical users to understand and/or make any significant use of them.</p>
+
+            <p>In this first post of a series, I'll walk you through a few of them. By the end, I hope you'll feel empowered to make better use of them if you so choose.</p>
+
+            <p>(I haven't yet integrated any of these collections into my Sanskrit E-Text Inventory Project (SETI), but I hope to get around to that before long.)</p>
 
             <h2>Sanskrit Wikisource</h2>
-            <p>One underappreciated resource is Sanskrit Wikisource, the Sanskrit-language version of the Wikimedia Foundation's library of source texts. While not as well-organized as GRETIL for scholarly purposes, it contains a surprising amount of material.</p>
 
-            <p>The collection includes Vedic texts, classical literature, technical treatises, and religious texts. Some of these have been carefully proofread by dedicated volunteers; others are rougher.</p>
+            <p>Wikisource, whose logo is (somewhat ironically) the iceberg, has many specific subdomains, including one for Sanskrit material: <a href="https://sa.wikisource.org" target="_blank">https://sa.wikisource.org</a>.</p>
 
-            <h2>Using Wikisource Texts</h2>
-            <p>For research purposes, texts from Wikisource should be used with care. Check the source documentation, compare against critical editions when possible, and be prepared for occasional errors. But as a starting point or for casual reference, it's a valuable resource that shouldn't be overlooked.</p>
+            <figure>
+                <img src="../images/misc_screenshots/wikisource.png" alt="Sanskrit Wikisource">
+                <figcaption>Sanskrit Wikisource homepage</figcaption>
+            </figure>
+
+            <p>This site, to put it mildly, has problems. Let's go on a quick welcome tour of the landing page. The first thing you'll notice is that absolutely everything is in Sanskrit (or sometimes Hindi for system components), and Devanagari is the only script/transliteration option. Second, you'll notice that it's a cluttered mess. Try to ignore that last one. Scroll down and find two things:</p>
+
+            <ol>
+                <li><a href="https://sa.wikisource.org/wiki/वर्गः:वर्गसर्वस्वम्" target="_blank">वर्गसर्वस्वम्</a>: This is a top-down "categorization" of "everything" — but not really. I'll explain in a second.</li>
+                <li><a href="https://sa.wikisource.org/wiki/विशेषः:IndexPages" target="_blank">अनुक्रमणिका</a>: This is a table of contents — but of the completely PDF-to-OCR workflow system, not the main content! There are 483 scanned items here, well under half of which have been proofread. As large as this is, forget it for now.</li>
+            </ol>
+
+            <p>Let's try navigating the categorical structure. You must first choose one of thirteen top-level categories. Once you do, find the "ग्रन्थाः" ("books") link at the bottom. This brings you to a page with the true number of top-level categories: fifteen (विज्ञानम् and सुभाषितग्रन्थाः) — plus a couple of internal categories of trivial importance (अनिर्दिष्टानि पुटानि and निष्कासनाय) — PLUS thirteen pages with titles of individual works that for whatever reason have no further subcategory other than "books". If you use the bottom-most link to again "go up" one more level, to वर्गसर्वस्वम्, you'll notice poor धर्मशास्त्रम्, stranded and alone, even though it certainly ought to be part of ग्रन्थाः — plus there are three more internal categories to ignore. But you know what? See that little arrow next to ग्रन्थाः? Click it. Aha, a readable tree structure! Click the nested arrows. NOW we're talking. This is a halfway-decent navigational system. So maybe bookmark <a href="https://sa.wikisource.org/wiki/वर्गः:वर्गसर्वस्वम्" target="_blank">https://sa.wikisource.org/wiki/वर्गः:वर्गसर्वस्वम्</a>, if anything, and NOT the homepage, now four clicks backward through the labyrinth.</p>
+
+            <p>But wait, you've been lulled into a false sense of completeness. Those categories you see? They're not the whole story. You see, the categorization scheme is silently incomplete. Category tags turn out to be manually added, and nothing guarantees that this has been done properly. If it hasn't? Well, the content you're looking for is not going to be in this nice tree, that's for sure.</p>
+
+            <p>Are you sweating yet? That is, there are hidden works with no category info which are then findable only via search, which users of course may not realize. How many, you ask? There is no straightforward way to find out.</p>
+
+            <p>There is also an alphabetical page-by-page browsing system called वर्णानुक्रमणिका on the home page, but good luck with that. There are 32,279 pages on the site. You might as well just use the Devanagari search bar.</p>
+
+            <p>Of all those pages, just 1,195 pages have a category. Some of those "categories" are specific texts or even portions of text. The "uncategorized" pages tend to be individual portions of text (e.g., adhyāyas) which are linked-to from a landing page for a given text.</p>
+
+            <h3>More Issues at the Work Level</h3>
+
+            <ol>
+                <li>Individual works may be a single page, or they may be broken up over dozens or even hundreds of individual pages (e.g., Naiṣadhacarita on five pages or on twenty-two pages).</li>
+                <li>The site sometimes duplicates works in versions of varying quality (e.g., the twenty-two-page Naiṣadhacarita is better proofread, but you have to compare them side-by-side to find out).</li>
+                <li>Metadata is often completely missing, so you don't know the provenance or status of the text.</li>
+            </ol>
+
+            <h3>Inherent Limitations of the Wiki Format</h3>
+
+            <p>Why is this inherently problematic? Well, let us first agree that Sanskrit philology is a living, breathing discipline, in contrast with, say, classical Greek or Latin, for which editing work plateaued long ago, and in which manuscript sources tend to be much less voluminous. For many if not most Sanskrit works, there simply is no "one", "authoritative" version. The state-of-the-art for textual criticism involves lots of revision, contextualization, layering of multidimensional information. Year to year, our understanding changes, and textual diversity is often irreducible, with lessons to teach us about different received understandings across time and space. Modern understanding evolves, and previous stars of knowledge must be bracketed, contextualized, and in some cases fully deprecated or deleted in favor of what supersedes.</p>
+
+            <p>Meanwhile, Wikisource has built-in inertia that resists clear overturning of understanding. Granted, like its sibling project Wikipedia, all changes are recorded, but this is only useful if you are brave enough to delve through the change history, which is presented in a very technical idiom. More importantly, once pages are created, they are VERY hard to delete or move. Wikisource just is not meant for that sort of flexibility. That means that vicious duplication is a big problem. A text project is copied so that someone can take it in a new direction, the old version still hangs around, and nothing clarifies to the user what is likely more useful and what should be ignored.</p>
+
+            <p>Also, Wikisource automatically adds lots of artifacts to any of its projects, like accounting statistics and overviews of which pages lack certain metadata, which show up awkwardly right alongside the text content itself. Speaking from experience, especially when one lacks modern Sanskrit vocabulary for this technical domain, the presence of these artifacts contributes clutter and confusion.</p>
+
+            <p>And let's talk about Sanskrit's being the exclusive medium for accessing the content. I mean... great? But honestly, I just want to understand what's here and use it, not get exhausted by the navigation process itself. Similarly there are no transliteration options to supplement everything being in Devanagari, including the search bar. (I personally know many people who would then just shrug and say, oh well, I guess I can't search then.)</p>
+
+            <h3>A Better Interface</h3>
+
+            <p>So, I made a better interface, as is my wont. Bookmark it!</p>
+
+            <p><a href="https://tylergneill.github.io/sanskrit-wikisource-mirror" target="_blank">https://tylergneill.github.io/sanskrit-wikisource-mirror</a></p>
+
+            <p>This gives you a much cleaner browsing experience, with context maintained in a sidebar, no Wikimedia-specific artifacts to trip you up, transliteration, and text sizes and counts for context. All three buckets of content are presented: Categorized, Uncategorized, and OCR-Proofreading.</p>
+
+            <p>Caveat: Although any given Sanskrit Wikisource document might be less than perfectly reliable from an academic standpoint — what edition are any of these things even based on?! — we know that imperfect e-texts are still a useful tool for research, as they can give you hints and a foothold for more rigorous investigation using better resources.</p>
+
+            <p>Result: Now you can see that Sanskrit Wikisource has over 250mb of content, putting it on par with GRETIL, which also has lots of redundancy (see previous blog post...). Quality caveats aside, I myself had NO idea that there was this much buried in there. It's sort of mind-boggling.</p>
+
+            <p>Fun fact: I started looking into this because I was thinking about digitizing Śrīharṣa's Naiṣadhacarita (one of the traditional five <em>mahākāvyas</em>) for HANSEL, and then I learned that sanskritsahitya.org already had a version online, and the creator of that, Anatriksh Bothale, tells me that he got it from Wikisource. So I looked for it on Wikisource, took a day to understand HOW to browse Wikisource (ugh!), found no fewer than <em>three</em> versions of the Naiṣadhacarita there, and thus was convinced I should go on this mini-journey to clarify Wikisource for others before actually getting moving on the Naiṣadhacarita project, which seemed small-potatoes by comparison.</p>
+
+            <h2>Sanskrit Documents</h2>
+
+            <p><a href="https://sanskritdocuments.org" target="_blank">https://sanskritdocuments.org</a></p>
+
+            <p>Sanskrit Documents is known by many, does a decent job with metadata for individual items, but is again organized in a rabbit-holey, web-1.0, hierarchical kind of way. Already a while back now, I scraped the entire thing and low-key shared the metadata on a Google Sheet connected to SETI. This in itself is already a better way to browse the collection and appreciate its size: over 8,500 individual items! Much of it of devotional nature, by the way, which I hadn't really realized before. Locally, I also inspected the contents. This reveals the normalized size in plain-text (260+ mb in formatted HTML). For context, GRETIL Sanskrit is ~350mb before controlling for uniqueness, and roughly ~175mb after. Sunder Hattangadi and diverse team over the years, we are in your debt! But also, who knew?</p>
+
+            <p>Again, it's not always the most academically significant material out there, but still, there's a lot here to explore and potentially work with.</p>
+
+            <h2>Wisdom Library</h2>
+
+            <p><a href="https://www.wisdomlib.org/sanskrit" target="_blank">https://www.wisdomlib.org/sanskrit</a></p>
+
+            <p>I know you've come across this website. Whether it was through Googling or ChatGPT-ing, you were looking for some bit of text or some factoid, and you stumbled onto this page. Possibly hundreds of times. Apparently, the website's search engine optimization (SEO) is top-notch. The site contains reams and reams of translation, and it turns out, a fair chunk of text, too. If you focus in on Sanskrit e-text alone, it turns out there is a nice page for that (above). It even gives you length estimates. But the site's extensive categorization of content doesn't reach here, and you're left simply with a list of about 73 items.</p>
+
+            <p>So, small compared to the above two, but again, maybe it has the thing you need! Creator Gabe Hiemstra seems like an interesting if eccentric guy. I've dropped him a few bucks on Patreon, and maybe you should, too.</p>
+
+            <h2>Vishvas Vasuki's GitHub Repo</h2>
+
+            <p><a href="https://github.com/sanskrit/raw_etexts" target="_blank">https://github.com/sanskrit/raw_etexts</a></p>
+
+            <p>This repo appears to be one of those manic expressions of early-pandemic energy, when we were all holed up at home. Its commit history shows the most activity in mid- to late-2020.</p>
+
+            <p>Its owner, Vishvas (<a href="https://vishvasa.github.io" target="_blank">personal page</a>), can be found frequenting the <a href="https://groups.google.com/g/sanskrit-programmers?pli=1" target="_blank">"sanskrit programmers" Google Group</a>. In this project, he seems to have scraped and gathered together an enormous trove of Sanskrit material into a GitHub repo. Where possible, the repo simply links out to other repos, without duplicating them. But there are also numerous large scrape-jobs here. For example, E-Bharati-Sampat, which I didn't realize was so massive until looking into it while writing this post!</p>
+
+            <p>Even after years, I still can't really get my head around this meta-collection. It's just... everything. I'm not sure this will ever evolve into something more than it currently is. Still, I find it a useful reference to check whether something exists, somehow, somewhere out there. Go ahead and download the whole thing with one click and poke around, or use BBEdit to search through all of it (NB: it's in Devanagari). All you need is a little extra disk space.</p>
+
+            <h2>Conclusion</h2>
+
+            <p>For one reason or another, I'm guessing you don't regularly check all the collections just mentioned. But maybe you would and should check them more, if only it were easier. That's what I'm here for! To help bridge specific accessibility gaps and to shine a light on otherwise under-used resources. SETI will be useful to get these things more fully documented. Again, if and when I get around to it, I'll let you know!</p>
 
             <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
                 <a href="../blog.html">&larr; Back to Blog</a>

@@ -28,26 +28,78 @@
 
     <div class="page-header">
         <h1>OCR Options</h1>
-        <p style="margin-top: 1rem; opacity: 0.9;">April 2024</p>
+        <p style="margin-top: 1rem; opacity: 0.9;">May 2024</p>
     </div>
 
     <article class="page-content">
         <div class="container blog-post-content">
-            <p>Optical Character Recognition (OCR) for Sanskrit and Devanagari texts has come a long way. This post surveys the main options available for converting scanned Sanskrit documents into editable text.</p>
+            <p>EDIT (July 1, 2025): <strong>new TL;DR</strong>: To make things as easy as possible, I ended up building a wrapper for Google Cloud Vision API into Skrutable. <a href="https://skrutable.info/ocr" target="_blank">Go use it</a>! You still need to set up Google Cloud billing, but I provided full instructions for that, too, including a video. After that, it's just drag, drop, and enjoy. In parallel, Dharmamitra enabled similar access (no billing needed!) to Google Gemini 2.5 Flash API. <a href="https://dharmamitra.org" target="_blank">Go use that one, too</a>! Both give good but different results.</p>
 
-            <h2>Available Tools</h2>
-            <p>Several OCR solutions work with Devanagari script:</p>
+            <p><del>EDIT (June 25, 2024): <strong>TL;DR:</strong> Google Cloud Vision API is the state of the art, but it's hard to set up. To make use of it without setting it up yourself, just message me with your PDF, and I'll run it for you. I'm happy to do this as a favor to the community. If there's a significant cost incurred, then we can talk reimbursement (max $1.50 per 1,000 pages), but I'll make that clear ahead of time.</del></p>
 
-            <ul>
-                <li><strong>Google Cloud Vision / Google Drive</strong>: Surprisingly effective for printed Devanagari. Upload a PDF to Google Drive and open with Google Docs.</li>
-                <li><strong>Tesseract</strong>: Open-source OCR engine with Devanagari support. Available through <a href="https://skrutable.com" target="_blank">Skrutable</a>.</li>
-                <li><strong>Sanskrit OCR (IHDIA)</strong>: Specialized model trained specifically on Sanskrit texts.</li>
-            </ul>
+            <p>A practical need that many students and scholars of Sanskrit have is to be able to turn images, most often PDFs, into searchable text. Besides having teams of humans manually transcribe what they see — which is a fine option in some circumstances, especially in the case of handwritten manuscripts for which technology may not yet be up to the task — the standard technological solution for doing this is OCR, or optical character recognition. In my experience, despite lots of interest and projects in recent years, Sanskrit OCR has remained confusing for a lot of users out there, and so I thought I would write to explain the top options out there. Read to the end of this post, and you will have a few concrete ways forward.</p>
 
-            <h2>Practical Tips</h2>
-            <p>OCR quality depends heavily on scan quality. Clean, high-resolution scans of modern printed texts will give much better results than low-quality scans of old books or manuscripts.</p>
+            <h2>Option 1: Google Cloud Vision API</h2>
 
-            <p>For quick OCR of Devanagari images, you can use the OCR feature in <a href="https://skrutable.com" target="_blank">Skrutable</a>.</p>
+            <p>(Spoiler alert! This is the one to beat.)</p>
+
+            <p>When I last seriously looked around in 2018-2019, I found that this was the best option out there for Sanskrit OCR. Now, more than five years later, it apparently still is. Having set it up, you can put PDFs (even large ones!) in a folder, press go, and wait a few minutes for the high-quality OCR results, with no need to specify Sanskrit or whatever other language you're working with. It's honestly amazing. I was sad when my Vision setup stopped working a few years ago, but my modest personal needs for OCR did not seem to warrant fixing it.</p>
+
+            <p>Recently, though, I came across a very helpful how-to guide Andrew Ollett kindly put together at <a href="http://www.prakrit.info/dh/ocr.html" target="_blank">prakrit.info/dh/ocr.html</a>. In it, Andrew uses a small but instructive example image of printed Sanskrit text to compare Google Cloud Vision, which achieves 97% accuracy in the exercise, against three other options: Google Drive, Sanskrit CR, and Tesseract — all actually Google tech in one way or another (see below). He then gives concrete instructions on how to get set up and using Vision yourself, including the Python interface. These instructions are clear, straightforward, and correct (I'm back up and running again, hooray!) but they will probably be difficult for non-programmers to complete. Also, Vision costs $1.50 per 1,000 pages (after the first 1,000 pages in a given month, which are complimentary).</p>
+
+            <h2>Option 2: Google Drive</h2>
+
+            <p>Google Drive actually has two interfaces:</p>
+
+            <ol>
+                <li>The point-and-click and free-to-use "Open with > Google Docs" command in Google Drive (<a href="https://support.google.com/drive/answer/176692?sjid=15001543287399260083-NA" target="_blank">official instructions here</a>). Andrew estimates accuracy at 93%, and I've used this method profitably for years. Here are my two pro tips if you go this route: The 2mb limit means that you generally do need to split up large documents, in differently-sized batches depending on the particular file. Also, I've found that if you upload a PDF which already has an OCR layer of data, it will simply give you that pre-existing OCR data back. Therefore, my preprocessing workflow involved exporting PDFs to JPGs, which drops the other layers of data, and then combining the JPGs into a PDF again. That way, the software will actually look at the images.</li>
+                <li>The <a href="https://developers.google.com/drive/api/guides/about-sdk" target="_blank">Drive API</a>, which essentially automates the "Open with > Google Docs" option above, along with uploading, downloading, etc. This is what SanskritCR uses.</li>
+            </ol>
+
+            <p>As can be seen from Andrew's comparison (and I can confirm this from my own experiments), the results of Google Cloud Vision and Google Drive are very close but not <em>quite</em> the same. Vision is definitely better, and I believe faster too.</p>
+
+            <h2>Option 3: Tesseract</h2>
+
+            <p>This system was invented at HP, but Google adopted it in 2006 and still oversees its further development. Because it is open-source, there have been many projects that incorporate it. For example, <a href="https://ocrmypdf.readthedocs.io/en/latest" target="_blank">OCRmyPDF</a>. This is also the OCR used by Internet Archive (see <a href="https://archive.org/developers/ocr.html" target="_blank">here</a>). Andrew reported at the time of his write-up that "out-of-the-box" results with Tesseract were unsatisfactory (e.g., 78% accuracy on his example) but also that he was using a version potentially older than Tesseract 4. I've seen Internet Archive using 4.1.1, and I find Internet Archive OCR results pretty close to unusable for Sanskrit. I've also installed Tesseract locally and tried it with the v4 models, which are the <a href="https://github.com/tesseract-ocr/tessdata_best" target="_blank">latest and best available</a>. Nope. Does not compare to Google whatsoever. The LSTM architecture Tesseract uses apparently just doesn't hold a candle to whatever proprietary CNN+ system Google is using.</p>
+
+            <p>The reader should note that there are interesting attempts to train Tesseract further for Sanskrit (see <a href="https://aclanthology.org/K18-1034.pdf" target="_blank">2018 here</a> and <a href="https://aclanthology.org/2022.findings-emnlp.466.pdf" target="_blank">2022 here</a>, the latter with an interesting focus on post-correction), and perhaps these will beat Google Vision someday. The idea is to stick to open-source where possible, especially for large-scale projects for which the cost of proprietary software becomes prohibitive. But I would argue that, for small- or medium-sized projects, it's actually most cost-effective, in both money and time, to use the best mainstream option at a non-zero cost, rather than go through the effort to set up a more bespoke solution.</p>
+
+            <p>Like Andrew, I'll also leave aside for now the other options out there like Adobe, Abbyy, and so on. I will mention, though, that Oliver Hellwig's <a href="http://www.indsenz.com/int/index.php?content=software_ind_ocr_sanskrit" target="_blank">SanskritOCR</a>, which like other items in his "ind.senz" line of software runs on Windows only, does also produce serviceable results (of roughly the same quality as Tesseract, I believe because it is actually a wrapper for some version of it), and it certainly deserves honorable mention for its historical significance; I understand that it was instrumental in digitizing much of the Digital Corpus of Sanskrit, for example. And there are definitely other interesting attempts out there, too, like <a href="https://github.com/ihdia/sanskrit-ocr" target="_blank">this one</a> training a CNN-RNN architecture from scratch with TensorFlow. But the focus in this post is on what's easiest to set up and use for most people, right now, regardless of OS, without an excessive up-front cost.</p>
+
+            <h2>Summary</h2>
+
+            <p>To sum up the comparison, Google Cloud Vision is clearly the leading option, but it is only accessible (like, at all) if you are comfortable with:</p>
+
+            <ol>
+                <li>setting up and managing a Google Cloud account;</li>
+                <li>interacting with the API (application programming interface) with a programming language like Python; and</li>
+                <li>paying indefinitely for its use, assuming you're OCRing more than 1,000 pages per month.</li>
+            </ol>
+
+            <p>The first two criteria, in particular, mean that probably 99.5% of Sanskrit folk have not even come close to trying to use it. Yet everyone serious about Sanskrit needs to OCR a book now and then, and the time needed for cleaning up results is a precious resource.</p>
+
+            <p>So, if you want to OCR an entire Sanskrit book, or multiple books, your options are, in order of increasing quality of final output per unit of time spent:</p>
+
+            <ol>
+                <li>settle for free but relatively low-quality options like Tesseract (or Abbyy, etc.), which may be easy to use in certain forms, but which will leave you with A LOT of post-processing;</li>
+                <li>commit to using Google Drive, which is also free but does (in my experience at least) involve some additional pre-processing, plus a good amount of post-processing (the difference between 93% and 97% accuracy is actually quite a bit of manual correction); or if you have relatively little material, use the very convenient SanskritCR website to do one page at a time with Google Drive API, with the same caveat about post-processing;</li>
+                <li>set up Google Cloud Vision API yourself and pay the modest fee to use it; or</li>
+                <li>get someone who has Google Cloud Vision API already set up to use it for you.</li>
+            </ol>
+
+            <p>I highly recommend reading Andrew's post on setting up Vision and giving it a go. If you find it's too much, though, don't despair. You can still get Vision-level results. Just drop me a line by email or through the contact form of this website. I've got a little pipeline I can run locally, and I'll process your PDF quickly in exchange for basically just reimbursement of Google's per-page price (via e.g. Venmo). I'm not doing anything that's very different than Andrew is talking about in his instructions. I just recognize that for a lot of people, the hurdle is too great, and they may just end up not using the best-in-class technology. Which is a shame. Everyone who wants it should have an easy option for high-quality Sanskrit OCR. But it's not hard to make this happen. We just need to cooperate more.</p>
+
+            <h2>What's Possible</h2>
+
+            <p>Having this kind of technology at your fingertips opens up new possibilities. Sanskrit Research Institute (<a href="https://sri.auroville.org" target="_blank">sri.auroville.org</a>, led by Martin Gluckman), applied Google Drive API to its mirror of the 550k-item (31TB) Digital Library of India (<a href="https://dli.sanskritdictionary.com" target="_blank">dli.sanskritdictionary.com</a>) and put MySQL-based search in front of it. This does give interesting insight into the insides of these books, but the mixed-language content is not yet perfectly handled by the Drive OCR; I suspect based on some experimentation that recall may be quite low in some cases. At a smaller scale, the Jain Quantum project processed the 17k-item Jain eLibrary, again with Google Drive API, and also made it searchable, this time with a custom combination of fuzzy matching and trigram search. These are just two examples of large scale application of OCR to Sanskritic material.</p>
+
+            <p>But whatever the size of your own Sanskrit PDF collection, imagine making that content searchable, too, and with Vision rather than Drive. Let's say you have your specialty collection of 100 works, at 200 pages each. That's 20,000 pages, or $30 to OCR with Vision. Pre-processing (mostly cropping pages) takes some time, as does post-processing. But the OCR itself can be done overnight and for the cost of, what, a nice dinner? Imagine us collectively getting together and making a huge leap forward in the amount of material digitized to be machine-searchable, if only in a preliminary, 95%-accurate way at first. It is closer than we have been thinking.</p>
+
+            <h2>Future Directions</h2>
+
+            <p>There are more components of this overall workflow that can still be improved. Handwritten text recognition (HTR) for manuscripts has been worked on recently especially in the Tibetan space (see several presentations at <a href="https://www.oeaw.ac.at/fileadmin/Institute/IKGA/PDF/events/ikga-comphum-symposium-2023.pdf" target="_blank">this event in Vienna last year</a>). Software options for this kind of training for bespoke material include not only the relatively well-known <a href="https://www.transkribus.org/" target="_blank">Transkribus</a> system but also <a href="https://kraken.re/main/index.html" target="_blank">Kraken</a>, in the lineage of <a href="https://ocropus.github.io/" target="_blank">OCRropus</a>. What's more, we could also train a relatively simple model for automated post-processing, as well. If you're interested in doing this in combination with Vision, please be in touch with your material that you've corrected from Vision output, and we'll train something up together.</p>
+
+            <p>So someday, it might be possible to use fine-tuned open-source models on appropriately user-friendly platforms, and compensate for imperfections with effective automatic post-processing. Until that day comes, though, for the most part, in Google we trust.</p>
 
             <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
                 <a href="../blog.html">&larr; Back to Blog</a>

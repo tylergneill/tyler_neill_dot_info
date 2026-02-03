@@ -74,26 +74,51 @@
     <section class="showcase">
         <div class="container">
             <h2>Resource Showcase</h2>
-            <div class="showcase-grid">
-                <div class="showcase-item">
-                    <a href="projects.html#skrutable">
-                        <img src="images/my_project_screenshots/skrutable2.png" alt="Skrutable">
-                        <h4>Skrutable</h4>
-                    </a>
+            <div class="carousel-container">
+                <button class="carousel-btn carousel-prev" aria-label="Previous">&lsaquo;</button>
+                <div class="carousel-track-container">
+                    <div class="carousel-track">
+                        <div class="showcase-item">
+                            <a href="projects.html#skrutable">
+                                <img src="images/my_project_screenshots/skrutable2.png" alt="Skrutable">
+                                <h4>Skrutable</h4>
+                            </a>
+                        </div>
+                        <div class="showcase-item">
+                            <a href="projects.html#pramana">
+                                <img src="images/my_project_screenshots/Pram%C4%81%E1%B9%87a%20NLP.png" alt="Pramāṇa NLP">
+                                <h4>Pramāṇa NLP</h4>
+                            </a>
+                        </div>
+                        <div class="showcase-item">
+                            <a href="projects.html#vatayana">
+                                <img src="images/my_project_screenshots/vatayana3.png" alt="Vātāyana">
+                                <h4>Vātāyana</h4>
+                            </a>
+                        </div>
+                        <div class="showcase-item">
+                            <a href="projects.html#panditya">
+                                <img src="images/my_project_screenshots/panditya.png" alt="Pāṇḍitya">
+                                <h4>Pāṇḍitya & SETI</h4>
+                            </a>
+                        </div>
+                        <div class="showcase-item">
+                            <a href="projects.html#hansel">
+                                <img src="images/my_project_screenshots/hansel_screenshot.png" alt="HANSEL">
+                                <h4>HANSEL</h4>
+                            </a>
+                        </div>
+                        <div class="showcase-item">
+                            <a href="projects.html#kalpataru-grove">
+                                <img src="images/my_project_screenshots/kalpataru-grove.png" alt="Kalpataru Grove">
+                                <h4>Kalpataru Grove</h4>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="showcase-item">
-                    <a href="projects.html#pramana">
-                        <img src="images/my_project_screenshots/Pram%C4%81%E1%B9%87a%20NLP.png" alt="Pramana NLP">
-                        <h4>Pramana NLP</h4>
-                    </a>
-                </div>
-                <div class="showcase-item">
-                    <a href="projects.html#panditya">
-                        <img src="images/my_project_screenshots/panditya.png" alt="Panditya">
-                        <h4>Panditya & SETI</h4>
-                    </a>
-                </div>
+                <button class="carousel-btn carousel-next" aria-label="Next">&rsaquo;</button>
             </div>
+            <div class="carousel-dots"></div>
             <div class="showcase-cta">
                 <a href="https://github.com/tylergneill?tab=repositories" class="btn" target="_blank" rel="noopener">View code on GitHub</a>
             </div>
@@ -132,6 +157,70 @@
                 mainNav.classList.remove('active');
             });
         });
+
+        // Carousel functionality
+        const track = document.querySelector('.carousel-track');
+        const items = document.querySelectorAll('.carousel-track .showcase-item');
+        const prevBtn = document.querySelector('.carousel-prev');
+        const nextBtn = document.querySelector('.carousel-next');
+        const dotsContainer = document.querySelector('.carousel-dots');
+
+        let currentIndex = 0;
+        let itemsPerView = window.innerWidth <= 768 ? 1 : 3;
+        const totalItems = items.length;
+        const maxIndex = Math.max(0, totalItems - itemsPerView);
+
+        // Create dots
+        function createDots() {
+            dotsContainer.innerHTML = '';
+            const numDots = maxIndex + 1;
+            for (let i = 0; i < numDots; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateDots() {
+            const dots = document.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        function updateCarousel() {
+            const itemWidth = 100 / itemsPerView;
+            track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+            updateDots();
+        }
+
+        function goToSlide(index) {
+            currentIndex = Math.max(0, Math.min(index, maxIndex));
+            updateCarousel();
+        }
+
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentIndex + 1);
+        });
+
+        window.addEventListener('resize', () => {
+            const newItemsPerView = window.innerWidth <= 768 ? 1 : 3;
+            if (newItemsPerView !== itemsPerView) {
+                itemsPerView = newItemsPerView;
+                currentIndex = 0;
+                createDots();
+                updateCarousel();
+            }
+        });
+
+        createDots();
+        updateCarousel();
     </script>
 </body>
 </html>
