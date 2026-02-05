@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools of the Trade - Kalpataru Diaries</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../index.html" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <a href="../about.html">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../blog.html">Blog: Kalpataru Diaries</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header" style="background-image: url('../images/dall-e/DALL%C2%B7E%202024-01-08%2023.47.40%20-%20An%20abstract%20tree%20composed%20entirely%20of%20computer%20circuits.%20The%20tree%20is%20intricate%2C%20with%20branches%20and%20leaves%20represented%20by%20various%20electronic%20components%20.png');">
+        <h1>Tools of the Trade</h1>
+        <p style="margin-top: 1rem; opacity: 0.9;">February 25, 2024</p>
+    </div>
+
+    <article class="page-content">
+        <div class="container blog-post-content">
+            <p>In this post, I'd like to establish the baseline of the computing tools I'm using. This is one of the rare occasions where I actually do want to just list out a bunch of technical things for the sake of those people for whom it might be helpful. Please skip it if it's not relevant to you.</p>
+
+            <figure>
+                <img src="../images/dall-e/DALL%C2%B7E%202024-02-12%2022.33.51%20-%20Envision%20a%20motherboard%20like%20no%20other%2C%20where%20the%20wonders%20of%20nature%20and%20technology%20intertwine.%20This%20motherboard%20is%20meticulously%20crafted%20from%20a%20solid%20pie.webp" alt="Under the hood">
+                <figcaption>Under the hood</figcaption>
+            </figure>
+
+            <p>Nearly all of my programming is done in Python. I started using it in 2015 and didn't look back. The language itself is very well-structured, lots of people use it to do scientific computing of all sorts, and the package ecosystem is vibrant, easy to work with, and often open source. There are a ton of Python resources out there for even first-time programmers. I encourage you to start using it if you haven't already!</p>
+
+            <p>When I need one, Bash is my second scripting language of choice.</p>
+
+            <p>I program on a Mac. For managing ancillary software that is not in the Python ecosystem, I generally use Homebrew when possible.</p>
+
+            <p>For managing my Python work, I use PyEnv to manage different versions of the language, the built-in <em>venv</em> module to create virtual environments, and <em>pip</em> (and <em>pip-tools</em>) to manage packages, both others' and my own.</p>
+
+            <p>For experimental and demonstrative code work, I frequently make use of iPython (a better interactive Python shell) and Jupyter Notebooks, both of which can be installed with pip. For debugging, the built-in <em>pdb</em> package is super useful.</p>
+
+            <p>Outside of Terminal (for command line and iPython) and Chrome (for notebooks and web apps), I write most of my project code using the PyCharm IDE, but I also use BBEdit and Sublime for particular editing needs.</p>
+
+            <p>Python 3 has excellent support for Unicode, so working with a language like Sanskrit is relatively straightforward. Whether working with Roman transliteration and diacritics or with one of the Indic scripts, you can basically just do what you need. For a base representation, I generally use IAST, with SLP1 as a hub for transliteration. I type IAST fluently using my Mac's built-in ABC+ input source.</p>
+
+            <p>For my NLP work, I stick to Python packages when I can (e.g. <em>gensim</em>, <em>scipy</em>, <em>nltk</em>), but if there's a better tool in a different language, I won't avoid it on principle. For example, I've used topic modeling software programmed in R for the Vatayana project. On the one hand, it is really nice to be able to state as many of your dependencies as possible in one <em>requirements.txt</em> or <em>setup.py</em> file that <em>pip</em> can understand and process automatically. But there's no escaping that at least some supplementary software needs to be installed with Homebrew, etc., so absolutism isn't really even an option.</p>
+
+            <p>For front-end design, I'm no expert, so I've stuck to Flask, Bootstrap CSS, and minimal vanilla JavaScript for bare-bones but effective web apps.</p>
+
+            <p>For code versioning and hosting, I use git and GitHub. I've actually now worked more with GitLab thanks to my day job, but I think both options are great. (Exception: "Merge Request" makes way more sense to me than "Pull Request", I have to say.) My personal projects are on GitHub at <a href="https://github.com/tylergneill?tab=repositories">https://github.com/tylergneill?tab=repositories</a>.</p>
+
+            <p>For getting my code up on the internet in a working form that others can interact with, I use PythonAnywhere and, to a lesser extent, Heroku. PythonAnywhere has been great for abstracting away infrastructure details so that I could focus on the parts of coding that are interesting to me. After a few years working with Docker and AWS at my job, I'm now feeling ready to move more of my projects over to Heroku, to give me more control. I think AWS would be overkill at this point. (EDIT Oct 2024: I've now largely migrated over to Digital Ocean, using Docker images hosted on Docker Hub.)</p>
+
+            <p>For domain management, I've used NameCheap for a few years, but I'm thinking of moving over to PorkBun for cost reasons. I pay extra for <em>.info</em> domains because, well, it feels right.</p>
+
+            <p>I only have one project with database support so far, and for that, I went with MongoDB Atlas, meaning that my project hosted on PythonAnywhere talks to a managed external database server over the internet. There is some lag and other limitations involved with this, so I may try to move to managing my own databases more locally on Heroku dynos. (EDIT Oct 2024: It turned out to be not so bad to just host my own MongoDB instance on the Digital Ocean Droplet.)</p>
+
+            <p>These days (early 2024), the cost for all these things together (including this Squarespace website) is a little under $500/yr, which I think is well worth it.</p>
+
+            <p>If you have further questions about the tech stack underneath the projects discussed here, feel free to ask!</p>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Tyler Neill. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

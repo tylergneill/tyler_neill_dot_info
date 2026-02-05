@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First post! - Kalpataru Diaries</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../index.html" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <a href="../about.html">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../blog.html">Blog: Kalpataru Diaries</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header" style="background-image: url('../images/dall-e/DALL%C2%B7E%202024-01-08%2023.47.40%20-%20An%20abstract%20tree%20composed%20entirely%20of%20computer%20circuits.%20The%20tree%20is%20intricate%2C%20with%20branches%20and%20leaves%20represented%20by%20various%20electronic%20components%20.png');">
+        <h1>First post!</h1>
+        <p style="margin-top: 1rem; opacity: 0.9;">February 11, 2024</p>
+    </div>
+
+    <article class="page-content">
+        <div class="container blog-post-content">
+            <p>If you're here, you may be asking: What's this all about? Seems pretty... niche...</p>
+
+            <p>So to start, I'll take a page from the ancient authors. Writers of Sanskrit systematic works (sastra) acknowledged that time is precious and reading takes effort, so they often began their compositions with an explicit account of why the reader should bother. Specifically, they enumerated 1) the <strong>subject matter</strong> at hand (abhidheya), 2) the <strong>purpose</strong> behind the work (prayojana), and 3) the <strong>connection</strong> between the two (sambandha).</p>
+
+            <p>1. For this blog, the <strong>subject matter</strong> is what's latest and greatest in digital Sanskrit. I've spent a number of years using these resources, meeting the people behind them, thinking about what's missing, and making my own stuff. Now, with my PhD behind me and a few years of professional software engineering under my belt, it feels like a good time to reflect on the scene.</p>
+
+            <p>2. The <strong>purpose</strong> of the blog is to help more people have a productive and fulfilling relationship with Sanskrit as part of a modern cosmopolitan worldview.</p>
+
+            <p>3. The envisioned <strong>connection</strong> between the two is that the blog lowers the barrier for entry for staying informed about these things, and also that it might energize my own further work in the area, which I hope will contribute in some small way to more Sanskrit joy and meaning in the world.</p>
+
+            <p>So! We've begun. My next few posts will start by introducing some previous projects of mine, giving a bit of background and updates on them, and also relating them to similar projects. After that warm-up, we'll get into what I'm thinking about these days, what I want to see happen next, and then... we'll start doing it, in real time! I'll try to stay out of the weediest weeds here in the blog — the goal is to keep things as accessible and user-friendly as possible... relatively speaking, given the subject matter — but I'll readily link out to websites, code, and other resources for those who want more detail. Also, I'll try to keep all posts under 1,000 words (5-10-min). (EDIT Oct 2024: Alas, I will fail at this last part.)</p>
+
+            <p>Oh, and about the name: "Kalpataru" is one of several names for the idea of the <a href="https://en.wikipedia.org/wiki/Kalpavriksha">"Wish-fulfilling tree"</a> of Sanskrit literary culture. There are also other wish-fulfilling objects: gems, cows, possibly a few other, rarer ones. But I'm more of a tree man myself. I like this metaphor for capturing how I think about the modern computer. It is the magical item that makes all my Sanskrit wishes come true, or at least, it has that potential. Most fun of all, with the work discussed here, we can make that metaphor a reality, by making good use of computers to actualize more wishes, one project at a time.</p>
+
+            <p>So, please stick around, I think this will be fun! And thanks for being here!</p>
+
+            <figure>
+                <img src="../images/dall-e/DALL%C2%B7E%202024-01-08%2023.47.40%20-%20An%20abstract%20tree%20composed%20entirely%20of%20computer%20circuits.%20The%20tree%20is%20intricate%2C%20with%20branches%20and%20leaves%20represented%20by%20various%20electronic%20components%20.png" alt="The Kalpataru">
+                <figcaption>The Kalpataru (Images on this website created with DALL-E)</figcaption>
+            </figure>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Tyler Neill. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

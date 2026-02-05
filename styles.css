@@ -72,7 +72,7 @@ img {
 
 .site-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
+    font-size: 1.5625rem;
     font-weight: 500;
     color: var(--text-light);
     white-space: nowrap;
@@ -85,7 +85,7 @@ img {
 
 .main-nav a {
     color: var(--text-light);
-    font-size: 0.95rem;
+    font-size: 1.1875rem;
     transition: opacity 0.2s;
     white-space: nowrap;
 }
@@ -132,8 +132,8 @@ img {
 
 /* Hero Section */
 .hero {
-    height: 60vh;
-    min-height: 400px;
+    height: 48vh;
+    min-height: 320px;
     background-image: url('images/dall-e/DALL·E 2024-01-04 22.08.28 - A refined image for the personal website landing page titled \'Sanskrit and Tech with Tyler\', excluding any human figures and mandalas. The image featu copy 3.png');
     background-size: cover;
     background-position: center;
@@ -160,7 +160,7 @@ img {
 
 .hero-tagline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 400;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.7);
     margin: 0.25rem 0;
@@ -182,7 +182,7 @@ img {
 }
 
 .intro h2 {
-    font-size: 1.75rem;
+    font-size: 2.1875rem;
     max-width: 800px;
     margin: 0 auto 1.5rem;
 }
@@ -190,7 +190,7 @@ img {
 .intro p {
     max-width: 700px;
     margin: 0 auto;
-    font-size: 1.05rem;
+    font-size: 1.3125rem;
     color: #555;
 }
 
@@ -235,12 +235,12 @@ img {
 }
 
 .feature-text h3 {
-    font-size: 1.75rem;
+    font-size: 2.1875rem;
     margin-bottom: 1rem;
 }
 
 .feature-text p {
-    font-size: 1.05rem;
+    font-size: 1.3125rem;
     color: #555;
     margin-bottom: 1.5rem;
 }
@@ -252,7 +252,7 @@ img {
     background: var(--primary-blue);
     color: var(--text-light);
     border-radius: 4px;
-    font-size: 0.95rem;
+    font-size: 1.1875rem;
     transition: background 0.2s;
 }
 
@@ -269,22 +269,18 @@ img {
 
 .showcase h2 {
     text-align: center;
-    font-size: 1.75rem;
+    font-size: 2.1875rem;
     margin-bottom: 2.5rem;
 }
 
 /* Carousel styles */
 .carousel-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto 1rem;
 }
 
 .carousel-track-container {
     overflow: hidden;
-    flex: 1;
 }
 
 .carousel-track {
@@ -298,11 +294,19 @@ img {
     box-sizing: border-box;
 }
 
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
 .carousel-btn {
     background: rgba(255, 255, 255, 0.2);
     border: none;
     color: var(--text-light);
-    font-size: 2rem;
+    font-size: 2.5rem;
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -315,33 +319,13 @@ img {
     background: rgba(255, 255, 255, 0.3);
 }
 
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.carousel-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.carousel-dot.active {
-    background: var(--text-light);
-}
 
 .showcase-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin-bottom: 2rem;
-    max-width: 1000px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -353,7 +337,7 @@ img {
 .showcase-item img {
     width: 100%;
     aspect-ratio: 4/3;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 4px;
     margin-bottom: 0.75rem;
     transition: transform 0.3s;
@@ -364,7 +348,7 @@ img {
 }
 
 .showcase-item h4 {
-    font-size: 1.1rem;
+    font-size: 1.375rem;
 }
 
 .showcase-cta {
@@ -388,23 +372,133 @@ img {
 }
 
 .contact h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .contact p {
-    font-size: 1.05rem;
+    font-size: 1.3125rem;
     color: #555;
 }
 
-.contact-email {
-    margin-top: 1.5rem;
+.contact-form {
+    max-width: 550px;
+    margin: 2rem auto 0;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: left;
 }
 
-.contact-email a {
+.contact-form .form-group {
+    margin-bottom: 1.25rem;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.625rem 0.75rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    font-family: inherit;
+    width: 100%;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form .btn {
+    display: block;
+    margin: 0 auto;
+    background: #999;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.contact-form .btn:hover {
+    background: #777;
+}
+
+.form-thanks {
+    font-size: 1.25rem;
     color: var(--primary-blue);
-    font-size: 1.1rem;
-    text-decoration: underline;
+    margin-top: 2rem;
+}
+
+.subscribe .form-thanks {
+    color: #fff;
+}
+
+/* Subscribe */
+.subscribe {
+    background: #333;
+    color: #fff;
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+
+.subscribe h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.subscribe p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.subscribe-form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.subscribe-form input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #555;
+    background: #fff;
+    font-size: 1rem;
+    flex: 1;
+    min-width: 160px;
+}
+
+.subscribe-form input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+
+.btn-subscribe {
+    background: #999;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-subscribe:hover {
+    background: #777;
 }
 
 /* Footer */
@@ -416,8 +510,34 @@ img {
 }
 
 .site-footer p {
-    font-size: 0.85rem;
+    font-size: 1.0625rem;
     opacity: 0.8;
+}
+
+.footer-links {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin: 0 0.75rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.made-with {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.made-with a {
+    color: var(--text-light);
 }
 
 /* Page-specific styles */
@@ -429,10 +549,13 @@ img {
     margin-top: var(--header-height);
     background-size: cover;
     background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .page-header h1 {
-    font-size: 2.5rem;
+    font-size: 3.125rem;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.7);
     background: rgba(0, 0, 0, 0.45);
     padding: 0.5rem 1.25rem;
@@ -458,18 +581,18 @@ img {
 
 .page-content p {
     margin-bottom: 1.5rem;
-    font-size: 1.05rem;
+    font-size: 1.3125rem;
     line-height: 1.8;
 }
 
 .page-content h2 {
-    font-size: 1.6rem;
+    font-size: 2rem;
     margin: 2.5rem 0 1rem;
     color: var(--primary-blue);
 }
 
 .page-content h3 {
-    font-size: 1.35rem;
+    font-size: 1.6875rem;
     margin: 1.5rem 0 1rem;
 }
 
@@ -480,6 +603,8 @@ img {
 
 .page-content ul li {
     margin-bottom: 0.5rem;
+    font-size: 1.3125rem;
+    line-height: 1.8;
 }
 
 .page-content a {
@@ -490,7 +615,7 @@ img {
 /* Projects page */
 .project-card {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 380px 1fr;
     gap: 2rem;
     margin-bottom: 2.5rem;
     padding-bottom: 2.5rem;
@@ -511,12 +636,12 @@ img {
 .project-info h3 {
     color: var(--primary-blue);
     margin-bottom: 0.75rem;
-    font-size: 1.5rem;
+    font-size: 1.875rem;
 }
 
 .project-info p {
     margin-bottom: 1rem;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 .project-links {
@@ -528,7 +653,7 @@ img {
 .project-links a {
     color: var(--primary-blue);
     text-decoration: underline;
-    font-size: 0.95rem;
+    font-size: 1.1875rem;
 }
 
 /* Blog page */
@@ -569,7 +694,7 @@ img {
 
 .blog-item h3 {
     margin-bottom: 0.5rem;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .blog-item h3 a {
@@ -581,14 +706,14 @@ img {
 }
 
 .blog-date {
-    font-size: 1.275rem;
+    font-size: 1.594rem;
     color: #777;
     margin-bottom: 0.5rem;
 }
 
 .blog-excerpt {
     color: #555;
-    font-size: 1.5rem;
+    font-size: 1.875rem;
 }
 
 /* Blog post page */
@@ -605,7 +730,7 @@ img {
 
 .blog-post-content figcaption {
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1.125rem;
     color: #666;
     margin-top: 0.5rem;
 }
@@ -647,7 +772,7 @@ img {
     }
 
     .site-title {
-        font-size: 1.1rem;
+        font-size: 1.375rem;
     }
 
     .menu-toggle {
@@ -688,12 +813,12 @@ img {
 
     /* Mobile Hero */
     .hero {
-        height: 50vh;
-        min-height: 300px;
+        height: 40vh;
+        min-height: 240px;
     }
 
     .hero-tagline {
-        font-size: 1.4rem;
+        font-size: 1.75rem;
     }
 
     .hero-tagline.indent {
@@ -706,11 +831,11 @@ img {
     }
 
     .intro h2 {
-        font-size: 1.4rem;
+        font-size: 1.75rem;
     }
 
     .intro p {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     .feature-section {
@@ -727,20 +852,20 @@ img {
     }
 
     .feature-text h3 {
-        font-size: 1.4rem;
+        font-size: 1.75rem;
     }
 
     .feature-text p {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     /* Mobile Showcase */
     .showcase {
-        padding: 3rem 1rem;
+        padding: 3rem 0.25rem;
     }
 
     .showcase h2 {
-        font-size: 1.4rem;
+        font-size: 1.75rem;
         margin-bottom: 2rem;
     }
 
@@ -751,7 +876,7 @@ img {
     }
 
     .showcase-item h4 {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     .carousel-track .showcase-item {
@@ -759,8 +884,8 @@ img {
     }
 
     .carousel-btn {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         font-size: 1.5rem;
     }
 
@@ -770,7 +895,25 @@ img {
     }
 
     .contact h2 {
-        font-size: 1.6rem;
+        font-size: 2rem;
+    }
+
+    .contact-form {
+        padding: 1rem;
+        margin: 1rem auto 0;
+    }
+
+    .subscribe {
+        padding: 3rem 1rem;
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .subscribe-form input {
+        min-width: 0;
     }
 
     /* Mobile Page Header */
@@ -779,11 +922,11 @@ img {
     }
 
     .page-header h1 {
-        font-size: 1.8rem;
+        font-size: 2.25rem;
     }
 
     .page-header p {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     /* Mobile Page Content */
@@ -792,15 +935,19 @@ img {
     }
 
     .page-content h2 {
-        font-size: 1.4rem;
+        font-size: 1.75rem;
     }
 
     .page-content h3 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 
     .page-content p {
-        font-size: 1rem;
+        font-size: 1.25rem;
+    }
+
+    .page-content ul li {
+        font-size: 1.25rem;
     }
 
     /* Mobile Projects */
@@ -814,11 +961,11 @@ img {
     }
 
     .project-info h3 {
-        font-size: 1.3rem;
+        font-size: 1.625rem;
     }
 
     .project-info p {
-        font-size: 0.95rem;
+        font-size: 1.1875rem;
     }
 
     /* Mobile Blog */
@@ -839,15 +986,15 @@ img {
     }
 
     .blog-item h3 {
-        font-size: 1.3rem;
+        font-size: 1.625rem;
     }
 
     .blog-date {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     .blog-excerpt {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     /* Mobile About Grid */
@@ -873,16 +1020,16 @@ img {
 
 @media (max-width: 480px) {
     .site-title {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     .hero {
-        height: 45vh;
-        min-height: 250px;
+        height: 36vh;
+        min-height: 200px;
     }
 
     .hero-tagline {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 
     .hero-tagline.indent {
@@ -891,6 +1038,6 @@ img {
 
     .btn {
         padding: 0.6rem 1.25rem;
-        font-size: 0.9rem;
+        font-size: 1.125rem;
     }
 }
