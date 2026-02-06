@@ -12,17 +12,17 @@
 <body>
     <header class="site-header">
         <div class="header-content">
-            <a href="../index.html" class="site-title">Sanskrit and Tech with Tyler</a>
+            <a href="../" class="site-title">Sanskrit and Tech with Tyler</a>
             <button class="menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <nav class="main-nav">
-                <a href="../about.html">About</a>
-                <a href="../projects.html">Projects</a>
-                <a href="../services.html">Services</a>
-                <a href="../blog.html">Blog: Kalpataru Diaries</a>
+                <a href="../about">About</a>
+                <a href="../projects">Projects</a>
+                <a href="../services">Services</a>
+                <a href="../blog">Blog: Kalpataru Diaries</a>
             </nav>
         </div>
     </header>
@@ -59,7 +59,7 @@
             <p>Fortunately, thanks to the hard work of various teams, several Sanskrit splitter systems do exist (one of which actually split the above verse). Let's go through the main options you can try out online today:</p>
 
             <ol>
-                <li><strong>Sanskrit Reader Companion</strong> (since early 2000s, deployed on <a href="https://sanskrit.inria.fr/DICO/reader.html" target="_blank">The Sanskrit Heritage Site</a>): Provides color-coded, interactive HTML with various possible word splits plus additional linguistic information (lemmata, parts of speech, inflection details) to help a user arrive at their own decision. Max one sentence at a time.</li>
+                <li><strong>Sanskrit Reader Companion</strong> (since early 2000s, deployed on <a href="https://sanskrit.inria.fr/DICO/reader" target="_blank">The Sanskrit Heritage Site</a>): Provides color-coded, interactive HTML with various possible word splits plus additional linguistic information (lemmata, parts of speech, inflection details) to help a user arrive at their own decision. Max one sentence at a time.</li>
                 <li><strong>Sanskrit Sandhi and Compound Splitter</strong> (2018, on <a href="https://github.com/OliverHellwig/sanskrit/tree/master/papers/2018emnlp" target="_blank">GitHub</a>): Outputs one best-guess plaintext answer with words and parts of compounds separated by whitespace, as offered since 2021 on <a href="https://www.skrutable.info/" target="_blank">Skrutable</a> (choose the "2018" model option on settings page). Input of nearly any length and punctuation preservation supported.</li>
                 <li><strong>Joint splitter/stemmer/tagger</strong> (2020, deployed as a supplementary tool on the <a href="https://buddhanexus.net/sanskrit-tools" target="_blank">BuddhaNexus web app</a>): Offers grammatical analysis for detected words, including lemmata, parts of speech, and inflection details. Max 100 characters = one modest sentence.</li>
                 <li><strong>ByT5-Sanskrit</strong> (2024, deployed as an integral part of the <a href="https://dharmamitra.org" target="_blank">Dharmamitra web app</a>): For word splitting per se, access, input, and output are similar to the 2018 predecessor above, namely through <a href="https://www.skrutable.info/" target="_blank">Skrutable</a> (default "Dharmamitra Sept 2024" model option on settings page). Compounds can also be differentiated with hyphens.</li>
@@ -71,9 +71,9 @@
 
             <p>Arguably the most significant milestone in early computational Sanskrit word splitting was Oliver Hellwig's <strong>SanskritTagger</strong>, which combined custom grammar and lexical databases, first-generation machine learning (Hidden Markov Models), and human-in-the-loop data curation (see <a href="https://refubium.fu-berlin.de/handle/fub188/5429" target="_blank">2003 dissertation</a>). The result was the Digital Corpus of Sanskrit (DCS), a resource available for <a href="http://www.sanskrit-linguistics.org/dcs/index.php" target="_blank">reading and limited querying online</a> and, as of a few years ago, also as <a href="https://github.com/OliverHellwig/sanskrit/tree/master/dcs/data/conllu" target="_blank">open-source data</a>.</p>
 
-            <p>Starting around the same time in the 1990s, Gerard Huet developed the <strong>Sanskrit Heritage</strong> system, which focuses on Pāṇinian grammar and finite-state methods (see <a href="https://sanskrit.inria.fr/manual.html" target="_blank">manual</a>). The specific <strong>Sanskrit Reader Companion</strong> tool which splits and analyzes sentences has been usable online for a long time, and it works well as a pedagogical resource to demonstrate to students the kind of explicit analysis they are expected to do when learning to read. Improvements over the years have included integrating with the similarly oriented Saṃsādhanī project (using its dependency parsing) and recently adding a best-guess extension relying on DCS data.</p>
+            <p>Starting around the same time in the 1990s, Gerard Huet developed the <strong>Sanskrit Heritage</strong> system, which focuses on Pāṇinian grammar and finite-state methods (see <a href="https://sanskrit.inria.fr/manual" target="_blank">manual</a>). The specific <strong>Sanskrit Reader Companion</strong> tool which splits and analyzes sentences has been usable online for a long time, and it works well as a pedagogical resource to demonstrate to students the kind of explicit analysis they are expected to do when learning to read. Improvements over the years have included integrating with the similarly oriented Saṃsādhanī project (using its dependency parsing) and recently adding a best-guess extension relying on DCS data.</p>
 
-            <p>In the last decade, though, it has been second-generation machine learning, i.e., neural networks, that have driven major advancements in the space. Oliver laid the groundwork e.g. with key papers in <a href="https://www.semanticscholar.org/paper/Using-Recurrent-Neural-Networks-for-joint-compound-Hellwig/9e54eda9a0d1889010d405ac8b2b7156fde65b91" target="_blank">2015</a> and <a href="https://www.semanticscholar.org/paper/Improving-the-Morphological-Analysis-of-Classical-Hellwig/3c4a58989261d76bf738b73722e6d692011f6e4e" target="_blank">2016</a>, and in <a href="https://www.semanticscholar.org/paper/Sanskrit-Word-Segmentation-Using-Character-level-Hellwig-Nehrdich/d27a6a5a498b1551b879e7cad298d7f74d7761b3" target="_blank">2018</a>, the first publicly usable tool, the <strong>Sanskrit Sandhi and Compound Splitter</strong>, was released with a Python interface. This implementation, combining recurrent neural networks (RNN) and convolutional neural networks (CNN), is focused on efficiency. Its relatively small number of parameters (5-10 million) keeps it fast even on personal laptop CPUs, yet it is also quite effective, achieving around 85% accuracy on large datasets. Sebastian Nehrdich collaborated with Oliver to implement the model and applied it to BuddhaNexus Sanskrit data. I myself was convinced of its potential after using it for my <a href="/projects.html#vatayana">Vātāyana</a> project and integrated it into Skrutable in 2021.</p>
+            <p>In the last decade, though, it has been second-generation machine learning, i.e., neural networks, that have driven major advancements in the space. Oliver laid the groundwork e.g. with key papers in <a href="https://www.semanticscholar.org/paper/Using-Recurrent-Neural-Networks-for-joint-compound-Hellwig/9e54eda9a0d1889010d405ac8b2b7156fde65b91" target="_blank">2015</a> and <a href="https://www.semanticscholar.org/paper/Improving-the-Morphological-Analysis-of-Classical-Hellwig/3c4a58989261d76bf738b73722e6d692011f6e4e" target="_blank">2016</a>, and in <a href="https://www.semanticscholar.org/paper/Sanskrit-Word-Segmentation-Using-Character-level-Hellwig-Nehrdich/d27a6a5a498b1551b879e7cad298d7f74d7761b3" target="_blank">2018</a>, the first publicly usable tool, the <strong>Sanskrit Sandhi and Compound Splitter</strong>, was released with a Python interface. This implementation, combining recurrent neural networks (RNN) and convolutional neural networks (CNN), is focused on efficiency. Its relatively small number of parameters (5-10 million) keeps it fast even on personal laptop CPUs, yet it is also quite effective, achieving around 85% accuracy on large datasets. Sebastian Nehrdich collaborated with Oliver to implement the model and applied it to BuddhaNexus Sanskrit data. I myself was convinced of its potential after using it for my <a href="/projects#vatayana">Vātāyana</a> project and integrated it into Skrutable in 2021.</p>
 
             <p>The <strong>BuddhaNexus joint splitter/stemmer/tagger</strong> tool is another key milestone in Sebastian's work. It extends the 2018 architecture into a transformer model with 80 million parameters, making GPU execution essential to unlock the model's full potential, which the current CPU-based online interface does not achieve.</p>
 
@@ -110,8 +110,8 @@
             <p>If we ever want to retrain these models to align with different standards of correctness — such as a specific idiom or dialect of Sanskrit — we can certainly do so. However, retraining requires significant hardware resources and careful data engineering, making it feasible only for dedicated scientific teams. For now, then, the best course of action is to engage with these tools thoughtfully, use them with care, and provide feedback. I think the more people familiarize themselves with this technology, the more we'll be excited to continue innovating together.</p>
 
             <div class="post-nav">
-                <a href="gretil.html">&larr; GRETIL<span class="post-nav-date">July 6, 2024</span></a>
-                <a href="panditya.html" class="post-nav-next">Pāṇḍitya &rarr;<span class="post-nav-date">February 7, 2025</span></a>
+                <a href="gretil">&larr; GRETIL<span class="post-nav-date">July 6, 2024</span></a>
+                <a href="panditya" class="post-nav-next">Pāṇḍitya &rarr;<span class="post-nav-date">February 7, 2025</span></a>
             </div>
         </div>
     </article>

@@ -12,17 +12,17 @@
 <body>
     <header class="site-header">
         <div class="header-content">
-            <a href="../index.html" class="site-title">Sanskrit and Tech with Tyler</a>
+            <a href="../" class="site-title">Sanskrit and Tech with Tyler</a>
             <button class="menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <nav class="main-nav">
-                <a href="../about.html">About</a>
-                <a href="../projects.html">Projects</a>
-                <a href="../services.html">Services</a>
-                <a href="../blog.html">Blog: Kalpataru Diaries</a>
+                <a href="../about">About</a>
+                <a href="../projects">Projects</a>
+                <a href="../services">Services</a>
+                <a href="../blog">Blog: Kalpataru Diaries</a>
             </nav>
         </div>
     </header>
@@ -46,7 +46,7 @@
 
             <p>When I last seriously looked around in 2018-2019, I found that this was the best option out there for Sanskrit OCR. Now, more than five years later, it apparently still is. Having set it up, you can put PDFs (even large ones!) in a folder, press go, and wait a few minutes for the high-quality OCR results, with no need to specify Sanskrit or whatever other language you're working with. It's honestly amazing. I was sad when my Vision setup stopped working a few years ago, but my modest personal needs for OCR did not seem to warrant fixing it.</p>
 
-            <p>Recently, though, I came across a very helpful how-to guide Andrew Ollett kindly put together at <a href="http://www.prakrit.info/dh/ocr.html" target="_blank">prakrit.info/dh/ocr.html</a>. In it, Andrew uses a small but instructive example image of printed Sanskrit text to compare Google Cloud Vision, which achieves 97% accuracy in the exercise, against three other options: Google Drive, Sanskrit CR, and Tesseract — all actually Google tech in one way or another (see below). He then gives concrete instructions on how to get set up and using Vision yourself, including the Python interface. These instructions are clear, straightforward, and correct (I'm back up and running again, hooray!) but they will probably be difficult for non-programmers to complete. Also, Vision costs $1.50 per 1,000 pages (after the first 1,000 pages in a given month, which are complimentary).</p>
+            <p>Recently, though, I came across a very helpful how-to guide Andrew Ollett kindly put together at <a href="http://www.prakrit.info/dh/ocr" target="_blank">prakrit.info/dh/ocr.html</a>. In it, Andrew uses a small but instructive example image of printed Sanskrit text to compare Google Cloud Vision, which achieves 97% accuracy in the exercise, against three other options: Google Drive, Sanskrit CR, and Tesseract — all actually Google tech in one way or another (see below). He then gives concrete instructions on how to get set up and using Vision yourself, including the Python interface. These instructions are clear, straightforward, and correct (I'm back up and running again, hooray!) but they will probably be difficult for non-programmers to complete. Also, Vision costs $1.50 per 1,000 pages (after the first 1,000 pages in a given month, which are complimentary).</p>
 
             <h2>Option 2: Google Drive</h2>
 
@@ -61,7 +61,7 @@
 
             <h2>Option 3: Tesseract</h2>
 
-            <p>This system was invented at HP, but Google adopted it in 2006 and still oversees its further development. Because it is open-source, there have been many projects that incorporate it. For example, <a href="https://ocrmypdf.readthedocs.io/en/latest" target="_blank">OCRmyPDF</a>. This is also the OCR used by Internet Archive (see <a href="https://archive.org/developers/ocr.html" target="_blank">here</a>). Andrew reported at the time of his write-up that "out-of-the-box" results with Tesseract were unsatisfactory (e.g., 78% accuracy on his example) but also that he was using a version potentially older than Tesseract 4. I've seen Internet Archive using 4.1.1, and I find Internet Archive OCR results pretty close to unusable for Sanskrit. I've also installed Tesseract locally and tried it with the v4 models, which are the <a href="https://github.com/tesseract-ocr/tessdata_best" target="_blank">latest and best available</a>. Nope. Does not compare to Google whatsoever. The LSTM architecture Tesseract uses apparently just doesn't hold a candle to whatever proprietary CNN+ system Google is using.</p>
+            <p>This system was invented at HP, but Google adopted it in 2006 and still oversees its further development. Because it is open-source, there have been many projects that incorporate it. For example, <a href="https://ocrmypdf.readthedocs.io/en/latest" target="_blank">OCRmyPDF</a>. This is also the OCR used by Internet Archive (see <a href="https://archive.org/developers/ocr" target="_blank">here</a>). Andrew reported at the time of his write-up that "out-of-the-box" results with Tesseract were unsatisfactory (e.g., 78% accuracy on his example) but also that he was using a version potentially older than Tesseract 4. I've seen Internet Archive using 4.1.1, and I find Internet Archive OCR results pretty close to unusable for Sanskrit. I've also installed Tesseract locally and tried it with the v4 models, which are the <a href="https://github.com/tesseract-ocr/tessdata_best" target="_blank">latest and best available</a>. Nope. Does not compare to Google whatsoever. The LSTM architecture Tesseract uses apparently just doesn't hold a candle to whatever proprietary CNN+ system Google is using.</p>
 
             <p>The reader should note that there are interesting attempts to train Tesseract further for Sanskrit (see <a href="https://aclanthology.org/K18-1034.pdf" target="_blank">2018 here</a> and <a href="https://aclanthology.org/2022.findings-emnlp.466.pdf" target="_blank">2022 here</a>, the latter with an interesting focus on post-correction), and perhaps these will beat Google Vision someday. The idea is to stick to open-source where possible, especially for large-scale projects for which the cost of proprietary software becomes prohibitive. But I would argue that, for small- or medium-sized projects, it's actually most cost-effective, in both money and time, to use the best mainstream option at a non-zero cost, rather than go through the effort to set up a more bespoke solution.</p>
 
@@ -98,13 +98,13 @@
 
             <h2>Future Directions</h2>
 
-            <p>There are more components of this overall workflow that can still be improved. Handwritten text recognition (HTR) for manuscripts has been worked on recently especially in the Tibetan space (see several presentations at <a href="https://www.oeaw.ac.at/fileadmin/Institute/IKGA/PDF/events/ikga-comphum-symposium-2023.pdf" target="_blank">this event in Vienna last year</a>). Software options for this kind of training for bespoke material include not only the relatively well-known <a href="https://www.transkribus.org/" target="_blank">Transkribus</a> system but also <a href="https://kraken.re/main/index.html" target="_blank">Kraken</a>, in the lineage of <a href="https://ocropus.github.io/" target="_blank">OCRropus</a>. What's more, we could also train a relatively simple model for automated post-processing, as well. If you're interested in doing this in combination with Vision, please be in touch with your material that you've corrected from Vision output, and we'll train something up together.</p>
+            <p>There are more components of this overall workflow that can still be improved. Handwritten text recognition (HTR) for manuscripts has been worked on recently especially in the Tibetan space (see several presentations at <a href="https://www.oeaw.ac.at/fileadmin/Institute/IKGA/PDF/events/ikga-comphum-symposium-2023.pdf" target="_blank">this event in Vienna last year</a>). Software options for this kind of training for bespoke material include not only the relatively well-known <a href="https://www.transkribus.org/" target="_blank">Transkribus</a> system but also <a href="https://kraken.re/main/index" target="_blank">Kraken</a>, in the lineage of <a href="https://ocropus.github.io/" target="_blank">OCRropus</a>. What's more, we could also train a relatively simple model for automated post-processing, as well. If you're interested in doing this in combination with Vision, please be in touch with your material that you've corrected from Vision output, and we'll train something up together.</p>
 
             <p>So someday, it might be possible to use fine-tuned open-source models on appropriately user-friendly platforms, and compensate for imperfections with effective automatic post-processing. Until that day comes, though, for the most part, in Google we trust.</p>
 
             <div class="post-nav">
-                <a href="vatayana.html">&larr; Vātāyana<span class="post-nav-date">April 7, 2024</span></a>
-                <a href="gretil.html" class="post-nav-next">GRETIL &rarr;<span class="post-nav-date">July 6, 2024</span></a>
+                <a href="vatayana">&larr; Vātāyana<span class="post-nav-date">April 7, 2024</span></a>
+                <a href="gretil" class="post-nav-next">GRETIL &rarr;<span class="post-nav-date">July 6, 2024</span></a>
             </div>
         </div>
     </article>

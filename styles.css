@@ -466,9 +466,8 @@ img {
 
 .subscribe-form {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 0.5rem;
-    flex-wrap: wrap;
     max-width: 400px;
     margin: 0 auto;
 }
@@ -478,8 +477,8 @@ img {
     border: 1px solid #555;
     background: #fff;
     font-size: 1rem;
-    flex: 1;
-    min-width: 120px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .subscribe-form input:focus {
@@ -962,14 +961,7 @@ img {
         padding: 3rem 1rem;
     }
 
-    .subscribe-form {
-        flex-direction: column;
-        align-items: stretch;
-    }
 
-    .subscribe-form input {
-        min-width: 0;
-    }
 
     /* Mobile Page Header */
     .page-header {
