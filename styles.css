@@ -182,7 +182,7 @@ img {
 }
 
 .intro h2 {
-    font-size: 2.1875rem;
+    font-size: 2.75rem;
     max-width: 800px;
     margin: 0 auto 1.5rem;
 }
@@ -235,7 +235,7 @@ img {
 }
 
 .feature-text h3 {
-    font-size: 2.1875rem;
+    font-size: 2.75rem;
     margin-bottom: 1rem;
 }
 
@@ -269,7 +269,7 @@ img {
 
 .showcase h2 {
     text-align: center;
-    font-size: 2.1875rem;
+    font-size: 2.75rem;
     margin-bottom: 2.5rem;
 }
 
@@ -289,7 +289,7 @@ img {
 }
 
 .carousel-track .showcase-item {
-    flex: 0 0 33.333%;
+    flex: 0 0 42%;
     padding: 0 0.75rem;
     box-sizing: border-box;
 }
@@ -469,7 +469,7 @@ img {
     justify-content: center;
     gap: 0.5rem;
     flex-wrap: wrap;
-    max-width: 800px;
+    max-width: 400px;
     margin: 0 auto;
 }
 
@@ -479,7 +479,7 @@ img {
     background: #fff;
     font-size: 1rem;
     flex: 1;
-    min-width: 160px;
+    min-width: 120px;
 }
 
 .subscribe-form input:focus {
@@ -619,7 +619,7 @@ img {
     gap: 2rem;
     margin-bottom: 2.5rem;
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 5px solid #999;
     align-items: center;
 }
 
@@ -636,7 +636,7 @@ img {
 .project-info h3 {
     color: var(--primary-blue);
     margin-bottom: 0.75rem;
-    font-size: 1.875rem;
+    font-size: 2.5rem;
 }
 
 .project-info p {
@@ -646,8 +646,11 @@ img {
 
 .project-links {
     display: flex;
+    align-items: baseline;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
 }
 
 .project-links a {
@@ -831,7 +834,7 @@ img {
     }
 
     .intro h2 {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
 
     .intro p {
@@ -852,7 +855,7 @@ img {
     }
 
     .feature-text h3 {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
 
     .feature-text p {
@@ -865,7 +868,7 @@ img {
     }
 
     .showcase h2 {
-        font-size: 1.75rem;
+        font-size: 2rem;
         margin-bottom: 2rem;
     }
 
@@ -880,7 +883,7 @@ img {
     }
 
     .carousel-track .showcase-item {
-        flex: 0 0 100%;
+        flex: 0 0 85%;
     }
 
     .carousel-btn {
