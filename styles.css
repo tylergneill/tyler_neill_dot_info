@@ -596,12 +596,14 @@ img {
     margin: 1.5rem 0 1rem;
 }
 
-.page-content ul {
+.page-content ul,
+.page-content ol {
     margin-left: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
-.page-content ul li {
+.page-content ul li,
+.page-content ol li {
     margin-bottom: 0.5rem;
     font-size: 1.3125rem;
     line-height: 1.8;
@@ -731,11 +733,46 @@ img {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
+.blog-post-content figure {
+    margin: 1.5rem 0 2.5rem;
+}
+
 .blog-post-content figcaption {
     text-align: center;
     font-size: 1.125rem;
     color: #666;
     margin-top: 0.5rem;
+}
+
+.post-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.post-nav a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-size: 1.125rem;
+}
+
+.post-nav a:hover {
+    text-decoration: underline;
+}
+
+.post-nav .post-nav-next {
+    margin-left: auto;
+    text-align: right;
+}
+
+.post-nav .post-nav-date {
+    display: block;
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 0.25rem;
 }
 
 /* Two-column about layout */
@@ -949,7 +986,8 @@ img {
         font-size: 1.25rem;
     }
 
-    .page-content ul li {
+    .page-content ul li,
+    .page-content ol li {
         font-size: 1.25rem;
     }
 

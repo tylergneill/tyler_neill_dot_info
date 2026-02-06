@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panditya: A New Visual Exploration Tool for Sanskrit Intellectual Networks - Kalpataru Diaries</title>
+    <title>Pāṇḍitya: A New Visual Exploration Tool for Sanskrit Intellectual Networks - Kalpataru Diaries</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,13 +69,33 @@
             <p>Head over to <a href="http://panditya.info" target="_blank">panditya.info</a> and try it out. Use the auto-complete dropdown to select an entity—say, Bhāsarvajña's <em>Nyāyasāra (89000)</em>—leave the Hops setting at the default 1, then hit the big red Generate Graph button. An interactive graph will appear, showing your selected entity along with all those connected to it within one hop (Authors are purple, Works are red). Now, increase the Hops setting to 2 and regenerate the graph. If the entity has enough connections, the network will expand. Go up to 3, and the complexity grows further, and you may need to zoom out (<em>pinch to zoom</em> on Mac) or move around (click and drag the background). Even with just this much, you can quickly start to grasp the web of authorial and commentarial relationships.</p>
 
             <figure>
-                <img src="../images/my_project_screenshots/panditya_new.png" alt="Using an auto-complete drop-down menu to select an entity of interest">
+                <img src="../images/my_project_screenshots/panditya_use_dropdown.png" alt="Using an auto-complete drop-down menu to select an entity of interest">
                 <figcaption>Using an auto-complete drop-down menu to select an entity of interest.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images/my_project_screenshots/panditya_1hop.png" alt="A basic 1-hop graph">
+                <figcaption>A basic 1-hop graph.</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images/my_project_screenshots/panditya_2hop.png" alt="A basic 2-hop graph">
+                <figcaption>A basic 2-hop graph.</figcaption>
             </figure>
 
             <p>Now, go back to a simpler graph if needed, and right-click (<em>Cmd + click</em> on Mac) on a node. A context menu will appear, showing the entity's unique ID within <em>Pandit</em>. The first submenu, View on, lets you jump to an external site to explore the entity. Currently this is just <em>Pandit</em>, but I plan to add links to multiple e-text repositories. (EDIT: Done! Check them out!) The second submenu, Recenter, allows you to quickly generate a new graph centered on a different node, with 1-3 hops. The third submenu, Exclusions - Collapse, lets you simplify the view by preventing a selected node from expanding while regenerating the graph—with more refinements planned in the future.</p>
 
+            <figure>
+                <img src="../images/my_project_screenshots/panditya_context_menu.png" alt="The node context menu, which helps e.g., link out externally for more information">
+                <figcaption>The node context menu, which helps e.g., link out externally for more information.</figcaption>
+            </figure>
+
             <p><em>But wait!</em> you might be thinking, <em>the graph that I'm seeing is way too crowded! The labels overlap, and it's hard to read!</em> And yes, that's often true, because it turns out there's no single setting that works perfectly for every graph. To help with this, you'll find a set of controls below the graph that lets you tweak the forces in the D3 simulation. Adjusting these can help spread things out for better clarity. There's even a Freeze button that temporarily disables all forces while still allowing you to manually drag nodes around for a clearer view, whether for a screenshot or just to understand better.</p>
+
+            <figure>
+                <img src="../images/my_project_screenshots/panditya_force_controls.png" alt="Using force controls to see more clearly">
+                <figcaption>Using force controls to see more clearly.</figcaption>
+            </figure>
 
             <p>That's it! I hope you start using it whenever you have a question about Sanskrit authors and/or works that such a visual aid could help answer.</p>
 
@@ -89,10 +109,11 @@
 
             <p>(EDIT 2 May 2025: For those who want more detail, the pre-print of my Pāṇḍitya-SETI paper for WSC 19 is <a href="https://www.academia.edu/129148441/P%C4%81%E1%B9%87%E1%B8%8Ditya_Visualizing_Sanskrit_Intellectual_Networks" target="_blank">available now to read on Academia</a>.</p>
 
-            <p>EDIT 16 May 2025: I was also interviewed about the project by Raj Balkaran for the <em>Indian Religion</em> podcast of the <em>New Books Network</em>: <a href="https://newbooksnetwork.com/p%C4%81%E1%B9%87%E1%B8%8Ditya-mapping-sanskrit-texts-online" target="_blank"><em>Panditya: Mapping Sanskrit Texts Online</em></a>.)</p>
+            <p>EDIT 16 May 2025: I was also interviewed about the project by Raj Balkaran for the <em>Indian Religion</em> podcast of the <em>New Books Network</em>: <a href="https://newbooksnetwork.com/p%C4%81%E1%B9%87%E1%B8%8Ditya-mapping-sanskrit-texts-online" target="_blank"><em>Pāṇḍitya: Mapping Sanskrit Texts Online</em></a>.)</p>
 
-            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
-                <a href="../blog.html">&larr; Back to Blog</a>
+            <div class="post-nav">
+                <a href="splitter-options.html">&larr; Splitter Options<span class="post-nav-date">October 31, 2024</span></a>
+                <a href="seti.html" class="post-nav-next">SETI &rarr;<span class="post-nav-date">April 23, 2025</span></a>
             </div>
         </div>
     </article>

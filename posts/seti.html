@@ -41,7 +41,7 @@
 
             <p>Today, however, with no updates in over four years, <em>GRETIL</em>'s register and hosting functions are both effectively in zombie mode: still up and around, doing things in the world, but not alive enough to experience new updates or growth. With no direct successor covering the same functions and range of materials as <em>GRETIL</em>, the ongoing project of producing Sanskrit e-texts risks disappearing into fragmented, hard-to-find corners of the web.</p>
 
-            <h2>Enter SETI and Panditya</h2>
+            <h2>Enter SETI and Pāṇḍitya</h2>
 
             <p>To revive the idea of a living catalog of Sanskrit e-texts, but covering <strong>all</strong> major collections, both now and into the future, I built <em>SETI</em>—the <em>Sanskrit E-Text Inventory</em> (or, cheekily, the <em>Search for E-Textual Intelligence</em>). <em>SETI</em> aggregates metadata from major collections, abstracting across four axes:</p>
 
@@ -52,7 +52,7 @@
                 <li><strong>Content</strong>: base texts, commentaries, multi-work bundles, etc.</li>
             </ul>
 
-            <p>Crucially, by treating the <strong>Work</strong> (abstract entity) as primary and mapping each <strong>Text</strong> (specific instantiation) onto it, <em>SETI</em> unifies non-essential variation under fixed identifiers while preserving important distinctions, e.g., among works or authors with similar names. To achieve this, <em>SETI</em> leverages the <em>Pandit Project</em> database—home to abstracted records for 12,700 works and 3,800 authors, all with unique numerical identifiers—which also powers <em>SETI</em>'s sister project, <em>Panditya</em>.</p>
+            <p>Crucially, by treating the <strong>Work</strong> (abstract entity) as primary and mapping each <strong>Text</strong> (specific instantiation) onto it, <em>SETI</em> unifies non-essential variation under fixed identifiers while preserving important distinctions, e.g., among works or authors with similar names. To achieve this, <em>SETI</em> leverages the <em>Pandit Project</em> database—home to abstracted records for 12,700 works and 3,800 authors, all with unique numerical identifiers—which also powers <em>SETI</em>'s sister project, <em>Pāṇḍitya</em>.</p>
 
             <h2>From Scrape to Spreadsheet to D3 Dropdowns</h2>
 
@@ -63,12 +63,12 @@
                 <li><strong>Field curation</strong>: record Work and Author names, filesize, and stable URLs</li>
                 <li><strong>Disambiguation</strong>: map entries to the <em>Pandit Project</em>'s numeric Work and Person IDs</li>
                 <li><strong>Semi-automation</strong>: use custom scripts to accelerate repetitive tasks and provide consistency checks, while relying on manual research to ensure accuracy</li>
-                <li><strong>Ingestion</strong>: automatically transform and load tabular data into the <em>Panditya</em> web app for graph visualization with <em>d3.forceSimulation</em></li>
+                <li><strong>Ingestion</strong>: automatically transform and load tabular data into the <em>Pāṇḍitya</em> web app for graph visualization with <em>d3.forceSimulation</em></li>
             </ol>
 
             <figure>
                 <img src="../images/my_project_screenshots/seti.png" alt="Design diagram of SETI">
-                <figcaption>Design diagram of SETI, showing its relations to Pandit, Panditya, and source repositories.</figcaption>
+                <figcaption>Design diagram of SETI, showing its relations to Pandit, Pāṇḍitya, and source repositories.</figcaption>
             </figure>
 
             <p>The outcome is an open, human-readable spreadsheet (with linked sheets per component source) at <a href="http://panditya.info/seti" target="_blank">panditya.info/seti</a>, where summary information for each collection is also available.</p>
@@ -78,11 +78,11 @@
                 <figcaption>Sample of SETI master sheet.</figcaption>
             </figure>
 
-            <p>In turn, in <em>Panditya</em>'s network graphs (as of v2.3, publicly released in April 2025), work nodes highlighted in gold offer right-click links to all associated e-texts, e.g., the node for Kalidasa's <em>Meghaduta</em> reveals all versions available in the collections treated so far.</p>
+            <p>In turn, in <em>Pāṇḍitya</em>'s network graphs (as of v2.3, publicly released in April 2025), work nodes highlighted in gold offer right-click links to all associated e-texts, e.g., the node for Kālidāsa's <em>Meghadūta</em> reveals all versions available in the collections treated so far.</p>
 
             <figure>
-                <img src="../images/my_project_screenshots/panditya_seti.png" alt="How SETI data appears as links in Panditya">
-                <figcaption>How SETI data appears as links in Panditya.</figcaption>
+                <img src="../images/my_project_screenshots/panditya_seti.png" alt="How SETI data appears as links in Pāṇḍitya">
+                <figcaption>How SETI data appears as links in Pāṇḍitya.</figcaption>
             </figure>
 
             <h2>Next Frontiers in Charting the Sanskrit E-Text Galaxy</h2>
@@ -90,7 +90,7 @@
             <p><em>SETI</em> already covers six repositories and over 1,600 Sanskrit e-text items. Next steps:</p>
 
             <ul>
-                <li><strong>Expand coverage</strong>: integrate additional public repositories (draft sheets for six more sources are already shared publicly, including <em>Sanskrit Documents</em> and <em>UTA Dharmasastra</em>)</li>
+                <li><strong>Expand coverage</strong>: integrate additional public repositories (draft sheets for six more sources are already shared publicly, including <em>Sanskrit Documents</em> and <em>UTA Dharmaśāstra</em>)</li>
                 <li><strong>Update Pandit</strong>: feed <em>SETI</em> insights back into <em>Pandit</em>, creating and connecting hundreds of new entities to expose the full e-text landscape (currently, 27% of the ~1,600 e-text items lack <em>Pandit</em> work entities to map onto)</li>
                 <li><strong>Automated updates</strong>: periodically re-scrape still-growing collections to pick up updates and new entries</li>
                 <li><strong>Quality control</strong>: automatically detect dead links and metadata inconsistencies</li>
@@ -101,22 +101,23 @@
             <p>A key remaining challenge is nested texts, i.e., single e-texts containing multiple works (most frequently base text plus one or more commentaries) or works embedded within others. To manage this, I currently:</p>
 
             <ul>
-                <li>Respect commentaries as standalone works (e.g., not linking to all <em>Spandakarikas</em> commentary e-texts from the <em>Spandakarikas</em> node), and relying on Pandit connections to spell out further relationships</li>
-                <li>Respect which embedded entities are granted work status in <em>Pandit</em> (e.g., not further cross-linking <em>Bhagavadgita</em> and <em>Bhismaparvan</em> items)</li>
+                <li>Respect commentaries as standalone works (e.g., not linking to all <em>Spandakārikās</em> commentary e-texts from the <em>Spandakārikās</em> node), and relying on Pandit connections to spell out further relationships</li>
+                <li>Respect which embedded entities are granted work status in <em>Pandit</em> (e.g., not further cross-linking <em>Bhagavadgīta</em> and <em>Bhīṣmaparvan</em> items)</li>
             </ul>
 
             <p>This balance between completeness and clarity will likely evolve as <em>SETI</em> matures.</p>
 
-            <p>To wrap up, with <em>SETI</em> now live and woven into <em>Panditya</em>'s <em>Pandit</em>-network visuals, Sanskrit e-texts are more discoverable than ever, and digitization gaps are also easy to see. So, we can easily see what's already out there, be more confident about what's missing, and work together to keep things moving.</p>
+            <p>To wrap up, with <em>SETI</em> now live and woven into <em>Pāṇḍitya</em>'s <em>Pandit</em>-network visuals, Sanskrit e-texts are more discoverable than ever, and digitization gaps are also easy to see. So, we can easily see what's already out there, be more confident about what's missing, and work together to keep things moving.</p>
 
             <p>In the next post, we'll tackle the second half of <em>GRETIL</em>'s legacy: a dynamic repository for welcoming new contributions of academic Sanskrit e-texts. Stay tuned!</p>
 
-            <p>(EDIT 2 May 2025: For those who want more detail, the pre-print of my Panditya-SETI paper for WSC 19 (Kathmandu) is <a href="https://www.academia.edu/129148441/P%C4%81%E1%B9%87%E1%B8%8Ditya_Visualizing_Sanskrit_Intellectual_Networks" target="_blank">available now to read on Academia</a>.</p>
+            <p>(EDIT 2 May 2025: For those who want more detail, the pre-print of my Pāṇḍitya-SETI paper for WSC 19 (Kathmandu) is <a href="https://www.academia.edu/129148441/P%C4%81%E1%B9%87%E1%B8%8Ditya_Visualizing_Sanskrit_Intellectual_Networks" target="_blank">available now to read on Academia</a>.</p>
 
-            <p>EDIT 16 May 2025: I was also interviewed about the project by Raj Balkaran for the <em>Indian Religion</em> podcast of the <em>New Books Network</em>: <a href="https://newbooksnetwork.com/p%C4%81%E1%B9%87%E1%B8%8Ditya-mapping-sanskrit-texts-online" target="_blank"><em>Panditya: Mapping Sanskrit Texts Online</em></a>.)</p>
+            <p>EDIT 16 May 2025: I was also interviewed about the project by Raj Balkaran for the <em>Indian Religion</em> podcast of the <em>New Books Network</em>: <a href="https://newbooksnetwork.com/p%C4%81%E1%B9%87%E1%B8%8Ditya-mapping-sanskrit-texts-online" target="_blank"><em>Pāṇḍitya: Mapping Sanskrit Texts Online</em></a>.)</p>
 
-            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
-                <a href="../blog.html">&larr; Back to Blog</a>
+            <div class="post-nav">
+                <a href="panditya.html">&larr; Pāṇḍitya<span class="post-nav-date">February 7, 2025</span></a>
+                <a href="status-check.html" class="post-nav-next">Status Check (mini-post)&rarr;<span class="post-nav-date">September 15, 2025</span></a>
             </div>
         </div>
     </article>
