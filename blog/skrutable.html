@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skrutable - Kalpataru Diaries</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <a href="../about">About</a>
+                <a href="../projects">Projects</a>
+                <a href="../services">Services</a>
+                <a href="../blog">Blog: Kalpataru Diaries</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header" style="background-image: url('../images/dall-e/DALL%C2%B7E%202024-01-08%2023.47.40%20-%20An%20abstract%20tree%20composed%20entirely%20of%20computer%20circuits.%20The%20tree%20is%20intricate%2C%20with%20branches%20and%20leaves%20represented%20by%20various%20electronic%20components%20.png');">
+        <h1>Skrutable</h1>
+        <p style="margin-top: 1rem; opacity: 0.9;">March 10, 2024</p>
+    </div>
+
+    <article class="page-content">
+        <div class="container blog-post-content">
+            <p><em>Skrutable</em> was my first real digital Sanskrit project, my first real Python project, and, back when I began it, the first programming of any sort I had done in over ten years. At that time, in 2015, I was still in the early phase of understanding the basics of Unicode (used for both Indic scripts and IAST), so transliteration-plus-meter calculation was a very welcome starter project for me. I was really excited to be learning Python, which has a rich ecosystem of open-source tools, but I saw that Sanskrit was not yet well represented in that space, so I set about trying to make a useful contribution.</p>
+
+            <p>The project developed organically over the next few years. At first it was just a series of scripts that could be called from the command line, with support for the few transliteration schemes and meters I cared most about. As I got more enthusiastic, I added more schemes and more meters, and I also created a primitive <em>wxPython</em> user interface that required potential users to download the code and set it up to run locally, which I'm sure no one did.</p>
+
+            <figure>
+                <img src="../images/my_project_screenshots/skrutable_wx_python.png" alt="The old wxPython interface">
+                <figcaption>The old wxPython interface</figcaption>
+            </figure>
+
+            <p>Then, during winter 2021, while still in pandemic-bunker mode and looking for a break from dissertation writing, I took a week or two to put the project online in a way that would be actually useful to more people, using the PythonAnywhere hosting platform, which was surprisingly easy and fun and worth the couple of dollars it cost me. That web app, using simple Flask and Bootstrap, is still the main face of the project today. Over the next few years, I added a few more functional features (whole-file processing, meter melodies, sandhi and word splitting) and also a few accessibility features (pip-installability, HTTP endpoints).</p>
+
+            <p>Skrutable now stands as a three-part workbench, with both Python-package and web-based interfaces. The easiest way to use it for day-to-day purposes is to visit the web app at <a href="https://www.skrutable.info/" target="_blank">skrutable.info</a>.</p>
+
+            <figure>
+                <img src="../images/my_project_screenshots/skrutable2.png" alt="Skrutable web interface">
+                <figcaption>The current Skrutable web interface</figcaption>
+            </figure>
+
+            <p>This web interface gives access to all three major functions:</p>
+
+            <ol>
+                <li>Transliteration</li>
+                <li>Scansion and meter identification</li>
+                <li>Sandhi and word splitting</li>
+            </ol>
+
+            <p>Just enter input in the top box and click the appropriate blue button underneath to get output in the larger bottom box. I'll leave discussion of specific details for later posts. In the meantime, more info is available on the website's <a href="https://www.skrutable.info/about" target="_blank">About page</a>, including video presentations.</p>
+
+            <p>There are also two kinds of APIs for programmers to use:</p>
+
+            <ol>
+                <li>Object-oriented, pip-installable Python package <a href="https://pypi.org/project/skrutable/" target="_blank">skrutable on PyPi</a></li>
+                <li>HTTP endpoints at <a href="https://www.skrutable.info/api" target="_blank">skrutable.info/api</a></li>
+            </ol>
+
+            <p>With these, I hope to give coders flexible options for using Skrutable programmatically.</p>
+
+            <p>Now, to be clear, there are quite a few other projects that overlap with Skrutable. In the interest of transparency and clarity, I've compiled here below (see also <a href="https://github.com/tylergneill/skrutable/blob/main/src/skrutable/manual.md#related-projects" target="_blank">this table on the Skrutable GitHub page</a>) an updated selection of similar tools that do transliteration, meter, or word-splitting. My focus here is on 1) web apps, which are most useful for the majority of users overall, and 2) Python interfaces (either a PyPi package or a usable code repo), which are most useful for the majority of programmers. Other functionality like morphological analysis is not considered here.</p>
+
+            <p>Now, each of these projects has its strengths, and comparing them is not straightforward. Some projects aim to be more permissive of "average," real-world input and to give corresponding output, while others are more strict in demanding "properly" formatted input; how to render <em>anusvāra</em> and <em>anunāsika</em>, for example, is a surprisingly complex question. Again, some projects lean more heavily toward certain kinds of human use, while others lean more toward machine-operability. (For their part, programmers will notice more subtle differences like code quality and processing efficiency.) On the one hand, this diversity is natural, because different users place importance on different things. As a result, though, there are not yet any accepted benchmarks for assessing relative performance across these projects.</p>
+
+            <p>I would like to return to this question of comparison in the near future, because I believe some extra clarity would help. For now, though, I think we should simply accept some redundancy and competition in the space as a good thing. For one, academic software projects can easily lack proper financial support. Second, they tend to be idiosyncratic and maintainable only by their originators. In short, if such a project dies for whatever reason, the community will need other options. Plus, functional diversity among options, assuming a certain level of quality and robustness, is a good thing in its own right. I wouldn't say we need a <strong>lot</strong> more of these projects. But from personal experience, I know that they are fun to do, so I bet there will be more to come.</p>
+
+            <p>For my part, I plan to keep Skrutable up and running. Its web interface is no masterpiece, I know. And after now two years of working as a professional software engineer, I am only too aware of how creaky and cringy the code it is. There's lots to do, and I have more ideas than time. But I'm hoping to get back to work again soon.</p>
+
+            <div class="post-nav">
+                <a href="tools-of-the-trade">&larr; Tools of the Trade<span class="post-nav-date">February 25, 2024</span></a>
+                <a href="pramana-nlp" class="post-nav-next">Pramāṇa NLP &rarr;<span class="post-nav-date">March 24, 2024</span></a>
+            </div>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Tyler Neill.</p>
+            <div class="footer-links">
+                <a href="https://github.com/tylergneill" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/tyler-g-neill" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://uni-leipzig1.academia.edu/TylerNeill" target="_blank" rel="noopener">Academia</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

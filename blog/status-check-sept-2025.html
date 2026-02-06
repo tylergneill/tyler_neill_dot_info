@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Check (mini-post) - Kalpataru Diaries</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <a href="../about">About</a>
+                <a href="../projects">Projects</a>
+                <a href="../services">Services</a>
+                <a href="../blog">Blog: Kalpataru Diaries</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header" style="background-image: url('../images/dall-e/DALL%C2%B7E%202024-01-08%2023.47.40%20-%20An%20abstract%20tree%20composed%20entirely%20of%20computer%20circuits.%20The%20tree%20is%20intricate%2C%20with%20branches%20and%20leaves%20represented%20by%20various%20electronic%20components%20.png');">
+        <h1>Status Check (mini-post)</h1>
+        <p style="margin-top: 1rem; opacity: 0.9;">September 15, 2025</p>
+    </div>
+
+    <article class="page-content">
+        <div class="container blog-post-content">
+            <p>It's been almost five months since I last published anything on the blog — sorry for the radio silence! There's been a lot of interconnected work to get through, but I'm just about ready to start sharing again.</p>
+
+            <p>A brief programmatic note: I originally imagined this blog as a space where I would mostly learn from and write about others' projects, and only occasionally give updates on my own research. In practice, it's turned out the other way around. I currently have two or three more posts of that latter type in the works, hopefully dropping soon. Over time, I expect the balance to shift back, but we'll see.</p>
+
+            <p>Some of the other projects I'm still looking forward to writing about:</p>
+
+            <ul>
+                <li>Dharmamitra (so many aspects!)</li>
+                <li>Muktabodha</li>
+                <li>Wisdom Library (Gabe Hiemstra)</li>
+                <li>Jain eLibrary (Anish Visaria)</li>
+                <li>Sanskrit Research Institute (Martin Gluckman)</li>
+            </ul>
+
+            <p>And some topics:</p>
+
+            <ul>
+                <li>LLMs: For Everything, Everywhere, All at Once</li>
+                <li>Panini projects</li>
+                <li>Project Infra: From Offline Desktop Software to Web Apps to Packages and APIs</li>
+            </ul>
+
+            <p>If you other ideas, please let me know! Talk more soon.</p>
+            <div class="post-nav">
+                <a href="seti">&larr; SETI<span class="post-nav-date">April 23, 2025</span></a>
+                <a href="hansel" class="post-nav-next">HANSEL &rarr;<span class="post-nav-date">December 19, 2025</span></a>
+            </div>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Tyler Neill.</p>
+            <div class="footer-links">
+                <a href="https://github.com/tylergneill" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/tyler-g-neill" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://uni-leipzig1.academia.edu/TylerNeill" target="_blank" rel="noopener">Academia</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
