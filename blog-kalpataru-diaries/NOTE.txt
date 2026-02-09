@@ -1,0 +1,3 @@
+This directory exists only for backward compatibility.
+The canonical blog post URLs are under /blog/.
+These files simply redirect old /blog-kalpataru-diaries/ URLs to /blog/.

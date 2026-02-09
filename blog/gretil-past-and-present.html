@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRETIL: Past and Present - Kalpataru Diaries</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <a href="../about">About</a>
+                <a href="../projects">Projects</a>
+                <a href="../services">Services</a>
+                <a href="../blog">Blog: Kalpataru Diaries</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header" style="background-image: url('../images/dall-e/DALL%C2%B7E%202024-01-08%2023.47.40%20-%20An%20abstract%20tree%20composed%20entirely%20of%20computer%20circuits.%20The%20tree%20is%20intricate%2C%20with%20branches%20and%20leaves%20represented%20by%20various%20electronic%20components%20.png');">
+        <h1>GRETIL: Past and Present</h1>
+        <p style="margin-top: 1rem; opacity: 0.9;">July 6, 2024</p>
+    </div>
+
+    <article class="page-content">
+        <div class="container blog-post-content">
+            <p>For quite a few years now, GRETIL has been the go-to place for simple Sanskrit e-texts of all sorts. Its advantages are:</p>
+            <ol>
+                <li>academic-level quality;</li>
+                <li>minimal encoding requirements (close to plain-text); and</li>
+                <li>breadth of coverage (all genres and high quantity).</li>
+            </ol>
+
+            <p>Its main disadvantages are:</p>
+            <ol>
+                <li>frequent lack of metadata (e.g., source editions);</li>
+                <li>formatting that is sometimes too messy and variable;</li>
+                <li>frequently insufficient structure; and</li>
+                <li>insufficient versioning to track changes.</li>
+            </ol>
+
+            <p>And worst of all, sadly, as of 2020, GRETIL is stalled and no longer being updated (see its <a href="https://gretil.sub.uni-goettingen.de/hist" target="_blank">"Update History"</a>). The website is still up and fully functional, but the situation is unfortunate nonetheless, because it is no longer possible to add or modify anything. Let's review the project's basic history ("past") and statistics ("present") before talking about what to do next ("future").</p>
+
+            <h2>GRETIL's Past</h2>
+
+            <p>GRETIL was started by Reinhold Grünendahl at Göttingen as a "register", not a repository, as indicated in its name (see also the small <a href="https://en.wikipedia.org/wiki/GRETIL" target="_blank">Wikipedia entry</a> for more references). That is, rather than storing e-texts on its own server, it focused on simply linking out to such documents on the web, wherever else they might be: TITUS, Sansknet, Sanskrit Documents, Indology E-Texts, Gaudiya Grantha Mandira, Digital Sanskrit Buddhist Canon, etc. etc., not to mention numerous personal or departmental websites. Naturally, there was no unifying format or mission for these various documents. In this form, GRETIL was easy to "add to", in that this simply entailed GRETIL's becoming "aware" of the new document, so to speak.</p>
+
+            <p>Over time, however, due to its expanding popularity, GRETIL shifted to being the first place the author of a new e-text might want to put it so that it would have the widest audience. This is undoubtedly related to the fact that any given repository (especially a less popular one) has the unfortunate tendency to disappear after a while. That meant that GRETIL needed to embrace a new identity of being a repository in its own right. Its popular mass-download feature allows users to quickly get ahold of everything for use on their own machine. But this requires GRETIL to have downloaded copies of all the "registered" files on its own server. Naturally this creates the possibility that source files can be updated on their own servers in their respective corners of the internet without GRETIL being notified. And this creates a further incentive for GRETIL to be the actual holder of the primary source file. As a measure of the extent to which the various erstwhile sources are largely irrelevant now, an automated check of the external links on the GRETIL site reveals that fully half of these links (384/772) are broken (the Sansknet files being the most obvious case for Sanskrit users) — and this is bothering basically no one. In summary, over time, the GRETIL copies, including the copies downloaded to people's individual machines at various times, became the primary form of this data in the world. And despite the activity of several other interesting and ambitious projects like DCS and SARIT, GRETIL has remained the dominant all-purpose source for academic Sanskrit e-texts.</p>
+
+            <p>Then, as mentioned, in 2020, the collection stopped in its tracks. Around this same time, perhaps as part of an effort to jumpstart it, Maximillian Mehner, a graduate student working with Grünendahl at Göttingen, made an effort to get <a href="https://github.com/mmehner/gretil-corpus-tei" target="_blank">GRETIL on GitHub</a>, specifically with TEI-XML as the primary encoding and HTML and TXT as secondary transformations. This could have brought numerous benefits, like versioning and a standard for including metadata, but the effort was unfortunately short-lived. The repo has not changed since August 2021, and most (if not all) users still resort to the static HTML transforms on the website.</p>
+
+            <p>For more context, let's quickly review the various alternatives to GRETIL over the years. The closest overall for openness and accessibility is probably <a href="https://sanskritdocuments.org/" target="_blank">Sanskrit Documents</a>, a useful collection especially for devotional texts, but not generally associated with scientific rigor. On the other end of the spectrum, SARIT — whose <a href="https://github.com/sarit/SARIT-corpus" target="_blank">repo on GitHub</a> (containing 83 texts) is more complete than the now-basically-obsolete <a href="https://sarit.indology.info/" target="_blank">web-app</a> (with only 60 texts) — is <strong>so</strong> rigorous, including in its use of TEI-XML, that most feel discouraged from contributing to it and aren't able to use the text data directly. Similarly, the <a href="http://www.sanskrit-linguistics.org/dcs/index.php" target="_blank">Digital Corpus of Sanskrit</a> is impressive in many ways, especially for its <a href="https://github.com/OliverHellwig/sanskrit/tree/master/dcs/data/conllu" target="_blank">analyzed and openly available data</a>, but it is not set up to accept new contributions. From somewhat longer ago, <a href="https://titus.uni-frankfurt.de/indexe.htm" target="_blank">TITUS</a> and <a href="https://sanskritlibrary.org/" target="_blank">Sanskrit Library</a> used to be bigger players, and they still have their audiences, but their decidedly web-1.0 appearances and limited interoperability with other projects are significant obstacles to their continued use. Indology.info no longer maintains its own e-text collection as <a href="https://web.archive.org/web/20210101184349/https://indology.info/etexts/" target="_blank">it once did</a> (Jan 2021), but it <a href="https://indology.info/external-resources/" target="_blank">does still remain</a> a venerable place for listing other such resources. And last but not least, there are various other substantial and important specialty collections: <a href="https://muktabodha.org/" target="_blank">Muktabodha</a> (for Śaiva content), <a href="https://www.dsbcproject.org/" target="_blank">Digital Sanskrit Buddhist Canon</a> (largely absorbed into GRETIL, actually), UT Austin's <a href="https://sites.utexas.edu/sanskrit/resources/dharmasastra/" target="_blank">Resource Library for Dharmaśāstra Studies</a>, Andrew Ollett's <a href="https://github.com/aso2101/prakrit_texts" target="_blank">Prakrit Digital Text Project</a>, and quite a few more. But nothing has ever quite matched GRETIL's balance of breadth, overall quality, and simplicity of access.</p>
+
+            <p>Given its central position, it is primarily GRETIL that in recent years has served as a data source for numerous corpus-scale computational projects. Many of these projects are not formally connected to academia, and they often take the form of reading environments that offer large amounts of text augmented with additional functionalities like sentence analysis, dictionary entries, translation, and so on. Notable examples include <a href="https://buddhanexus.net/skt/neutral" target="_blank">BuddhaNexus</a> (now on its way to being reborn as <a href="https://dharmamitra.org/about" target="_blank">Dharmamitra</a>), <a href="https://ambuda.org/" target="_blank">Ambuda</a>, <a href="https://sanskritsahitya.org/credits" target="_blank">Sanskrit Sahitya</a>, <a href="https://www.wisdomlib.org/" target="_blank">Wisdom Library</a>, and more. Some of these projects are making changes/improvements to the text data as they go; see for example Sanskrit Sahitya's note <a href="https://sanskritsahitya.org/credits" target="_blank">here</a> and the substantial digitization effort of Ambuda <a href="https://ambuda.org/proofing/" target="_blank">here</a>. Similarly, Vishvas Vasuki has been maintaining a massive "<a href="https://github.com/sanskrit/raw_etexts" target="_blank">raw_etext</a>" meta-collection for a few years, and I think this also involves changing content. Even assuming these changes are being made in scientifically principled ways (not a given!), I haven't yet seen any plans for propagating these changes beyond the GitHub pages of these projects. Unsurprisingly, then, it seems profitable and exciting to use this Sanskrit data, but far fewer seem to want the unglamorous job of taking care of it <em>en masse</em>.</p>
+
+            <h2>GRETIL's Present</h2>
+
+            <p>Now let's take stock of what exactly GRETIL is today. For this exercise, BuddhaNexus's usage of GRETIL (see <a href="https://github.com/dharmamitra/sanskrit-texts/blob/main/SA-files.json" target="_blank">here</a>) provides a useful basis for understanding the latter's scope and structure. Also note that I'm using file size here as a rough-and-ready proxy for text size, but this certainly breaks down the more XML markup is added.</p>
+
+            <p>How many works are in the GRETIL Sanskrit corpus? The mass-download contains approximately 1,300 files, if you exclude the TEI forms straightaway and count only the .htm files. Further excluding niche documents with extra analysis (e.g., BHELA-style sandhi splitting, metrical markup, etc.), we're left with a little over 1,000 files. To arrive at a count of "unique works" represented, we must further exclude alternate versions (e.g., based on different editions) and additional files used to split up large works (e.g., the 18 books of the Mahābhārata). This is far from trivial to work out, especially given the frequently complex nature of "root texts" and "commentaries". For example, if GRETIL has only one file for a root text + commentary in one case, but two files in another case (i.e., an additional "extracted root text"), we probably should normalize this — I would argue in the direction of separation in cases where separate authorship of these parts is relatively certain. Also, when the individual parts of large works have distinct characters, should they not be counted separately, especially when tiny stotra texts might themselves count as one? So, maybe counting unique works is not actually very useful. That being said, I've gone through, looking at all titles and comparing contents, and I come up with a rough count of 700 unique works.</p>
+
+            <p>Before controlling for uniqueness, the mass-download is about 350 MB. Controlling for uniqueness as explained above reduces this number by half, to about 175 MB. Again, this rules out multiple competing versions of the same work, e.g., as based on different editions. Clearly, these alternate versions may have scientific value. However, for the sake of comparing with other collections that do not have such redundancy issues, thinking in terms of uniqueness does have its place.</p>
+
+            <p>So, now, using these reduced numbers, let's compare against other corpora, including average file sizes. (Notes: For Muktabodha, I control for uniqueness in the same way as for GRETIL. For DCS numbers, I exported "text" lines from the GitHub .conllu files plus some basic identifier info and measured that result. For SARIT and its heavy XML markup, in total 132.8 MB, I estimated plain-text equivalents by extrapolating from the case of MBh, which is 36.8 MB on SARIT vs. 15.0 MB on GRETIL.)</p>
+
+            <p>These numbers show that:</p>
+            <ul>
+                <li>individual works in GRETIL (and Muktabodha and Digital Corpus of Sanskrit) are of medium size compared to other collections;</li>
+                <li>Muktabodha is overall on the same order of magnitude as GRETIL(!);</li>
+                <li>individual works in SARIT (even after controlling for XML markup) and in the UT Austin Dharmaśāstra collection are considerably larger than average; and</li>
+                <li>Digital Sanskrit Buddhist Canon (DSBC) is dominated by quite small texts.</li>
+            </ul>
+
+            <p>Second, let's talk about the categorical structure of GRETIL. It's fairly clear already in the folder structure of the mass download, but further elucidation is provided by BuddhaNexus, which highlights GRETIL's large amount of Buddhist material by actually breaking this out into its own new categories (see <a href="https://buddhanexus.net/skt/neutral" target="_blank">explanation here</a>). Here's a percentage breakdown by category, both in terms of size and file counts (this time without the uniqueness normalization described above).</p>
+
+            <figure>
+                <img src="../images/misc_screenshots/GRETIL by Genre (MB).png" alt="GRETIL by Genre (MB)">
+                <figcaption>GRETIL collection size by genre (MB)</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images/misc_screenshots/GRETIL by Genre (raw file count).png" alt="GRETIL by Genre (file count)">
+                <figcaption>GRETIL collection by raw file count</figcaption>
+            </figure>
+
+            <p>It's handy to compare a given color-coded section across these two charts. If the file-count slice is larger than the file-size slice, that shows that the average file size is relatively small (e.g., Buddhist Non-Scripture); if the file-count slice is smaller, that shows that the average file size is relatively large (e.g. epic).</p>
+
+            <p>There are blind spots. Much Buddhist- and other pramāṇa-śāstra needs to be sought elsewhere, like in SARIT (hence the creation of Pramāṇa NLP to bring such resources together). For the vast amount of Śaiva literature, Muktabodha is an incredible supplemental resource. For Dharmaśāstra, the UT Austin collection is surely underestimated. And Jaina literature, Jain Quantum notwithstanding, is sadly not represented really anywhere yet in a usable form. All told, though, GRETIL's general representation of Sanskrit literature as a whole is still unparalleled.</p>
+
+            <p>And format-wise, as mentioned, there is no unifying standard for GRETIL data. Beyond the simple HTML structure (metadata above, text below, but all in the &lt;body&gt; element), users are simply expected to expect the unexpected.</p>
+
+            <h2>GRETIL's Future...</h2>
+
+            <p>This part gets more audacious, and the current post is long enough already, so I'll continue in a subsequent post...</p>
+
+            <div class="post-nav">
+                <a href="ocr-options">&larr; OCR Options<span class="post-nav-date">May 5, 2024</span></a>
+                <a href="splitter-options" class="post-nav-next">Splitter Options &rarr;<span class="post-nav-date">October 31, 2024</span></a>
+            </div>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Tyler Neill.</p>
+            <div class="footer-links">
+                <a href="https://github.com/tylergneill" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/tyler-g-neill" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://uni-leipzig1.academia.edu/TylerNeill" target="_blank" rel="noopener">Academia</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

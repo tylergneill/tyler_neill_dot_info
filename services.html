@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Sanskrit and Tech with Tyler</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="/" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <a href="about">About</a>
+                <a href="projects">Projects</a>
+                <a href="services">Services</a>
+                <a href="blog">Blog: Kalpataru Diaries</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header" style="background: url('images/dall-e/DALL%C2%B7E%202024-02-01%2014.48.07%20-%20Starting%20over%20with%20a%20new%20design_%20A%20very%20flat%20and%20wide%20woodcut-style%20landscape%20illustration.%20On%20the%20left%2C%20a%20male%20character%20with%20dark%20hair%20styled%20in%20a%20p%20copy.png') center/cover no-repeat;">
+        <h1>Services</h1>
+    </div>
+
+    <section class="page-content">
+        <div class="container" style="text-align: center;">
+            <p>What can I do for you? I love tutoring of all sorts, for example! Or maybe you have a one-off task you need some expert help with. Get in touch, we'll chat.</p>
+        </div>
+    </section>
+
+    <section class="page-content" style="padding-top: 0;">
+        <div class="container">
+            <div class="tutoring-contact">
+                <div class="tutoring-info">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="contact-name" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contact-email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contact-message" placeholder="Message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send</button>
+                    </form>
+                    <p id="contact-thanks" class="form-thanks" style="display:none;">Thanks for your message! I'll get back to you soon.</p>
+                </div>
+                <div class="tutoring-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.1234567890!2d-73.9865!3d40.7033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a316e4b1e0d%3A0x1234567890abcdef!2s155+Water+St%2C+Brooklyn%2C+NY+11201!5e0!3m2!1sen!2sus!4v1700000000000"
+                        width="100%"
+                        height="400"
+                        style="border:0; border-radius: 4px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <p class="map-caption">If you're in NYC, I'm in Downtown Brooklyn for in-person meetings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Tyler Neill.</p>
+            <div class="footer-links">
+                <a href="https://github.com/tylergneill" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/tyler-g-neill" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://uni-leipzig1.academia.edu/TylerNeill" target="_blank" rel="noopener">Academia</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var data = new FormData();
+            data.append('entry.1613246501', document.getElementById('contact-name').value);
+            data.append('entry.593212232', document.getElementById('contact-email').value);
+            data.append('entry.1061543763', document.getElementById('contact-message').value);
+            fetch('https://docs.google.com/forms/d/e/1FAIpQLSeGRLRbOCNql5XQZIbL1JZzSz-fO9rqrLsGlXwEDDDArLGaeQ/formResponse', {
+                method: 'POST',
+                body: data,
+                mode: 'no-cors'
+            }).then(function() {
+                document.getElementById('contact-form').style.display = 'none';
+                document.getElementById('contact-thanks').style.display = 'block';
+            });
+        });
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

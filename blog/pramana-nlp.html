@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pramāṇa NLP - Kalpataru Diaries</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <a href="../about">About</a>
+                <a href="../projects">Projects</a>
+                <a href="../services">Services</a>
+                <a href="../blog">Blog: Kalpataru Diaries</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header" style="background-image: url('../images/dall-e/DALL%C2%B7E%202024-01-08%2023.47.40%20-%20An%20abstract%20tree%20composed%20entirely%20of%20computer%20circuits.%20The%20tree%20is%20intricate%2C%20with%20branches%20and%20leaves%20represented%20by%20various%20electronic%20components%20.png');">
+        <h1>Pramāṇa NLP</h1>
+        <p style="margin-top: 1rem; opacity: 0.9;">March 24, 2024</p>
+    </div>
+
+    <article class="page-content">
+        <div class="container blog-post-content">
+            <p>(NB! While I want most posts in this blog to be relatively accessible, this one is rather technical. It is mainly for those more advanced readers who are interested in <em>pramāṇa</em> studies and/or those who are already thinking about issues surrounding digitization of pre-modern text.)</p>
+
+            <p>By way of background: <em>Pramāṇa</em> is a key concept in Indian epistemology, understood as a <em>foundational means of secure knowledge</em>, the most important subtypes of which are direct perception (<em>pratyakṣa</em>), inferential reasoning (<em>anumāna</em>), and linguistic testimony (<em>śabda</em>). Different schools of thought differed on the details, but basically all epistemologists writing in Sanskrit were deeply entrenched in the idea — even if they were trying to undermine it — and nearly everyone believed that correct knowledge concerning the self (and what's not the self) is the main driver of spiritual liberation.</p>
+
+            <p>The Pramāṇa NLP project grew out of the need to extract research insights from a large and formidable corpus of such epistemological works. The idea — in fact the initial list for which texts to include — came from the Nyāyabhāṣya Digital Critical Edition project team (including Philipp Maas, although the <a href="https://gepris.dfg.de/gepris/projekt/279803509?language=en" target="_blank">DFG page</a> doesn't mention him now), and I took it and ran as part of my dissertation work. Due to my own focus on a single work (the 10th century Nyāyabhūṣaṇa), the corpus includes only texts of those works (mostly Nyāya and Buddhist from the first millenium) which are most relevant for it. These 60-odd texts were sourced from various other corpora (GRETIL, SARIT, etc.), restructured when needed, and cleaned (with regular expressions and, regrettably, often lots of man-hours). The main use of the corpus so far has been to serve as the basis for the Vātāyana system (see <a href="/projects#vatayana">description on Projects page</a>), but it is open source and designed for any number of downstream NLP uses, hence the name.</p>
+
+            <figure>
+                <img src="../images/my_project_screenshots/Pram%C4%81%E1%B9%87a%20NLP.png" alt="Pramāṇa NLP on GitHub">
+                <figcaption>Pramāṇa NLP on GitHub</figcaption>
+            </figure>
+
+            <p>When I say that it is designed for NLP, I mean the following things:</p>
+
+            <p><strong>1. Clear division between structure and content</strong>: The words that these authors wrote (i.e., the content) and all the other stuff of modern edited books (i.e., the structure, including page numbers, an editor's chapter headings and notes, etc.) are easily distinguished through the use of markup. XML definitely would have also worked for this, but I wanted the raw files to be more human readable in the short term, and XML can always happen later, so I opted for a simple scheme based on brackets, explained <a href="https://github.com/tylergneill/pramana-nlp/blob/master/data_prep/4_segmentation/README.txt" target="_blank">here</a>.</p>
+
+            <p><strong>2. Removable structure</strong>: All structural elements can be programmatically removed, and separately so (e.g., it's possible to leave page numbers and headers but remove text-critical notes about variant readings). Given the markup scheme I chose, simple regexes are enough for this, no XSLT required.</p>
+
+            <p><strong>3. Clean and continuous natural-language content</strong>: What remains when structural bits are removed looks like real and modern language, with no spurious whitespace corrupting individual words (unfortunately a frequent problem with digitized Sanskrit!) but still with useful punctuation separating the text into meaningful units, including sentences and, perhaps even more importantly, paragraphs wherever possible.</p>
+
+            <p><strong>4. Fine-grained identifiers</strong>: Any given portion of text is associated with an identifier that describes at most a paragraph or so of material. This makes it possible to point a user to a relatively small piece of the corpus in a less disorienting way, which is useful both for making hyperlinks and for delivering search results.</p>
+
+            <p><strong>5. Quality <em>and</em> quantity</strong>: For any given work represented in the corpus, I usually chose from among several possible sources, and I made the extra effort to secure the best-quality option possible, including when that involved e.g. painstakingly extracting it from the SARIT database (e.g., Jayantabhaṭṭa's Nyāyamañjarī) or digitizing it myself from scratch (e.g. Vyomaśiva's Vyomavatī). Sometimes, it meant biting the bullet and excluding an important work due to serious problems with existing versions and insufficient time to produce my own (e.g., Vasubandhu's Abhidharmakośabhāṣya). I also spent several years on the effort, trying to cover a respectable portion of the works relevant to my subject of study (Nyāyabhūṣaṇa). The resulting size of the corpus, after eliminating much processed material that did not meet the final quality check, is over two million words; for scale, the Digital Corpus of Sanskrit is around five million words.</p>
+
+            <p>Taken together, these features are what I think make the corpus fairly unique in the Sanskrit world.</p>
+
+            <p>To finish this post, I have three more reflections.</p>
+
+            <figure>
+                <img src="../images/downloads/paulinum.jpg" alt="Leipzig Paulinum tower">
+                <figcaption>Leipzig Paulinum</figcaption>
+            </figure>
+
+            <p>1. When I reflect on the ideals of the project, it seems clear to me that I was strongly influenced by a digital humanities project called Text-Fabric, by Dirk Roorda. During a 2017 workshop held in the inspiring glass-walled classroom at the top of the Leipzig Paulinum tower (pictured above), he presented a radical view of <em>text as markup</em>, which basically meant thinking of the text as a list of words or characters and considering the indices of the list to be primary and the text as secondary. Within a Jupyter Notebook (which I hadn't really seen before), he had the entire Hebrew bible at his fingertips and me on the edge of my seat. It really seemed like the textual data was one continuous manifold, with content and annotation sitting comfortably side-by-side, a hyper-dimensional stream of concentrated information. I'm not sure to what extent this project is still in use, but a certain ethos of purity, elegance, and accessibility has stuck with me, guiding my own vision.</p>
+
+            <p>2. A clarification: My goal was not and is not to fix all textual problems I find while digitizing. Granted, I did let myself do some of that — too much, to tell the truth. Ideally, this work requires at least some rigorous philological training (some of which I do have) AND an enormous amount of (lovely, tedious, meritorious) work carried out in conversation with the community of other skilled philologists, which requires far more time than any individual or even team of full-time individuals has for a project of this scale. At some point, we have to settle for taking the best that philology has produced so far, doing our corpus linguistics on that, and thinking about robust ways to feed back into more and better philology, without getting bogged down ourselves.</p>
+
+            <p>3. Finally, on putting yourself out of business: Pramāṇa NLP shouldn't need to exist as a repository separate from the others that are more well-known. This is why I said "regrettably" above about the hours spent in text cleaning, because insofar as I have produced an updated version of a text through my laborious cleaning process, those updates — which may well be useful, but which have not been peer-reviewed in any scientifically robust way — are now on a separate branch of development that can easily cause confusion and/or fall into obscurity. But all is not lost, because reconciliation is possible. These improvements can be fed back into source repositories. This does take a good deal of effort. Also, it might take some compromise, if not all my changes are agreed to be proper. In the next phase of development, I'd like to make sure that each text in the Pramāṇa NLP corpus can return to or join an established online repository in an improved form.</p>
+
+            <p>4. To sum up, if there is a single new data concept which is responsible for the creation of Pramāṇa NLP and which I hope the project can help others understand, it is this: that it should be possible to transform a repository document into a document ready for use with NLP methods with entirely automatic means. In other words, I should be able to write a data ingestion pipeline that downloads Sanskrit corpus data from well-known repositories on the internet, runs preprocessing scripts, and can be so rerun whenever the source has been updated and/or the preprocessing code has changed. At present, this is far from being true in most (but not all) cases. But it is important, and it is the message Pramāṇa NLP is meant to convey, namely through the example of the Vātāyana project built on top of it. Only after making more progress on this central mission do I think Pramāṇa NLP should be expanded to include other philosophical works (many remain!), to say nothing of extending its approach (hopefully someday!) to other genres.</p>
+
+            <div class="post-nav">
+                <a href="skrutable">&larr; Skrutable<span class="post-nav-date">March 10, 2024</span></a>
+                <a href="vatayana" class="post-nav-next">Vātāyana &rarr;<span class="post-nav-date">April 7, 2024</span></a>
+            </div>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Tyler Neill.</p>
+            <div class="footer-links">
+                <a href="https://github.com/tylergneill" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/tyler-g-neill" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://uni-leipzig1.academia.edu/TylerNeill" target="_blank" rel="noopener">Academia</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
