@@ -1,3 +1,4 @@
-This directory exists only for backward compatibility.
-The canonical blog post URLs are under /blog/.
-These files simply redirect old /blog-kalpataru-diaries/ URLs to /blog/.
+This directory exists only for backward compatibility,
+namely to support old links to blog posts before the migration away from Squarespace.
+The newer, canonical blog post URLs are under /blog/.
+The files in this direction simply redirect old /blog-kalpataru-diaries/ URLs to /blog/.
