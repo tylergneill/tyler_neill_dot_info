@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chips from a Sanskrit OCR workshop - Kalpataru Diaries</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="../" class="site-title">Sanskrit and Tech with Tyler</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav">
+                <a href="../about">About</a>
+                <a href="../projects">Projects</a>
+                <a href="../services">Services</a>
+                <a href="../blog">Blog: Kalpataru Diaries</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header" style="background-image: url('../images/dall-e/DALL%C2%B7E%202024-01-08%2023.47.40%20-%20An%20abstract%20tree%20composed%20entirely%20of%20computer%20circuits.%20The%20tree%20is%20intricate%2C%20with%20branches%20and%20leaves%20represented%20by%20various%20electronic%20components%20.png');">
+        <h1>Chips from a Sanskrit OCR workshop</h1>
+        <p style="margin-top: 1rem; opacity: 0.9;">February 13, 2026</p>
+    </div>
+
+    <article class="page-content">
+        <div class="container blog-post-content">
+            <p >Have you ever had the thought with a Sanskrit e-text that’s been around for a while that it might just be best to start over with OCRing it from scratch? But then what about all the insights hidden in the older file? Ideally we’d get the best of both worlds.</p><p >This was the situation I found myself in recently with digitizing Bāṇa’s Kādambarī, which I was inspired to do based on conversations with my friend and fellow Sanskritist Tyler Richard. Much to my surprise, I found that Andrew Ollett had begun the task a few years back and published the incomplete results to the SARIT GitHub repository (the SARIT website is no longer updated to reflect such new additions). Andrew had started with Google Cloud Vision OCR, done some intelligent proofreading throughout—I think both with regular expressions and with good old-fashioned visual inspection—and supplied TEI-XML encoding. After first undoing the XML encoding for the sake of comparison, I assessed the state of the file by re-OCRing a portion with Google Cloud Vision, whose model under the hood had now improved, and comparing it against the material extracted from Andrew’s file.</p><p >[XML Kādambarī image]</p><p >The result: Andrew’s file had some clear improvements over the OCR, and vice versa. There were thousands upon thousands of loci with relevant differences, and neither file was consistently better. Given the scope and difficulty of Kādambarī, rather than attempt to simply plow linearly through either file, all the while consulting the second one and performing all possible proofreading in one pass, I decided to first see what it would take to semi-automatically combine these two files, publish the result of that improvement, and only later attempt a full proofread. After all, this effort wasn’t only about Kādambarī. It was about method that would generalize to other cases, as well.</p><p >At first, given the complex nature of the differences, I didn’t have much hope of automating the process beyond just developing a better workflow for manual comparison.  The challenge there was to be able to quickly identify and resolve each locus, in a reliable way, without succumbing to exhaustion and giving up—in general, probably the same sort of reason why this text was never digitized in full before. I knew of several tools for comparing and merging largely similar text files based on years of doing such “diff” work in programming. I tried BBEdit (my daily text editor), PyCharm (my daily programming IDE), and also Atom, Sublime, and VS Code. I found that these would highlight the <strong>lines</strong>—or worse, the <strong>blocks of lines</strong>—containing any differences. However, Kādambarī’s lines were so often filled with extremely long compounds and difficult words that simply scanning visually to find the relevant individual <strong>characters</strong> to compare correct was too exhausting. Try as I might, I couldn’t get these tools to do that for me, and I couldn’t find any others, either. After struggling for a few days, I gave up, and I decided to build my own. This project, called Squinter, eventually did well enough at the task to keep me engaged and the data work moving, and it gave me a real appreciation for the difficulty of the specific text alignment challenge.</p><p >[Squinter image]</p><p >One year later, I realized that I just hadn’t looked around hard enough, and I found that there were in fact diff tools that did what I wanted, if one knew where to look. Tools called Beyond Compare, Diffuse, and Meld stood out, and I ended up going with Meld. The Squinter project is now archived.</p><p >For the use case of carefully checking each and every textual difference between two files and making informed decisions about each, I now had a satisfying solution. The only mod I made was in a stylesheet to use a more obvious color for differences (bright yellow). Meld’s UX is buggy at times but mostly smooth and satisfying. See the GIF below for how it effectively shows the individual character difference and provides a button to transfer the difference between files, complete with a satisfying visual effect. It feels like I’m playing a video game, zapping little gremlins. I can’t ask for a better result than that. (Note, however, that I have seen Meld occasionally commit false-negative type mistakes, not highlighting legitimate difference! I think it’s 99.9% accurate, though, which is good enough to keep using, but I’ll keep my eye out for something even more reliable.)</p><p >[Meld GIF]</p><p >But now imagine a different case, where one does NOT want to go through the files, difference by difference, making informed decisions. For example, I noticed that Google Cloud Vision (available through Skrutable) and Google Gemini 2.0 Flash (available through Dharmamitra, although with what prompt is unclear) produced different OCR results in an interesting way, where each model had its strengths and neither was consistently better than the other. Could one somehow get the benefit of each? I thought to try siccing AI on the problem, as this could be basically entirely automated.</p><p >Turns out, it works pretty well! The following algorithm will produce Sanskrit OCR that is beyond any other option I know of at present.</p><ol data-rte-list="default"><li><p >Use Skrutable and Dharmamitra to produce alternate OCRs of a PDF.</p></li><li><p >Lightly clean them to make sure their page-by-page structure can be parsed.</p></li><li><p >One page at a time, submit a query to a GenAI model (e.g., Google Gemini 2.5 Pro) containing both the merge instructions (details matter!) and the corresponding page from each.</p></li><li><p >Iterate through all pages, collect the results, and concatenate the resulting text together into one file.</p></li></ol><p >Note: Depending on which GenAI model, which interface, and how quickly one wishes to execute the workflow, this likely costs money.</p><p >[billing image showing $xx / 100 pages]</p><p >I mentioned that details matter as regards the instructions given to the LLM system. That’s because these systems are non-deterministic and will tend to hallucinate results and deviate from a uniform format unless tightly constrained. For example, I share here the exact prompt I have found works well.</p><p >As you can see, not only does this produce the text output, but it produces an auxiliary apparatus documenting the AI’s decisions, in a familiar format. My experience shows that this apparatus is something like 99% reliable, not 100%, but even so, it can be useful for assessing the model’s “thought process” and double-checking its work.</p><p >[apparatus image]</p><p >At some point, I will try to publish a quantitative comparison of doing this versus just using one or the other OCR strategy. Another option is to use the highest-power GenAI model available to simply perform the OCR straightaway. Currently, I’m skeptical that this does as well on complex cases, because specifically in an academic context, hallucinations are very bad, and entrusting one very-smart model with the task is too risky, compared to using at least one “dumb” model like Google Cloud Vision that tends to produce a more literal result.</p><p >The way I see it, depending on the stage of work, we can use either or both of these two methods. If the goal is to generate some quick improvements, say to an old GRETIL file, we can generate some stereoscopic OCR, then ask AI to merge the GRETIL file and this OCR, and then we can use Meld to compare the penultimate result to the original GRETIL file, making manual decisions to arrive at a final product.</p><p >While potentially pricey compared to freebie methods, it’s not impossible to offset such technology costs, say with modest grant money. In the effort to gradually upgrade our Sanskrit e-text corpora in terms of their overall quantity and their fidelity to the printed sources on which they are based, this represents a genuinely new possibility for rapid advancement. As a bonus, you can even apply this to handwritten material, such as relatively clear manuscripts in common scripts like Devanagari, and get similarly best-in-class results, all with off-the-shelf components.</p><p >For more info on the exact files use, see this repo containing a Jupyter Notebook like the one I’ve run with great success. Just set up your AI API keys, prepare your PDFs, and you’re ready to roll.</p><p >[Jupyter image]</p><p >And once we produce a bunch of really reliable material this way, we can train our own OCR post-correction models. Currently this research is proceeding with less-than-perfect data, but once the data is improved, I think performance will improve, as well.</p>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Tyler Neill.</p>
+            <div class="footer-links">
+                <a href="https://github.com/tylergneill" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/tyler-g-neill" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://uni-leipzig1.academia.edu/TylerNeill" target="_blank" rel="noopener">Academia</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
