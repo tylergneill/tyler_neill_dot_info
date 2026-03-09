@@ -89,6 +89,8 @@
 
             <p>Above all, splitting accuracy has substantially improved. Below is Table 3 from the above-mentioned 2024 arXiv paper giving accuracy in terms of percentage of sentences without errors. Benchmarks from left to right include a relatively large subset of the DCS and two smaller subsets of the DCS which play nicely with the Heritage system. (The middle row is another model with a <a href="https://sanskritshala.github.io" target="_blank">nonfunctional online interface</a>, for which reason I omit it from the discussion here.)</p>
 
+            <img src="../images/misc_screenshots/splitter-accuracy-table.png" alt="Table 3 from the 2024 arXiv paper: accuracy comparison of Sanskrit splitter models">
+
             <p>From around <strong>80-85%</strong> with the 2018 Splitter model ("rcNN-SS"), accuracy goes up to <strong>90-95%</strong> with the 2024 ByT5-Sanskrit model — a whopping 5-10% gain, depending on the benchmark.</p>
 
             <p>But evaluating accuracy in Sanskrit sentence splitting is itself not straightforward — it depends on how we define "errors" or the "right answer." For example, there can easily be disagreement on whether proper names like <em>Kurukshetra</em> or <em>Yudhishthira</em> should be split. Similarly, one can question how or whether to split non-proper compound nouns or adjectives, like <em>arthakriyā</em>, as well as words with prefixes like <em>a(n)-</em> or suffixes like <em>-tva</em>. The situation becomes even more complex with compound verbs, indeclinables, or, more rarely, the use of <em>ślesha</em> (wordplay which allows for multiple valid interpretations).</p>
@@ -97,9 +99,11 @@
 
             <p>That said, the upward trend in accuracy is clear from the numbers. However, beyond the metrics — which would be difficult for most to replicate — you can try both models yourself on Skrutable. Personally, I prefer the 2024 model, which is why it's now the default, though I believe the 2018 model still serves as a useful second opinion.</p>
 
-            <h3>Speed</h3>
+            <h3 id="speed">Speed</h3>
 
             <p>Beyond accuracy, speed also matters. For instance, how long does it take to split the 700 verses of the Bhagavadgītā? For this input size, the 2018 model averages about 90 verses per second, or roughly 8 seconds total. Note that the server for this model, the <a href="https://github.com/tylergneill/splitter_server" target="_blank">implementation</a> of which is my own, could likely be optimized further. The 2024 model, meanwhile, running on a proper GPU cluster at Berkeley, is considerably faster at about 175 verses per second, or 4 seconds total, and with better accuracy. Using the option to hyphenate compounds slows the 2024 model down significantly, making it slightly slower than the 2018 model for texts of this particular size. Exactly how speed varies with input size is shown in the graph below; note that 700 lines is very nearly the breakeven point where the 2018 model starts to outpace 2024-with-hyphens.</p>
+
+            <img src="../images/misc_screenshots/splitter-speed-graph.png" alt="Speed comparison graph: 2018 vs. 2024 Sanskrit splitter models by input size">
 
             <p>The overall takeaway? These tools are appropriately and righteously fast for most purposes.</p>
 
