@@ -73,6 +73,26 @@
 
             <p>So, now, using these reduced numbers, let's compare against other corpora, including average file sizes. (Notes: For Muktabodha, I control for uniqueness in the same way as for GRETIL. For DCS numbers, I exported "text" lines from the GitHub .conllu files plus some basic identifier info and measured that result. For SARIT and its heavy XML markup, in total 132.8 MB, I estimated plain-text equivalents by extrapolating from the case of MBh, which is 36.8 MB on SARIT vs. 15.0 MB on GRETIL.)</p>
 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Corpus</th>
+                        <th>Total (MB)</th>
+                        <th>Unique works</th>
+                        <th>Avg work (MB)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>GRETIL</td><td>175</td><td>700</td><td>0.25</td></tr>
+                    <tr><td>Muktabodha</td><td>125</td><td>430</td><td>0.29</td></tr>
+                    <tr><td>DCS</td><td>56.7</td><td>257</td><td>0.22</td></tr>
+                    <tr><td>SARIT</td><td>54.2</td><td>83</td><td>0.65</td></tr>
+                    <tr><td>UT Austin Dharmaśāstra</td><td>31.3</td><td>33</td><td>0.95</td></tr>
+                    <tr><td>Pramāṇa NLP</td><td>18.8</td><td>49</td><td>0.38</td></tr>
+                    <tr><td>DSBC</td><td>9.9</td><td>231</td><td>0.04</td></tr>
+                </tbody>
+            </table>
+
             <p>These numbers show that:</p>
             <ul>
                 <li>individual works in GRETIL (and Muktabodha and Digital Corpus of Sanskrit) are of medium size compared to other collections;</li>

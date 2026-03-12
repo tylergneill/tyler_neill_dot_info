@@ -744,6 +744,37 @@ img {
     margin-top: 0.5rem;
 }
 
+.blog-post-content table {
+    border-collapse: collapse;
+    margin: 2rem auto;
+    font-size: 1rem;
+}
+
+.blog-post-content th,
+.blog-post-content td {
+    border: 1px solid #ccc;
+    padding: 0.4rem 1.2rem;
+   text-align: center;
+}
+
+.blog-post-content th {
+    font-weight: 600;
+}
+
+.blog-post-content .table-section-header {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid #ccc;
+    background: none;
+    text-align: left;
+    padding: 1rem 1.2rem 0.2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+}
+
 .post-nav {
     display: flex;
     justify-content: space-between;

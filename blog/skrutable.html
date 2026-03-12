@@ -73,6 +73,77 @@
 
             <p>Now, to be clear, there are quite a few other projects that overlap with Skrutable. In the interest of transparency and clarity, I've compiled here below (see also <a href="https://github.com/tylergneill/skrutable/blob/main/src/skrutable/manual.md#related-projects" target="_blank">this table on the Skrutable GitHub page</a>) an updated selection of similar tools that do transliteration, meter, or word-splitting. My focus here is on 1) web apps, which are most useful for the majority of users overall, and 2) Python interfaces (either a PyPi package or a usable code repo), which are most useful for the majority of programmers. Other functionality like morphological analysis is not considered here.</p>
 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Author</th>
+                        <th>Web app</th>
+                        <th>Python</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3" class="table-section-header">Transliteration</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://arunkprasad.com/" target="_blank">Arun Prasad</a></td>
+                        <td><a href="https://learnsanskrit.org/tools/sanscript/" target="_blank">Sanscript</a></td>
+                        <td><a href="https://github.com/indic-transliteration/indic_transliteration_py" target="_blank">indic_transliteration</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.virtualvinodh.com/" target="_blank">Vinodh Rajan</a></td>
+                        <td><a href="https://www.aksharamukha.com/converter" target="_blank">Aksharamukha</a></td>
+                        <td><a href="https://pypi.org/project/aksharamukha/" target="_blank">aksharamukha</a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="table-section-header">Meter Identification</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.linkedin.com/in/keshav-melnad-15628126/" target="_blank">Keshav Melnad</a></td>
+                        <td><a href="http://sanskritlibrary.org:8080/MeterIdentification/" target="_blank">Meter Identifying Tool</a></td>
+                        <td>n/a</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://shreevatsa.net/" target="_blank">Shreevatsa Rajagopalan</a></td>
+                        <td><a href="https://sanskritmetres.appspot.com/" target="_blank">Metre Identifier</a></td>
+                        <td><a href="https://github.com/shreevatsa/sanskrit" target="_blank">(sanskrit)</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://hrishikeshrt.github.io/" target="_blank">Hrishikesh Terdalkar</a></td>
+                        <td><a href="https://sanskrit.iitk.ac.in/jnanasangraha/chanda/text" target="_blank">Chandojñānam</a></td>
+                        <td><a href="https://github.com/hrishikeshrt/chanda" target="_blank">(chanda)</a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="table-section-header">Word Splitting</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://pauillac.inria.fr/~huet/" target="_blank">Gerard Huet</a></td>
+                        <td><a href="https://sanskrit.inria.fr/DICO/reader.html" target="_blank">Sanskrit Reader Companion</a></td>
+                        <td>n/a</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://sanskrit.uohyd.ac.in/faculty/amba/" target="_blank">Amba Kulkarni</a></td>
+                        <td><a href="https://sanskrit.uohyd.ac.in/scl/" target="_blank">Saṃsādhanī Sandhi-Vicchedikā</a></td>
+                        <td>n/a</td>
+                    </tr>
+                    <tr>
+                        <td>Sriram Krishnan</td>
+                        <td>n/a</td>
+                        <td><a href="https://github.com/SriramKrishnan8/sandhi_vicchedika" target="_blank">(sandhi_vicchedika)</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://tohoku.academia.edu/SebastianNehrdich" target="_blank">Sebastian Nehrdich</a></td>
+                        <td>n/a</td>
+                        <td><a href="https://github.com/OliverHellwig/sanskrit/tree/master/papers/2018emnlp" target="_blank">(Sanskrit Sandhi and Compound Splitter)</a></td>
+                    </tr>
+                    <tr>
+                        <td>"</td>
+                        <td><a href="https://buddhanexus.net/sanskrit-tools" target="_blank">BuddhaNexus Stemmer + Tagger</a></td>
+                        <td>n/a</td>
+                    </tr>
+                </tbody>
+            </table>
+
             <p>Now, each of these projects has its strengths, and comparing them is not straightforward. Some projects aim to be more permissive of "average," real-world input and to give corresponding output, while others are more strict in demanding "properly" formatted input; how to render <em>anusvāra</em> and <em>anunāsika</em>, for example, is a surprisingly complex question. Again, some projects lean more heavily toward certain kinds of human use, while others lean more toward machine-operability. (For their part, programmers will notice more subtle differences like code quality and processing efficiency.) On the one hand, this diversity is natural, because different users place importance on different things. As a result, though, there are not yet any accepted benchmarks for assessing relative performance across these projects.</p>
 
             <p>I would like to return to this question of comparison in the near future, because I believe some extra clarity would help. For now, though, I think we should simply accept some redundancy and competition in the space as a good thing. For one, academic software projects can easily lack proper financial support. Second, they tend to be idiosyncratic and maintainable only by their originators. In short, if such a project dies for whatever reason, the community will need other options. Plus, functional diversity among options, assuming a certain level of quality and robustness, is a good thing in its own right. I wouldn't say we need a <strong>lot</strong> more of these projects. But from personal experience, I know that they are fun to do, so I bet there will be more to come.</p>
