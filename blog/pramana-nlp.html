@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pramāṇa NLP - Kalpataru Diaries</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../images/dall-e/favicon_light.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="../images/dall-e/favicon_dark.png" media="(prefers-color-scheme: dark)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -38,7 +40,7 @@
 
             <p>By way of background: <em>Pramāṇa</em> is a key concept in Indian epistemology, understood as a <em>foundational means of secure knowledge</em>, the most important subtypes of which are direct perception (<em>pratyakṣa</em>), inferential reasoning (<em>anumāna</em>), and linguistic testimony (<em>śabda</em>). Different schools of thought differed on the details, but basically all epistemologists writing in Sanskrit were deeply entrenched in the idea — even if they were trying to undermine it — and nearly everyone believed that correct knowledge concerning the self (and what's not the self) is the main driver of spiritual liberation.</p>
 
-            <p>The Pramāṇa NLP project grew out of the need to extract research insights from a large and formidable corpus of such epistemological works. The idea — in fact the initial list for which texts to include — came from the Nyāyabhāṣya Digital Critical Edition project team (including Philipp Maas, although the <a href="https://gepris.dfg.de/gepris/projekt/279803509?language=en" target="_blank">DFG page</a> doesn't mention him now), and I took it and ran as part of my dissertation work. Due to my own focus on a single work (the 10th century Nyāyabhūṣaṇa), the corpus includes only texts of those works (mostly Nyāya and Buddhist from the first millenium) which are most relevant for it. These 60-odd texts were sourced from various other corpora (GRETIL, SARIT, etc.), restructured when needed, and cleaned (with regular expressions and, regrettably, often lots of man-hours). The main use of the corpus so far has been to serve as the basis for the Vātāyana system (see <a href="/projects#vatayana">description on Projects page</a>), but it is open source and designed for any number of downstream NLP uses, hence the name.</p>
+            <p>The Pramāṇa NLP project grew out of the need to extract research insights from a large and formidable corpus of such epistemological works. The idea — in fact the initial list for which texts to include — came from the Nyāyabhāṣya Digital Critical Edition project team (including Philipp Maas, although the <a href="https://gepris.dfg.de/gepris/projekt/279803509?language=en" target="_blank">DFG page<svg class="ext-link-icon" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 9 L9 1 M5 1 L9 1 L9 5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a> doesn't mention him now), and I took it and ran as part of my dissertation work. Due to my own focus on a single work (the 10th century Nyāyabhūṣaṇa), the corpus includes only texts of those works (mostly Nyāya and Buddhist from the first millenium) which are most relevant for it. These 60-odd texts were sourced from various other corpora (GRETIL, SARIT, etc.), restructured when needed, and cleaned (with regular expressions and, regrettably, often lots of man-hours). The main use of the corpus so far has been to serve as the basis for the Vātāyana system (see <a href="/projects#vatayana">description on Projects page</a>), but it is open source and designed for any number of downstream NLP uses, hence the name.</p>
 
             <figure>
                 <img src="../images/my_project_screenshots/Pram%C4%81%E1%B9%87a%20NLP.png" alt="Pramāṇa NLP on GitHub">
@@ -47,7 +49,7 @@
 
             <p>When I say that it is designed for NLP, I mean the following things:</p>
 
-            <p><strong>1. Clear division between structure and content</strong>: The words that these authors wrote (i.e., the content) and all the other stuff of modern edited books (i.e., the structure, including page numbers, an editor's chapter headings and notes, etc.) are easily distinguished through the use of markup. XML definitely would have also worked for this, but I wanted the raw files to be more human readable in the short term, and XML can always happen later, so I opted for a simple scheme based on brackets, explained <a href="https://github.com/tylergneill/pramana-nlp/blob/master/data_prep/4_segmentation/README.txt" target="_blank">here</a>.</p>
+            <p><strong>1. Clear division between structure and content</strong>: The words that these authors wrote (i.e., the content) and all the other stuff of modern edited books (i.e., the structure, including page numbers, an editor's chapter headings and notes, etc.) are easily distinguished through the use of markup. XML definitely would have also worked for this, but I wanted the raw files to be more human readable in the short term, and XML can always happen later, so I opted for a simple scheme based on brackets, explained <a href="https://github.com/tylergneill/pramana-nlp/blob/master/data_prep/4_segmentation/README.txt" target="_blank">here<svg class="ext-link-icon" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 9 L9 1 M5 1 L9 1 L9 5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>.</p>
 
             <p><strong>2. Removable structure</strong>: All structural elements can be programmatically removed, and separately so (e.g., it's possible to leave page numbers and headers but remove text-critical notes about variant readings). Given the markup scheme I chose, simple regexes are enough for this, no XSLT required.</p>
 
@@ -85,9 +87,9 @@
         <div class="container">
             <p>&copy; 2025 Tyler Neill.</p>
             <div class="footer-links">
-                <a href="https://github.com/tylergneill" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://www.linkedin.com/in/tyler-g-neill" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="https://uni-leipzig1.academia.edu/TylerNeill" target="_blank" rel="noopener">Academia</a>
+                <a href="https://github.com/tylergneill" target="_blank" rel="noopener">GitHub<svg class="ext-link-icon" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 9 L9 1 M5 1 L9 1 L9 5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <a href="https://www.linkedin.com/in/tyler-g-neill" target="_blank" rel="noopener">LinkedIn<svg class="ext-link-icon" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 9 L9 1 M5 1 L9 1 L9 5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <a href="https://uni-leipzig1.academia.edu/TylerNeill" target="_blank" rel="noopener">Academia<svg class="ext-link-icon" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 9 L9 1 M5 1 L9 1 L9 5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
         </div>
     </footer>
