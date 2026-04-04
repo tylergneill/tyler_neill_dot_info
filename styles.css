@@ -1126,3 +1126,15 @@ img {
         font-size: 1.125rem;
     }
 }
+
+/* === External link icon === */
+.ext-link-icon {
+    display: inline-block;
+    width: 0.65em;
+    height: 0.65em;
+    margin-left: 0.15em;
+    vertical-align: middle;
+    position: relative;
+    top: -0.05em;
+    flex-shrink: 0;
+}
