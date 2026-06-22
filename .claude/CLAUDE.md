@@ -4,7 +4,7 @@ Static personal website. Pure HTML + CSS, no templating. Hosted via GitHub Pages
 
 ## Blog posts
 
-Posts live in `blog/*.html` (accessed without `.html` extension via links).
+Posts live in `blog/*.html` (accessed without `.html` extension via links). The canonical ordered list is `kalpataru-diaries.html` — the topmost non-commented `<li>` is always the newest post.
 
 ### Adding a new post — checklist
 
