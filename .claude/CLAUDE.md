@@ -66,6 +66,26 @@ All references use `../` to reach root: `../styles.css`, `../images/...`, `../ab
 
 ### Images
 
-- `../images/dall-e/` — AI-generated artwork
-- `../images/my_project_screenshots/` — project screenshots
+- `../images/dall-e/` — AI-generated artwork; the circuit-tree image is the default banner for posts without a distinctive screenshot
+- `../images/my_project_screenshots/` — project screenshots (used as thumbnails in index)
 - `../images/misc_screenshots/` — other screenshots
+- Banner image: use circuit-tree DALL-E or another decorative image — **not** the same screenshot used as the thumbnail
+
+## Writing style
+
+**Voice:** First-person, conversational but intellectually rigorous. Direct address to the reader is common. Informal asides and parentheticals are fine; so is self-deprecating humor. No pretension.
+
+**Tone balance:** Project posts mix personal narrative (origin story, frustrations, breakthroughs) with technical detail. The "why" behind decisions matters as much as the "what." Even dense technical posts explain motivation and acknowledge non-expert readers.
+
+**Technical depth:** Varies by post type. Comparison/survey posts (OCR options, splitter options) go deep with specific library names, benchmarks, file formats. Project overview posts stay higher-level. Assume readers are intelligent but may lack domain-specific Sanskrit or CS knowledge — translate jargon when it first appears.
+
+**Links:** Inline in prose, never footnote-style. Link to: project sites, GitHub repos, papers, tools, related ecosystem projects. Moderate density — link when it's essential or attributive, not decoratively. Be generous in crediting and linking to others' work.
+
+**Structure:** Medium-length paragraphs (3–8 sentences). Use `<h2>`/`<h3>` headings to make longer posts skimmable. Lists when comparing options. `<figure>`/`<figcaption>` for screenshots — captions are brief but informative, occasionally editorial. Post length ranges from ~400 words (mini-posts) to 4000+ (deep dives); no fixed target.
+
+**Recurring moves:**
+- Open by framing the problem or question the post answers
+- Acknowledge related/competing work generously; name contributors by name
+- "Future directions" or what's next — frame work as ongoing and collaborative
+- Inline dated EDITs for corrections or updates (`EDIT Month YYYY: ...`)
+- Close with a forward-looking or reflective note, not a summary
