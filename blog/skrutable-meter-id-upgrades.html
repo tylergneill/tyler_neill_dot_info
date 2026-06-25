@@ -28,7 +28,6 @@
     </header>
 
     <div class="page-header" style="background-image: url('../images/dall-e/DALL%C2%B7E%202024-01-08%2023.47.40%20-%20An%20abstract%20tree%20composed%20entirely%20of%20computer%20circuits.%20The%20tree%20is%20intricate%2C%20with%20branches%20and%20leaves%20represented%20by%20various%20electronic%20components%20.png');">
-
         <h1>Skrutable Meter Identification Upgrades</h1>
         <p style="margin-top: 1rem; opacity: 0.9;">June 22, 2026</p>
     </div>
@@ -36,12 +35,132 @@
     <article class="page-content">
         <div class="container blog-post-content">
 
-            <p>TODO</p>
+            <h2>Background</h2>
+
+            <p>
+                If you've used <a href="https://skrutable.info" target="_blank">Skrutable's</a> meter detection, perhaps even in its batch or "whole-file" mode, you'll know it has left lots to be desired in recent years:
+            </p>
+            <ul>
+                <li>Confusing outputs talking about vague "asamīcīna" or "ajñāta" elements or "atha vā" alternatives.</li>
+                <li>No good visual clues beyond concise plain-text scansion output.</li>
+                <li>Annoying restrictions on input, such as one-verse-per-line file upload and no three-pāda anuṣṭubh.</li>
+                <li>Glaring shortcomings in identification of moraic meters (e.g., āryā).</li>
+            </ul>
+
+            <p>
+                In 2023, the peer project <a href="https://sanskrit.iitk.ac.in/jnanasangraha/chanda/" target="_blank">Chandojñānam</a> (down at the time of writing; see <a href="http://web.archive.org/web/20251217112900/https://sanskrit.iitk.ac.in/jnanasangraha/chanda/" target="_blank">Wayback</a> for a non-functioning snapshot) by Hrishikesh Terdalkar and Arnab Bhattacharya leveled <a href="https://aclanthology.org/2023.wsc-csdh.8/" target="_blank">interesting challenges</a> at Skrutable, referencing its own extra abilities in identification (e.g., imperfect ardhasamavṛtta), input (image-OCR with Google Drive), and output (tabular HTML, also for several verses). In my own <a href="https://aclanthology.org/2023.wsc-csdh.7/" target="_blank">write-up</a> at the <a href="https://aclanthology.org/volumes/2023.wsc-csdh/" target="_blank">same conference</a>, I focused my own comparative thinking on Shreevatsa Rajagopalan's <a href="https://gallium.inria.fr/~huet/PUBLIC/WSC2018.pdf" target="_blank">2018 write-up</a> of his <a href="https://sanskritmetres.appspot.com/" target="_blank">Metre Identifier</a> tool and the <a href="https://www.sanskritlibrary.org/pub/sktsynOffprintMelnadetal.pdf" target="_blank">2015 write-up</a> of the <a href="http://sanskritlibrary.org:8080/MeterIdentification/" target="_blank">Meter Identifying Tool</a> by Keshav Melnad, Pawan Goyal, and Peter Scharf. In the years since, I've tinkered with various aspects of Skrutable, and I periodically looked at Hrishikesh's and Shreevatsa's tools, including the latter's hidden "fulltext" mode (see screenshot below), and mulled over how to make Skrutable's meter functionality better. Recently, Arun Prasad also did a similar sort of HTML-output meter identification as part of his text verification pipeline for <a href="https://ambuda.org/proofing" target="_blank">Ambuda</a>.
+            </p>
+
+            <figure>
+                <img src="../images/misc_screenshots/shreevatsa-fulltext.png" alt="Shreevatsa's Metre Identifier in fulltext mode">
+                <figcaption>Shreevatsa's Metre Identifier in fulltext mode</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images/misc_screenshots/chandojnanam-paper-fig-4.png" alt="Figure 4 from the Chandojñānam paper">
+                <figcaption>Figure 4 from the Chandojñānam paper</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images/misc_screenshots/ambuda-proofing-meter.png" alt="Meter verification in Ambuda's proofing pipeline">
+                <figcaption>Meter verification in Ambuda's proofing pipeline</figcaption>
+            </figure>
+
+            <p>
+                Given my new 2026 AI superpowers with Claude, I figured it was time to give Skrutable the upgrade it deserved.
+            </p>
+
+            <h2>Some Big Updates</h2>
+
+            <p>
+                I'm happy to report that Skrutable's meter identification capabilities have taken a huge leap forward. I've addressed basically all major aspects that I thought needed help. It is now clearer, more accurate, faster, and more fun to use, also at scale.
+            </p>
+
+            <figure>
+                <img src="../images/my_project_screenshots/skrutable-html-meter.png" alt="Skrutable's improved HTML meter identification output">
+                <figcaption>Skrutable's improved HTML meter identification output</figcaption>
+            </figure>
+
+            <p>Skrutable's improved meter identification can now:</p>
+
+            <ul>
+                <li>identify many new types of imperfect verses, including even moraic verses;</li>
+                <li>give clear feedback pinpointing the location and nature of imperfections within the verse (e.g., missing or extra syllables, or pattern violations) to help improve the text;</li>
+                <li>explain subtle rules and subrules in real time as they become relevant for a given verse, citing practical authorities in both Sanskrit and English;</li>
+                <li>present output in various transliteration schemes;</li>
+                <li>accept multi-verse input in naturally messy forms, in the main-screen input box.</li>
+            </ul>
+
+            <p>
+                Most exciting of all, it offers an elaborate and video game-like graphical interface to browse all the verses of a text, analyze its verse types and subtypes, and work through correcting its textual problems.
+            </p>
+
+            <p>
+                To start, first enable the new mode on the Settings page. Then, you just copy-paste your multi-verse text into the standard input box, ensure proper settings — note that Skrutable can now auto-transliterate if needed, and it will also remember your preferred output scheme and other settings from previous sessions — and click Identify. Thanks to new under-the-hood speedups (bugfixes, parallelization, etc.), even large texts are completely analyzed in a few seconds.
+            </p>
+
+            <p>
+                You're then taken to batch meter correction mode. Here, the focus is on incorrect verses, but you can also toggle open correct ones as needed. Scroll or use the up/down buttons to browse the verses in question. The Filter dropdown offers a comprehensive breakdown by type which you can use to better focus your attention.
+            </p>
 
             <figure>
                 <img src="../images/my_project_screenshots/skrutable-bmcm.png" alt="Skrutable batch meter correction mode">
                 <figcaption>Skrutable batch meter correction mode</figcaption>
             </figure>
+
+            <p>
+                When you click on a given verse, the toolbox on the left snaps into place, and you can use its tools and edit the verse text until you hopefully find the appropriate solution. Stats above on how many verses are still incorrect and how many of each type have been found update accordingly with the interface's Refresh button. You can then export the result.
+            </p>
+
+            <p>
+                As mentioned, accuracy and detail are also better than before. For example, you get pāda-by-pāda breakdown of various kinds of upajātis, even imperfect and less common ones. Moraic meters also now have some error tolerance, and for both moraic and anuṣṭubh meters, gaṇa groupings relevant to the meter type are shown. Skrutable now even knows the "krama-saṃyoga" poetic license that allows for optionally counting a word-initial <em>br</em> or <em>kr</em> (for example) as a simple consonant when it helps the meter (see excellent discussion <a href="https://github.com/shreevatsa/sanskrit/issues/1" target="_blank">here on the Issues page of the GitHub repo for Shreevatsa's tool</a>).
+            </p>
+
+            <figure>
+                <img src="../images/my_project_screenshots/skrutable-upajati-breakdown.png" alt="Detailed breakdown of upajāti pādas">
+                <figcaption>Detailed breakdown of upajāti pādas</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../images/my_project_screenshots/skrutable-krama-samyoga.png" alt="Poetic license in action">
+                <figcaption>Poetic license in action</figcaption>
+            </figure>
+
+            <p>
+                Now that the system is so much more powerful and fun to use, I'm really looking forward to using it for my own corpus-building work (HANSEL and Muktabodha). I hope it'll be useful to you, too! I'll post a demo video if/when I make one, but meanwhile, go ahead and grab some text to try it out yourself.
+            </p>
+
+            <h2>Next: Measuring Performance with the Mahāsubhāṣitasaṃgraha</h2>
+
+            <p>
+                Apart from a few dozen small bugfixes and new features still on the backlog — exporting should have more options, and it should also be possible to save progress and continue later, without exporting, for one example — the last big task remaining in this phase of development is to establish, in a rigorous and reproducible way, how well Skrutable's meter identification performs against a real benchmark. For that purpose, I've chosen Ludwig Sternbach's <em>Mahāsubhāṣitasaṃgraha</em>, from which all the examples above have been drawn. This multi-volume publication contains a wide range of meter types, including numerous unusual and defective specimens, making it an ideal test corpus. The resulting benchmark dataset would consist of (1) a unique verse identifier, (2) the verse text, and (3) a meter-identification annotation, including any known imperfections in the printed text. Once assembled, it will be usable not only for Skrutable but for any Sanskrit meter-identification tool. But building the benchmark is a substantial project in its own right. I'd like to finish today's post by talking in detail about this data side of things, without which the software development would not be possible.
+            </p>
+
+            <p>
+                As background, it's worth noting that the <em>Saṃgraha</em> itself is an incomplete and ongoing project, proceeding alphabetically and drawing on what appears to be a vast backlog of Sternbach's notes. There is no complete e-text. The first volume appeared in 1974 and covered अ–अन्वे. Four volumes were published before Sternbach's death in 1981, a fact discussed in the foreword to volume 5 (reaching का). These first five volumes were later digitized by unknown parties and eventually became the basis of the <a href="https://gretil.sub.uni-goettingen.de/gretil/corpustei/transformations/html/sa_mahAsubhASitasaMgraha-1-9979.htm" target="_blank">GRETIL e-text</a>, which remains the most comprehensive digital version available today. Volumes 6–8 (कि–छे) have also been available online for some time, e.g. <a href="https://archive.org/details/MahaasubhaasitasamgrahaVol1-8" target="_blank">here on the Internet Archive</a>. Most recently, volume 9 (ज–त) appeared in 2021. I have a hard copy on loan from UPenn and plan to create a PDF version. It is remarkable that the team at the Vishveshvaranand Vedic Research Institute in Hoshiarpur has continued bringing the project forward for more than four decades after Sternbach's passing, though there is clearly still a long way to go before reaching the end of the alphabet.
+            </p>
+
+            <p>
+                So, challenge #1: Given those gaps in even rough starting data, and due to the fact the existing digital text covering volumes 1–5 contains many errors, I'm effectively starting by re-digitizing all nine volumes, although the existing e-text provides a significant head start for the earlier volumes. Challenge #2: The printed editions themselves contain numerous mistakes, which I'll likely want to maintain in one project data layer as a way of making the benchmark more spicy and interesting. Challenge #3: Beyond digitizing the text, I want to utilize the metrical annotations supplied by the editors. Except in the case of anuṣṭubh, a meter label is typically given after each verse.
+            </p>
+
+            <figure>
+                <img src="../images/my_project_screenshots/mss-annotation-example.png" alt="MSS annotation example" style="width: 50%; display: block; margin: 0 auto;">
+                <figcaption>MSS annotation example</figcaption>
+            </figure>
+
+
+            <p>
+                Unfortunately, these labels are not always correct. Each volume also contains an "Index of Meters" grouping verses by meter type, but these indexes contain independent errors of their own and cannot be accepted uncritically.
+            </p>
+
+            <p>
+                There is yet another complication. In some cases, what Skrutable identifies as genuine metrical irregularities are not acknowledged in the printed edition at all, presumably because they are subtle enough to have escaped notice. At present, Skrutable appears accurate enough to serve as a useful source of hypotheses and a valuable cross-check against the editorial annotations. I am aware of the potential circularity involved in using a meter-identification system to help construct a benchmark against which meter-identification systems will later be evaluated. But where else will the ground truth come from? In practice, then, establishing these meter annotations will require corroborating the <em>Saṃgraha</em> against itself, against Skrutable, and against the best philological judgment I can bring to bear — hopefully with assistance from others as the project progresses.
+            </p>
+
+            <p>
+                The finished dataset, together with the complete e-text, will be released on HANSEL and should provide a valuable resource for future work on Sanskrit metrical analysis. More on that soon.
+            </p>
 
             <div class="post-nav">
                 <a href="2026-q1-quarterly">&larr; Quarterly Update: Jan–Mar 2026<span class="post-nav-date">April 5, 2026</span></a>
