@@ -67,7 +67,7 @@
             </p>
 
             <p>
-                To get that Sarvam API key, you still have to do a little billing setup, but it's fortunately a little simpler than Cloud Vision. You simply create an account at <a href="http://sarvam.ai" target="_blank">sarvam.ai</a>, link a credit card*, generate a key, and you're in. No cloud project, no separate API library to enable.
+                To get that Sarvam API key, you still have to do a little billing setup, but it's fortunately a little simpler than Cloud Vision. You simply create an account at <a href="https://sarvam.ai" target="_blank">sarvam.ai</a>, link a credit card*, generate a key, and you're in. No cloud project, no separate API library to enable.
             </p>
 
             <p>
@@ -85,27 +85,27 @@
             <h2>Prompted model vs. dedicated engine</h2>
 
             <p>
-                Before I get into fun details comparing Sarvam Vision and Google Cloud Vision, which are comparable systems, I'd like to make a few observations about Dharmamitra's Gemini setup, which is of a different sort.
+                Before I get into fun details comparing Sarvam Vision and Google Cloud Vision, which are comparable systems, I'd like to make a few observations about Dharmamitra's Gemini setup, which is of a different sort entirely.
             </p>
 
             <p>
-                Whereas both Sarvam Vision and Google Cloud Vision use dedicated document OCR models, the Gemini class of large language models (LLMs) are vastly broader in their range of powers, and so Dharmamitra uses a special prompt for the specific task of transcription. (As it happens, the exact prompt used is kept as a secret sauce, not open-source. 😉) And as any user of the Dharmamitra setup already knows, LLMs do certainly bring real capability to this kind of work. However, they also bring hallucinatory failure modes that dedicated OCR engines for the most part just don't have. Sometimes, that is, it's just a little <em>too</em> creative in its readings, based on what you could call an excess of linguistic understanding and confidence.
+                Whereas both Sarvam Vision and Google Cloud Vision use dedicated document OCR models, the Gemini class of large language models (LLMs) is vastly broader in its range of powers, and so Dharmamitra uses a special prompt for the specific task of transcription. (As it happens, the exact prompt used is kept as a secret sauce, not open-source. 😉) And as any user of the Dharmamitra setup already knows, LLMs do certainly bring real capability to this kind of work. However, they also bring hallucinatory failure modes that dedicated OCR engines for the most part just don't have. Sometimes, that is, it's just a little <em>too</em> creative in its readings, based on what you could call an excess of linguistic understanding and confidence.
             </p>
 
             <p>
-                Another point of concern is that commercial LLM models are regularly repriced or deprecated to make way for new models, meaning that Dharmamitra's OCR behavior might change in unpredictable ways; the underlying model recently changed silently from Gemini 2.0 to 2.5, and the lack of apparent improvement in the more recent 3.0 and 3.5 models for Sanskrit text work — in my experience and that of some other Sanskrit-tech people I talk to — does not inspire confidence that the Google LLM team cares much to avoid performance degradation in this extremely niche use case. This stands in contrast to Google Cloud Vision which has an incentive to remain a consistent solution for OCR specifically; time will tell whether Sarvam AI has any staying power.
+                Another point of concern is that commercial LLMs are regularly repriced or deprecated to make way for new models, meaning that Dharmamitra's OCR behavior might change in unpredictable ways; the underlying model recently changed silently from Gemini 2.0 to 2.5, and the lack of apparent improvement in the more recent 3.0 and 3.5 models for Sanskrit text work — in my experience and that of some other Sanskrit-tech people I talk to — does not inspire confidence that the Google LLM team cares much to avoid performance degradation in this extremely niche use case. This stands in contrast to Google Cloud Vision which has an incentive to remain a consistent solution for OCR specifically; time will tell whether Sarvam AI has any staying power.
             </p>
 
             <p>
-                And of course, Dharmamitra's users pay nothing, thanks to grant funding. I don't have any specific reason to doubt the system will continue to be available and maintained as a very useful option, hopefully for free in perpetuity. But especially given the differences in the nature of the model and how it is served to consumers, all of this combined makes me personally prefer to interact directly with dedicated systems and foot the bill myself.
+                And of course, Dharmamitra's users pay nothing, thanks to grant funding. I don't have any specific reason to doubt the system will continue to be available and maintained as a very useful option, hopefully for free in perpetuity. But especially given the differences in the nature of the model and how it is served to consumers, I personally prefer to interact directly with dedicated systems and foot the bill myself.
             </p>
 
             <p>
-                Really though, it comes down to performance. There's low character error rate. There's the matter of trust, if the system is caught making inappropriate emendations to the text (gasp!) And there's the issue of sensitivity to South Asian documents and their issues, like diacritics, traditional typefaces, and multi-column book layouts. For its part, Google Cloud Vision basically can't do multiple columns without jumbling them together, as that case is a total afterthought, while anecdotally I can affirm that Sarvam has done brilliantly well at it in a few tests I've done. How refreshing.
+                Really though, it comes down to performance. There's low character error rate. There's the matter of trust, if the system is caught making inappropriate emendations to the text (gasp! And there's the issue of sensitivity to South Asian documents and their issues, like diacritics, traditional typefaces, and multi-column book layouts. For its part, Google Cloud Vision basically can't do multiple columns without jumbling them together, as if that case is a total afterthought, while anecdotally I can affirm that Sarvam has done brilliantly well at it in a few tests I've done. How refreshing.
             </p>
 
             <p>
-                For now, I haven't been able to go so far as to include the Dharmamitra/Gemini setup in my detailed comparative assessment (below). If I'm going to do that, I want to be more rigorous and thorough, and do it on more tools at the same time. That would be a full paper, I think. What I do have now, since they're of similar natures and both offered through Skrutable, is a comparison of Google Cloud Vision and Sarvam Vision.
+                For now, I haven't been able to go so far as to include the Dharmamitra/Gemini setup in my detailed comparative assessment (below). If I'm going to do that, I want to be more rigorous and thorough, and do it on more tools at the same time. That would be a full paper, I think. What I do have now, since they're similar in nature and both offered through Skrutable, is a comparison of Google Cloud Vision and Sarvam Vision.
             </p>
 
             <h2>GCV vs Sarvam: a clear CER difference, and the whitespace finding</h2>
@@ -158,7 +158,7 @@
             </p>
 
             <p>
-                <em>As for those more trivial differences which do not factor into the CER calculation: Sarvam reads daṇḍas more reliably (Cloud Vision renders most ।'s and ॥'s as vertical bars or "pipes" — 10 of 14 on these pages — while Sarvam preserves all 14.) Cloud Vision handles marginal numbers better. Sarvam header and footers can optionally be filtered out, which Skrutable exposes as an extra option.</em>
+                <em>As for those more trivial differences which do not factor into the CER calculation: Sarvam reads daṇḍas more reliably (Cloud Vision renders most ।'s and ॥'s as vertical bars or "pipes" — 10 of 14 on these pages — while Sarvam preserves all 14.) Cloud Vision handles marginal numbers better. Sarvam's headers and footers can optionally be filtered out, which Skrutable exposes as an extra option.</em>
             </p>
 
             <p>
