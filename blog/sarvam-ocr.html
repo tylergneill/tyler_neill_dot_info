@@ -40,7 +40,7 @@
             </p>
 
             <p>
-                Of the other options also in use, on the low end, there are familiar free and/or user-friendly options, including Google Drive (e.g. via <a href="https://ocr.sanskritdictionary.com/" target="_blank">ocr.sanskritdictionary.com</a>), ABBYY FineReader, Tesseract (this last one is a model with various interfaces), and even (I have heard?) Google Translate. I'm sure some people toss things to ChatGPT and Claude, too, but my own experience is that those are also on the low-end. On the higher end, also available for about a year now (see <a href="https://list.indology.info/pipermail/indology/2025-June/060745.html" target="_blank">this Indology post</a>), <a href="https://dharmamitra.org/ocr" target="_blank">Dharmamitra</a> offers an excellent, free, drag-and-drop interface that gets the Gemini Flash LLM (currently 2.5) to do OCR under strict prompt constraints. And more recently, some new players have entered the scene. Surya and Sarvam have my attention at the moment.
+                Of the other options also in use, on the low end, there are familiar free and/or user-friendly options, including Google Drive (e.g. via <a href="https://ocr.sanskritdictionary.com/" target="_blank">ocr.sanskritdictionary.com</a>), ABBYY FineReader, Tesseract (this last one is a model with various interfaces), and even (I have heard?) Google Translate. I'm sure some people toss things into ChatGPT and Claude, too, but my own experience is that those are also on the low-end. On the higher end, also available for about a year now (see <a href="https://list.indology.info/pipermail/indology/2025-June/060745.html" target="_blank">this Indology post</a>), <a href="https://dharmamitra.org/ocr" target="_blank">Dharmamitra</a> offers an excellent, free, drag-and-drop interface that gets a Gemini Flash LLM (currently 2.5) to do OCR under strict prompt constraints. And more recently, some new players have entered the scene. Surya and Sarvam have my attention at the moment.
             </p>
 
             <p>
@@ -48,12 +48,12 @@
             </p>
 
             <p>
-                For its part, Sarvam is proving to be very interesting indeed. <a href="https://www.sarvam.ai" target="_blank">Sarvam AI</a>, based in Bengaluru, is building AI infrastructure with a specific focus on South Asian languages. Their OCR system, Sarvam Vision, has the same interface pattern as Google Cloud Vision: use code to talk to the API, send in a PDF, get back text. Then I tested it, and I was impressed — so much so, that I immediately went ahead and added it to Skrutable as a second OCR option. You can go ahead and use it right now on <a href="https://skrutable.info/ocr" target="_blank">Skrutable's OCR page</a>.
+                For its part, Sarvam is proving to be very interesting indeed. <a href="https://www.sarvam.ai" target="_blank">Sarvam AI</a>, based in Bengaluru, is building AI infrastructure with a specific focus on South Asian languages. Their OCR system, Sarvam Vision, has the same interface pattern as Google Cloud Vision: use code to talk to the API, send in a PDF, get back text. I tested it, and I was impressed — so much so, that I immediately went ahead and added it to Skrutable as a second OCR option. You can go ahead and use it right now on <a href="https://skrutable.info/ocr" target="_blank">Skrutable's OCR page</a>.
             </p>
 
             <figure>
                 <img src="../images/my_project_screenshots/sarvam-ocr-run.png" alt="Skrutable's OCR page with Google Cloud Vision and Sarvam Vision options">
-                <figcaption>Two options, same UX for both.</figcaption>
+                <figcaption>Two options now, same UX for both.</figcaption>
             </figure>
 
             <p>
@@ -63,11 +63,11 @@
             <h2>What you do vs. what Skrutable handles</h2>
 
             <p>
-                In short, just like before, you go to the Skrutable page, drop in your PDF, provide an API key, and click go.
+                In short, just like before, you go to the page, drop in your PDF, provide an API key, and click go. Skrutable takes care of the rest and gives you the plain-text result.
             </p>
 
             <p>
-                To get that Sarvam API key, you still have to do a little billing setup, but it's fortunately a little simpler than Cloud Vision. You simply create an account at <a href="https://sarvam.ai" target="_blank">sarvam.ai</a>, link a credit card*, generate a key, and you're in. No cloud project, no separate API library to enable.
+                To get that Sarvam API key, you still have to do a little billing setup, but it's fortunately a little simpler than Cloud Vision. You simply create an account at <a href="https://sarvam.ai" target="_blank">sarvam.ai</a>, link a credit card*, generate a key, and you're in. (See <a href="https://skrutable.info/ocr_instructions#api-key" target="_blank">instructions on Skrutable's OCR FAQ page</a>.) No cloud project, no separate API library to enable.
             </p>
 
             <p>
@@ -93,30 +93,30 @@
             </p>
 
             <p>
-                Another point of concern is that commercial LLMs are regularly repriced or deprecated to make way for new models, meaning that Dharmamitra's OCR behavior might change in unpredictable ways; the underlying model recently changed silently from Gemini 2.0 to 2.5, and the lack of apparent improvement in the more recent 3.0 and 3.5 models for Sanskrit text work — in my experience and that of some other Sanskrit-tech people I talk to — does not inspire confidence that the Google LLM team cares much to avoid performance degradation in this extremely niche use case. This stands in contrast to Google Cloud Vision which has an incentive to remain a consistent solution for OCR specifically; time will tell whether Sarvam AI has any staying power.
+                Another point of concern is that commercial LLMs are regularly repriced and/or deprecated to make way for new models, meaning that Dharmamitra's OCR behavior might change in unpredictable ways. Indeed, the underlying model recently changed silently from Gemini 2.0 to 2.5, and the lack of apparent improvement in the more recent 3.0 and 3.5 models for Sanskrit text work — in my experience and that of some other Sanskrit-tech people I talk to — does not inspire confidence that the Google LLM team cares much to avoid performance degradation in this extremely niche use case. This stands in contrast to Google Cloud Vision which has an incentive to remain a consistent solution for OCR specifically; time will tell whether Sarvam AI has any staying power.
             </p>
 
             <p>
-                And of course, Dharmamitra's users pay nothing, thanks to grant funding. I don't have any specific reason to doubt the system will continue to be available and maintained as a very useful option, hopefully for free in perpetuity. But especially given the differences in the nature of the model and how it is served to consumers, I personally prefer to interact directly with dedicated systems and foot the bill myself.
+                And of course, Dharmamitra's users pay nothing, thanks to grant funding. So good! I don't have any specific reason to doubt that the system will continue to be available and maintained as a very useful option, hopefully for free in perpetuity. But especially given the differences in the nature of the model and how it is served to consumers, I personally prefer to interact directly with dedicated systems and foot the bill myself, all other things being equal.
             </p>
 
             <p>
-                Really though, it comes down to performance. There's low character error rate. There's the matter of trust, if the system is caught making inappropriate emendations to the text (gasp! And there's the issue of sensitivity to South Asian documents and their issues, like diacritics, traditional typefaces, and multi-column book layouts. For its part, Google Cloud Vision basically can't do multiple columns without jumbling them together, as if that case is a total afterthought, while anecdotally I can affirm that Sarvam has done brilliantly well at it in a few tests I've done. How refreshing.
+                Really though, it comes down to performance. First, you want a low character error rate. Second, as a humanist, you want trust; imagine that the system does not transcribe diplomatically but instead tries to "improve" the text with creative emendations (yeesh). And third, there's the issue of sensitivity to South Asian documents and their issues, like diacritics, traditional typefaces, and multi-column book layouts. For its part, Google Cloud Vision basically can't do multiple columns without jumbling them together, as if that case is a total afterthought, while anecdotally I can affirm that Sarvam has done brilliantly well at it in a few tests I've done. How refreshing.
             </p>
 
             <p>
                 For now, I haven't been able to go so far as to include the Dharmamitra/Gemini setup in my detailed comparative assessment (below). If I'm going to do that, I want to be more rigorous and thorough, and do it on more tools at the same time. That would be a full paper, I think. What I do have now, since they're similar in nature and both offered through Skrutable, is a comparison of Google Cloud Vision and Sarvam Vision.
             </p>
 
-            <h2>GCV vs Sarvam: a clear CER difference, and the whitespace finding</h2>
+            <h2>GCV vs. Sarvam: a clear CER difference, and the whitespace finding</h2>
 
             <p>
-                To give potential users an immediate and detailed sense of what Sarvam Vision is capable of relative to Cloud Vision, I've prepared a fun little <a href="https://skrutable.info/ocr_instructions#side-by-side" target="_blank">side-by-side comparison on Skrutable's OCR FAQ page</a>. In it, I show how I ran three pages of Bāṇa's <em>Kādambarī</em> (Peterson 1889) through both engines and scored the output against a hand-corrected ground truth. Being experienced in using OCR results for Sanskrit text digitization, I focused this comparison on stuff that actually matters in manual cleaning, namely, the non-trivial aspects that can only be caught by proofreading page by page, character by character. The result is summarized with a combination of categorical observations and standard character error rate (CER). The latter essentially measures edit distance, or how many changes (additions, deletions, modifications) it would take to get to the ground truth.
+                To give potential users an immediate and detailed sense of what Sarvam Vision is capable of relative to Cloud Vision, I've prepared a fun little <a href="https://skrutable.info/ocr_instructions#side-by-side" target="_blank">side-by-side comparison on Skrutable's OCR FAQ page</a>. In it, I run three pages of Bāṇa's <em>Kādambarī</em> (Peterson 1889) through both engines and score the output against a hand-corrected ground truth, showing with clear visuals all the relevant differences. Being experienced in using OCR results for Sanskrit text digitization, I focused this comparison on stuff that actually matters in manual cleaning, namely, the non-trivial aspects that can only be caught by proofreading page by page, character by character. The result is summarized with a combination of categorical observations and standard character error rate (CER). The latter essentially measures edit distance, or how many changes (additions, deletions, modifications) it would take to get to the ground truth.
             </p>
 
             <figure>
                 <img src="../images/my_project_screenshots/skrutable-ocr-comparison-triptych.png" alt="Comparison triptych of Cloud Vision and Sarvam Vision OCR output against ground truth">
-                <figcaption>Comparison triptych, middle-panel diffing against Cloud Vision on the left. Yellow highlights show character-level errors against ground truth. Cloud Vision's spurious spaces produce a noticeably denser error pattern.</figcaption>
+                <figcaption>Comparison "triptych", middle-panel diffing against Sarvam Vision on the right. Yellow highlights show character-level errors against ground truth. Cloud Vision's spurious spaces produce a noticeably denser error pattern.</figcaption>
             </figure>
 
             <p>Here's the headline:</p>
@@ -150,15 +150,15 @@
             </table>
 
             <p>
-                In other words, GCV gets nearly 3% of non-trivial characters wrong, while Sarvam gets about 1%. That is a real gap. The additional CER calculations serve to illustrate that, of the 1.9% difference, about 60% of it comes down to spurious whitespace. To explain: Sanskrit typography, especially in older editions, occasionally has small gaps between syllables within a word, and Cloud Vision has the unfortunate tendency to read these as word boundaries, inserting spaces that aren't there. The result is incorrect Sanskrit, which takes manual work to correct. Similarly, a word misplaced onto a different line by GCV hits the numbers hard (another 25% of the 1.9% difference), but again, there's no easy fix outside of manual proofreading. So the 2% CER gap stands as meaningful.
+                In other words, GCV gets nearly 3% of non-trivial characters wrong, while Sarvam gets about 1%. That is a real gap. The additional CER calculations serve to illustrate that, of the 1.9% difference, about 60% of it comes down to spurious whitespace. To explain: Sanskrit typography, especially in older editions, occasionally has small gaps between syllables within a word, and Cloud Vision has the unfortunate tendency to read these as word boundaries, inserting spaces that aren't there. The result is incorrect Sanskrit, which takes manual work to correct. Similarly, a word misplaced onto a different line by GCV hits the numbers hard (another 25% of the 1.9% difference), but again, there's no easy fix for that outside of manual proofreading. So the 2% CER gap stands as meaningful, even though the akṣara-level reading differences are surprisingly few, comprising a mere 0.3% difference in CER.
             </p>
 
             <p>
-                And remember, if you're dealing with multi-column layouts as found in many printed Sanskrit editions, there's no point in considering something like CER when GCV simply has no concept of columns, because the GCV output will be a total mess, unless you employ the workaround of cropping pages down to single columns before OCR-ing — but that cost in your time has to be considered, too. Just watch Sarvam handle columnar layouts more or less correctly (I've seen occasional mistakes) and produce clean, uninterrupted prose with virtually no spurious spaces and no pre- or post-processing required. Wow.
+                And remember, if you're dealing with multi-column layouts as found in many printed Sanskrit editions, there's no point in considering something like CER when GCV simply has no concept of columns, leading to the GCV output being a total mess, unless you employ the workaround of cropping pages down to single columns before OCR-ing — but that cost in your time has to be considered, too. Just watch Sarvam handle columnar layouts more or less correctly (I've seen occasional mistakes) and produce clean, uninterrupted prose with virtually no spurious spaces. Wow.
             </p>
 
             <p>
-                <em>As for those more trivial differences which do not factor into the CER calculation: Sarvam reads daṇḍas more reliably (Cloud Vision renders most ।'s and ॥'s as vertical bars or "pipes" — 10 of 14 on these pages — while Sarvam preserves all 14.) Cloud Vision handles marginal numbers better. Sarvam's headers and footers can optionally be filtered out, which Skrutable exposes as an extra option.</em>
+                <em>As for the more trivial differences which do not factor into the CER calculation: Sarvam also reads daṇḍas more reliably (Cloud Vision renders most ।'s and ॥'s as vertical bars or "pipes") and understands headers and footers well enough to optionally filter them out for you, which Skrutable exposes as an extra option. For its part, Cloud Vision handles marginal numbers better.</em>
             </p>
 
             <p>
@@ -166,13 +166,13 @@
             </p>
 
             <p>
-                People will surely be curious to hear whether Sarvam can handle handwritten manuscripts. Not yet, in my experience. What about the details of multi-column layouts, poor-quality scans, scripts other than Devanagari, etc.? Rather than wait until I can do all possible comparisons myself, I prefer to put the tool out there and let others help figure it out. I've seen enough to want this to be my go-to option for the foreseeable future, with Cloud Vision and Dharmamitra's prompted Gemini as second and third choices, respectively.
+                People will surely be curious to hear whether Sarvam can also handle handwritten manuscripts. In my anecdotal experience: No, not yet, unfortunately. What about more complicated multi-column layouts, poor-quality scans, scripts other than Devanāgarī, etc.? All good questions! Rather than wait until I can do all possible comparisons myself, I'm putting these helper tools out there, so that we can work on figuring it out together. For now, for me personally, I've seen enough to want this to be my go-to option for the foreseeable future, with Cloud Vision and Dharmamitra's prompted Gemini as second and third choices, respectively.
             </p>
 
             <h2>Cost</h2>
 
             <p>
-                Cloud Vision charges $1.50 per 1,000 pages, after a free monthly allowance of 1,000 pages. Sarvam charges ₹0.50 per page, or $6 per 1,000 pages at current rates. That is four times more expensive, but to my mind, the cleaner output represents a significant savings of manual post-processing labor, which is worth it to me.
+                Cloud Vision charges $1.50 per 1,000 pages, after a free monthly allowance of 1,000 pages. Sarvam charges ₹0.50 per page, or $5.23 per 1,000 pages at today's exchange rate. That is close to four times more expensive, but to my mind, the cleaner output represents a significant savings of manual post-processing labor, which is worth it to me.
             </p>
 
             <p>
@@ -181,11 +181,11 @@
 
             <figure>
                 <img src="../images/my_project_screenshots/skrutable-ocr-cost-calculator.png" alt="Skrutable's OCR cost calculator">
-                <figcaption>A straightforward, up-to-date pricetag.</figcaption>
+                <figcaption>A straightforward, up-to-date price tag.</figcaption>
             </figure>
 
             <p>
-                I want users to know exactly what it's going to cost before they submit the job. To ensure that, I've also reinforced the cost calculator with automatic checks of the providers' pricing pages, so I'll know if the cost calculator needs updating. And the rupees-to-dollar conversion rate is updated in real-time. What I really don't want is users getting charged more than they expected for months at a time because pricing silently changed on the providers' end. This setup is my best attempt at providing an understandable and comfortable experience in that respect. But let me know if you run into issues.
+                I want users to know exactly what it's going to cost before they submit the job. To ensure that, I've also reinforced the cost calculator with automatic checks of the providers' pricing pages, so I'll know if the cost calculator needs updating. (The rupees-to-dollar conversion rate is easily updated in real-time.) What I really don't want is users getting charged more than they expected for months at a time because pricing silently changed on the providers' end. This setup is my best attempt at providing an understandable and comfortable experience in that respect. But let me know if you run into issues.
             </p>
 
             <p>
