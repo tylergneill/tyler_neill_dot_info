@@ -2,6 +2,10 @@
 
 Static personal website. Pure HTML + CSS, no templating. Hosted via GitHub Pages.
 
+## Local dev server
+
+Always running: `npx http-server -p 4999`. Base URL: http://127.0.0.1:4999/
+
 ## Blog posts
 
 Posts live in `blog/*.html` (accessed without `.html` extension via links). The canonical ordered list is `kalpataru-diaries.html` — the topmost non-commented `<li>` is always the newest post.
@@ -11,6 +15,7 @@ Posts live in `blog/*.html` (accessed without `.html` extension via links). The 
 1. Create `blog/new-slug.html` (copy a recent post as a template)
 2. Add a `<li class="blog-item">` entry at the **top** of the list in `kalpataru-diaries.html`
 3. Update the previously-newest post's `.post-nav` to add a forward link to the new post
+4. Check `projects.html` — if the post mentions a project that isn't already listed there, add a "mentioned in blog post" entry
 
 ### `kalpataru-diaries.html` — index entry format
 
@@ -70,6 +75,10 @@ All references use `../` to reach root: `../styles.css`, `../images/...`, `../ab
 - `../images/my_project_screenshots/` — project screenshots (used as thumbnails in index)
 - `../images/misc_screenshots/` — other screenshots
 - Banner image: use circuit-tree DALL-E or another decorative image — **not** the same screenshot used as the thumbnail
+
+## Writing
+
+Tyler writes all blog post prose. Claude handles only structure, HTML mechanics, and wiring (nav links, index entries). Claude Code is still quite bad at writing, so do not draft or suggest prose.
 
 ## Writing style
 
