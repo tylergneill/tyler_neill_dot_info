@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanskrit Wikisource and a Better Interface - Kalpataru Diaries</title>
+    <title>Braving the Sanskrit Wikisource Iceberg - Kalpataru Diaries</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="icon" href="../images/dall-e/favicon_light.png" media="(prefers-color-scheme: light)">
     <link rel="icon" href="../images/dall-e/favicon_dark.png" media="(prefers-color-scheme: dark)">
@@ -30,8 +30,8 @@
     </header>
 
     <div class="page-header" style="background-image: url('../images/dall-e/DALL%C2%B7E%202024-01-08%2023.47.40%20-%20An%20abstract%20tree%20composed%20entirely%20of%20computer%20circuits.%20The%20tree%20is%20intricate%2C%20with%20branches%20and%20leaves%20represented%20by%20various%20electronic%20components%20.png');">
-        <h1>Sanskrit Wikisource and a Better Interface</h1>
-        <p style="margin-top: 1rem; opacity: 0.9;">July 6, 2026</p>
+        <h1>Braving the Sanskrit Wikisource Iceberg</h1>
+        <p style="margin-top: 1rem; opacity: 0.9;">July 10, 2026</p>
     </div>
 
     <article class="page-content">
@@ -39,18 +39,25 @@
 
             <p>A set of questions came up recently <a href="https://list.indology.info/pipermail/indology/2026-July/062125.html" target="_blank">on the Indology mailing list</a> about <a href="https://sa.wikisource.org" target="_blank">Sanskrit Wikisource</a> — what is it, who made it, and how useful is it? I've spent some time working this out, so here's what I know.</p>
 
-            <p>Wikisource is part of the Wikimedia family — same foundation as Wikipedia — and like its siblings, it is a crowdsourced project with public revision history and no single creator. The Sanskrit subdomain has been used by motivated individuals to work on and share material they might not have otherwise, which is something to be genuinely thankful for. On multiple occasions, I've found very interesting things there, like full texts of both Gaṅgeśa's Tattvacintāmaṇi and Śrīharṣa's Naiṣadhīyacarita. But Wikisource was simply not built to host e-text collections. As a result of certain design aspects, it can be very hard indeed to plumb the depths of its contained materials — a fact ironically reinforced by the Wikisource logo itself.</p>
+            <p>Wikisource is part of the Wikimedia family — same foundation as Wikipedia — and like its siblings, it is a crowdsourced project with public revision history and no single creator. The Sanskrit subdomain has been used by motivated individuals to work on and share material they might not have otherwise, which is something to be genuinely thankful for. On multiple occasions, I've found very interesting things there, like full texts of both Gaṅgeśa's Tattvacintāmaṇi and Śrīharṣa's Naiṣadhīyacarita. But Wikisource was simply not built to host e-text collections. As a result, it can be very hard to plumb the depths of its contained materials — a fact ironically reinforced by the Wikisource logo itself.</p>
 
             <figure>
                 <img src="../images/downloads/wikisource.png" alt="Wikisource's iceberg logo">
                 <figcaption>Wikisource's iceberg logo</figcaption>
             </figure>
 
-            <p>Did you know that Sanskrit Wikisource has hundreds of megabytes of text data? Do you know how to browse it? No? You're not alone.</p>
+            <p>Did you know that Sanskrit Wikisource has hundreds of megabytes of text data? If you’ve ever tried to browse it, did you succeed? No? You're not alone.</p>
 
             <h2>Structural Problems</h2>
 
-            <p>The way to navigate the current Sanskrit Wikisource is not clear from its home page. First, not everyone is comfortable with an all-Sanskrit, all-Devanagari interface. Second, it's a cluttered mess. If you look past the useless stuff, the वर्गसर्वस्वम् section offers some links to category pages, but you get a myopic view of only one category at a time.</p>
+            <p>The best way to navigate Sanskrit Wikisource is not clear from its home page.</p>
+
+            <figure>
+                <img src="../images/misc_screenshots/skt-wikisource-birds-eye-view.png" alt="Wikisource's home page">
+                <figcaption>Bird's-eye view of the home page</figcaption>
+            </figure>
+
+            <p>First, not everyone is comfortable with an all-Sanskrit, all-Devanagari interface. Second, it's a cluttered mess. If you look past the less useful stuff, the वर्गसर्वस्वम् section offers some links to category pages, but clicking them gives you only a narrow view of one category at a time.</p>
 
             <p><em>Pro tip:</em> There's a separate <a href="https://sa.wikisource.org/wiki/वर्गः:वर्गसर्वस्वम्" target="_blank">https://sa.wikisource.org/wiki/वर्गः:वर्गसर्वस्वम्</a> page quasi-hidden a few wiki-clicks away, which has a dynamic dropdown tree structure that is already much better for browsing.</p>
 
@@ -59,13 +66,13 @@
                 <figcaption>Sanskrit Wikisource's hidden Vargasarvasvam page, its best way to browse</figcaption>
             </figure>
 
-            <p>These categories are mostly unobjectionable, but like any such tree, there can be a learning curve if you come from a different taxonomic perspective. And there is unnecessary mess here, too: poor धर्मशास्त्रम् is for some reason stranded and alone outside of the otherwise top-level ग्रन्थाः ("books"), and there are several wiki-internal categories of no importance for most users (e.g., अनिर्दिष्टानि पुटानि and निष्कासनाय).</p>
+            <p>As for the categorical breakdown itself, it’s mostly unobjectionable, but as is always the case, there can be a learning curve if you come from a different taxonomic perspective. And there is unnecessary mess here, too: poor धर्मशास्त्रम् is for some reason stranded and alone outside of the otherwise top-level ग्रन्थाः ("books"), and there are several wiki-internal categories of no importance for most users, e.g., अनिर्दिष्टानि पुटानि and निष्कासनाय — modern-Sanskrit calques that I personally don’t understand right away when I see them, adding to the fatigue.</p>
 
             <p>Granted, there are other access options, as well: a search bar, and an alphabetical index (e.g., <a href="https://sa.wikisource.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%87%E0%A4%B7%E0%A4%83:%E0%A4%B8%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%AA%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A0%E0%A4%BE%E0%A4%A8%E0%A4%BF/%E0%A4%AB" target="_blank">फ</a>). But I find both of these to be myopically restrictive in their own ways, too. My bet is that, even after trying all of the above, a typical user may still be shrugging their shoulders about whether this collection has material that might be useful to them. After all the work that went in, that's a shame.</p>
 
             <h2>A Better Interface</h2>
 
-            <p>This much, at least, is not hard to improve. After cobbling together a rough understanding of the site's structure, I made an alternate interface to its data.</p>
+            <p>This much, at least, is not hard to improve. After cobbling together a rough understanding of the site's structure, I made an alternate interface to its data that I personally find much more user-friendly.</p>
 
             <figure>
                 <img src="../images/my_project_screenshots/sanskrit-wikisource-mirror.png" alt="My Sanskrit Wikisource Mirror">
@@ -77,7 +84,9 @@
 
             <p>What this alternate interface gives you is: 1) cleaner browsing with context maintained in a sidebar, 2) no Wikimedia artifacts, 3) transliteration options, and 4) text sizes and page counts for context.</p>
 
-            <p>The way I did it was by 1) scraping the full content to analyze structure and to estimate scope, 2) boiling that info down to <a href="https://github.com/tylergneill/sanskrit-wikisource-mirror/tree/main/docs/data" target="_blank">a single file</a>, and then 3) building a simple single-page app on top of that file, which GitHub Pages easily hosts for free. The app only organizes and presents links to Sanskrit Wikisource data in a more user-friendly way. What it does <em>not</em> do is re-host the material, since the collection is demonstrably still living and growing (see its <a href="https://sa.wikisource.org/wiki/विशेषः:नूतनपरिवर्तनानि" target="_blank">Recent Changes (सद्यपरिवर्तनानि) page</a>), and I am not presuming to unilaterally declare myself its leader. Like <a href="../projects#panditya">Pāṇḍitya's use of Pandit Project</a>, this mirror is simply a snapshot in time which points to its source, and it needs to be periodically refreshed to stay current.</p>
+            <p>The way I did it was by 1) scraping the full content to analyze structure and to estimate scope, 2) boiling that info down to <a href="https://github.com/tylergneill/sanskrit-wikisource-mirror/tree/main/docs/data" target="_blank">a single file</a>, and then 3) building a simple single-page app on top of that file, which GitHub Pages easily hosts for free.</p>
+
+            <p>This web app only organizes and presents links to the source Sanskrit Wikisource data. What it does <em>not</em> do is re-host that material, since the collection is demonstrably still living and growing — see its <a href="https://sa.wikisource.org/wiki/विशेषः:नूतनपरिवर्तनानि" target="_blank">“सद्यपरिवर्तनानि,” i.e., Recent Changes page</a> if you're curious — and I am not presuming to unilaterally declare myself its leader. Like <a href="../projects#panditya">Pāṇḍitya's use of Pandit Project</a>, this mirror is simply a snapshot in time which points to its source, and it needs to be periodically refreshed to stay current (<a href="https://github.com/tylergneill/sanskrit-wikisource-mirror" target="_blank">pipeline here in Git</a>).</p>
 
             <p>What the snapshot numbers from Spring 2026 reveal: Sanskrit Wikisource holds over 250mb of plain-text content across roughly 4,700 individual web pages. For comparison, GRETIL is around 350mb before controlling for duplication, roughly 175mb after (see <a href="gretil-past-and-present">previous post</a>). In short, it is definitely huge, and it's very interesting.</p>
 
@@ -106,7 +115,7 @@
             <p>There are several other similar cases. Once I extend the alternate-interface treatment to them, I intend to maintain this as an additional Kalpataru Grove project, under a unified interface called Sāgarasaṅgama. As the collections can be more understood, the metadata can be further ingested into SETI so that it can be visualized in Pāṇḍitya. And in individual cases, I will transplant some individual items of high potential value to HANSEL, and I hope others follow suit with similar platforms.</p>
 
             <div class="post-nav">
-                <a href="skrutable-meter-id-upgrades">&larr; Skrutable Meter Identification Upgrades<span class="post-nav-date">June 26, 2026</span></a>
+                <a href="sarvam-ocr">&larr; A Second Pair of Eyes: Skrutable adds Sarvam Vision OCR<span class="post-nav-date">July 8, 2026</span></a>
                 <span></span>
             </div>
         </div>
