@@ -67,7 +67,7 @@
             </p>
 
             <p>
-                To get that Sarvam API key, you still have to do a little billing setup, but it's fortunately a little simpler than Cloud Vision. You simply create an account at <a href="https://sarvam.ai" target="_blank">sarvam.ai</a>, link a credit card*, generate a key, and you're in. (See <a href="https://skrutable.info/ocr_instructions#api-key" target="_blank">instructions on Skrutable's OCR FAQ page</a>.) No cloud project, no separate API library to enable.
+                To get that Sarvam API key, you still have to do a little billing setup, but it's fortunately a little simpler than with Google. You simply create an account at <a href="https://sarvam.ai" target="_blank">sarvam.ai</a>, link a credit card*, generate a key, and you're in. (See <a href="https://skrutable.info/ocr_instructions#api-key" target="_blank">instructions on Skrutable's OCR FAQ page</a>.) No cloud project, no separate API library to enable.
             </p>
 
             <p>
@@ -101,7 +101,7 @@
             </p>
 
             <p>
-                Really though, it comes down to performance. First, you want a low character error rate. Second, as a humanist, you want trust; imagine that the system does not transcribe diplomatically but instead tries to "improve" the text with creative emendations (yeesh). And third, there's the issue of sensitivity to South Asian documents and their issues, like diacritics, traditional typefaces, and multi-column book layouts. For its part, Google Cloud Vision basically can't do multiple columns without jumbling them together, as if that case is a total afterthought, while anecdotally I can affirm that Sarvam has done brilliantly well at it in a few tests I've done. How refreshing.
+                Really though, it comes down to performance. First, you want a low character error rate. Second, as a humanist, you want trust; imagine that the system does not transcribe diplomatically but instead tries to "improve" the text with creative emendations (yeesh). And third, there's the issue of sensitivity to South Asian documents and their issues, like diacritics, traditional typefaces, and multi-column book layouts. For its part, Google Cloud Vision basically can't do multiple columns without jumbling them together, as if that scenario is a total afterthought, while anecdotally I can affirm that Sarvam has done brilliantly well at it in a few tests I've done. How refreshing.
             </p>
 
             <p>
@@ -150,11 +150,11 @@
             </table>
 
             <p>
-                In other words, GCV gets nearly 3% of non-trivial characters wrong, while Sarvam gets about 1%. That is a real gap. The additional CER calculations serve to illustrate that, of the 1.9% difference, about 60% of it comes down to spurious whitespace. To explain: Sanskrit typography, especially in older editions, occasionally has small gaps between syllables within a word, and Cloud Vision has the unfortunate tendency to read these as word boundaries, inserting spaces that aren't there. The result is incorrect Sanskrit, which takes manual work to correct. Similarly, a word misplaced onto a different line by GCV hits the numbers hard (another 25% of the 1.9% difference), but again, there's no easy fix for that outside of manual proofreading. So the 2% CER gap stands as meaningful, even though the akṣara-level reading differences are surprisingly few, comprising a mere 0.3% difference in CER.
+                In other words, GCV gets nearly 3% of non-trivial characters wrong, while Sarvam gets about 1%. That is a real gap. The additional CER calculations serve to illustrate that, of the 1.9% difference, about 60% of it comes down to spurious whitespace. To explain: Sanskrit typography, especially in older editions, occasionally has small gaps between syllables within a word, and Cloud Vision has the unfortunate tendency to read these as word boundaries, inserting spaces that aren't there. The result is incorrect Sanskrit, which takes manual work to correct. Similarly, a word misplaced onto a different line by GCV hits the CER calculation hard (another 25% of the 1.9% difference), but again, there's no easy fix for that outside of manual proofreading. So the 2% CER gap stands as meaningful, even though the akṣara-level reading differences are surprisingly few, comprising the mere 0.3% remaining difference in CER.
             </p>
 
             <p>
-                And remember, if you're dealing with multi-column layouts as found in many printed Sanskrit editions, there's no point in considering something like CER when GCV simply has no concept of columns, leading to the GCV output being a total mess, unless you employ the workaround of cropping pages down to single columns before OCR-ing — but that cost in your time has to be considered, too. Just watch Sarvam handle columnar layouts more or less correctly (I've seen occasional mistakes) and produce clean, uninterrupted prose with virtually no spurious spaces. Wow.
+                And remember, if you're dealing with multi-column layouts as found in many printed Sanskrit editions, there's not even any point in considering something like CER when GCV simply has no concept of columns, leading to the GCV output being a total mess, unless you employ the workaround of cropping pages down to single columns before OCR-ing — but that cost in your time has to be considered, too. Just watch Sarvam handle columnar layouts more or less correctly (I've seen occasional mistakes) and produce clean, uninterrupted prose with virtually no spurious spaces. Wow.
             </p>
 
             <p>
