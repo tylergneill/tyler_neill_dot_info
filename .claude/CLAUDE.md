@@ -80,6 +80,18 @@ All references use `../` to reach root: `../styles.css`, `../images/...`, `../ab
 
 Tyler writes all blog post prose. Claude handles only structure, HTML mechanics, and wiring (nav links, index entries). Claude Code is still quite bad at writing, so do not draft or suggest prose.
 
+### Importing prose from a Google Doc
+
+Tyler drafts post prose in Google Docs. If a doc is shared ("anyone with the link can view"), fetch its Markdown export directly — no auth needed:
+
+```
+curl -sL -o /tmp/doc.md "https://docs.google.com/document/d/<DOC_ID>/export?format=md"
+```
+
+Convert the Markdown into the post's HTML paragraph/heading/link structure and slot it into the post file. If the doc is a draft-in-progress (common), leave a clear `PLACEHOLDER: draft in progress` marker after the imported content rather than treating it as final — ask Tyler whether the content is complete or still in progress before wiring it in as finished.
+
+Import Tyler's wording exactly as written, including rough fragments, dangling notes, or unfinished sentences — do not clean up, complete, or drop them. Proofreading and polishing happen later, in his own pass; Claude's job here is faithful transcription into HTML, not editing.
+
 ## Writing style
 
 **Voice:** First-person, conversational but intellectually rigorous. Direct address to the reader is common. Informal asides and parentheticals are fine; so is self-deprecating humor. No pretension.
