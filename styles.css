@@ -415,6 +415,7 @@ img {
     aspect-ratio: 4/3;
     object-fit: contain;
     border-radius: 4px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
     margin-bottom: 0.75rem;
     transition: transform 0.3s;
 }
