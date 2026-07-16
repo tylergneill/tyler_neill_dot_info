@@ -1176,6 +1176,26 @@ img {
         grid-template-columns: 1fr;
     }
 
+    /* Mobile post-nav */
+    .post-nav {
+        position: relative;
+        gap: 1.5rem;
+    }
+
+    .post-nav a {
+        max-width: calc(50% - 0.75rem);
+    }
+
+    .post-nav::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 1.5rem;
+        bottom: 0;
+        width: 1px;
+        background: var(--border-color-light);
+    }
+
     /* Mobile Footer */
     .site-footer {
         padding: 1.25rem 1rem;

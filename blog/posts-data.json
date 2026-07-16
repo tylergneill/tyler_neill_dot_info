@@ -8,16 +8,19 @@
   {
     "slug": "sarvam-ocr",
     "title": "A Second Pair of Eyes: Skrutable adds Sarvam Vision OCR",
+    "navTitle": "Sarvam Vision OCR",
     "date": "July 8, 2026"
   },
   {
     "slug": "skrutable-meter-id-upgrades",
     "title": "Skrutable Meter Identification Upgrades",
+    "navTitle": "Skrutable Meter ID",
     "date": "June 26, 2026"
   },
   {
     "slug": "2026-q1-quarterly",
     "title": "Quarterly Update: Jan–Mar 2026",
+    "navTitle": "2026 Q1 Quarterly",
     "date": "April 5, 2026"
   },
   {
@@ -34,6 +37,7 @@
   {
     "slug": "status-check-sept-2025",
     "title": "Status Check (mini-post)",
+    "navTitle": "Status Check",
     "date": "September 15, 2025"
   },
   {
