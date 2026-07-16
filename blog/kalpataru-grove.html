@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalpataru Grove - Kalpataru Diaries</title>
+    <script>
+        (function() {
+            var t = localStorage.getItem('theme');
+            if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
     <link rel="stylesheet" href="../styles.css">
     <link rel="icon" href="../images/dall-e/favicon_light.png" media="(prefers-color-scheme: light)">
     <link rel="icon" href="../images/dall-e/favicon_dark.png" media="(prefers-color-scheme: dark)">
@@ -15,17 +22,23 @@
     <header class="site-header">
         <div class="header-content">
             <a href="../" class="site-title">Sanskrit and Tech with Tyler</a>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="main-nav">
-                <a href="../about">About</a>
-                <a href="../projects">Projects</a>
-                <a href="../contact">Contact</a>
-                <a href="../kalpataru-diaries">Blog: Kalpataru Diaries</a>
-            </nav>
+            <div class="header-controls">
+                <nav class="main-nav">
+                    <a href="../about">About</a>
+                    <a href="../projects">Projects</a>
+                    <a href="../contact">Contact</a>
+                    <a href="../kalpataru-diaries">Blog: Kalpataru Diaries</a>
+                </nav>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -49,7 +62,6 @@
             <p>Go ahead and check it out! It's basically links and one-line descriptions, plus a system diagram that spells out how things connect. I'll probably add an intro video before very long, to talk up the vision itself.</p>
 
             <p>Oh, and I've also included a link (password-protected, but the hint is right there) to a new tool called <strong>Firewatch</strong> which I've built to help me keep an eye on the "grove" and make sure bot-traffic problems don't get out of hand. It basically just does some clever analytics on Nginx's detailed access logs — probably nothing that serious programmers will find useful for their purposes, but you never know, so I'm sharing access to both the interface and the code. I also think that giving people access to my usage statistics is a rad way to promote project transparency. I've never seen anyone do it before, but why not?</p>
-
             <div class="post-nav">
                 <a href="hansel">&larr; HANSEL<span class="post-nav-date">December 19, 2025</span></a>
                 <a href="2026-q1-quarterly" class="post-nav-next">Quarterly Update: Jan–Mar 2026 &rarr;<span class="post-nav-date">April 5, 2026</span></a>
@@ -59,7 +71,7 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025 Tyler Neill.</p>
+            <p>&copy; 2026 Tyler Neill.</p>
             <div class="footer-links">
                 <a href="https://github.com/tylergneill" target="_blank" rel="noopener">GitHub</a>
                 <a href="https://www.linkedin.com/in/tyler-g-neill" target="_blank" rel="noopener">LinkedIn</a>
@@ -80,6 +92,13 @@
                 menuToggle.classList.remove('active');
                 mainNav.classList.remove('active');
             });
+        });
+
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
         });
     </script>
 </body>
