@@ -105,6 +105,7 @@ img {
     top: 0;
     z-index: 1000;
     height: var(--header-height);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.15);
 }
 
 .header-content {
