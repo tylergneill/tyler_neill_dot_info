@@ -139,13 +139,13 @@
                 menuToggle.classList.remove('active');
                 mainNav.classList.remove('active');
             });
+        });
 
         const themeToggle = document.querySelector('.theme-toggle');
         themeToggle.addEventListener('click', () => {
             const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
-        });
         });
     </script>
 </body>
