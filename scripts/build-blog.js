@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Generates blog/<slug>.html from blog/_template.html + blog/posts-data.json + blog/content/<slug>.html
+// Generates blog/<slug>.html from blog/_template.html + blog/posts-data.json + blog/src/<slug>.html
 // Usage: node scripts/build-blog.js [--watch]
 
 const fs = require('fs');
@@ -7,7 +7,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const BLOG_DIR = path.join(ROOT, 'blog');
-const CONTENT_DIR = path.join(BLOG_DIR, 'content');
+const CONTENT_DIR = path.join(BLOG_DIR, 'src');
 const TEMPLATE_PATH = path.join(BLOG_DIR, '_template.html');
 const DATA_PATH = path.join(BLOG_DIR, 'posts-data.json');
 

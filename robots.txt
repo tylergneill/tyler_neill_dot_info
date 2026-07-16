@@ -1,3 +1,3 @@
 User-agent: *
-Disallow: /blog/content/
+Disallow: /blog/src/
 Disallow: /blog/_template.html

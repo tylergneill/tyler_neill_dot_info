@@ -7,7 +7,7 @@ install-hooks:
 	@echo "git hooks installed (core.hooksPath -> scripts/hooks)"
 
 # Regenerate blog/<slug>.html from blog/_template.html + blog/posts-data.json
-# + blog/content/<slug>.html. Run after editing any of those, before committing.
+# + blog/src/<slug>.html. Run after editing any of those, before committing.
 blog:
 	node scripts/build-blog.js
 
