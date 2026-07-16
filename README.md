@@ -12,3 +12,7 @@ My personal website, live at [tylerneill.info](https://tylerneill.info).
 - `blog/` - Individual blog post pages (canonical location)
 - `styles.css` - Site styles
 - `images/` - Image assets (DALL-E artwork, project screenshots)
+
+## Dev Instructions
+
+See included Makefile for pre-push hook installation and build recipes.

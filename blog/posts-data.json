@@ -1,5 +1,12 @@
 [
   {
+    "slug": "2026-q2-quarterly",
+    "title": "Quarterly Update: Apr–Jun 2026",
+    "navTitle": "2026 Q2 Quarterly",
+    "date": "July 16, 2026",
+    "bannerImage": "../images/dall-e/DALL%C2%B7E%202024-01-08%2023.47.40%20-%20An%20abstract%20tree%20composed%20entirely%20of%20computer%20circuits.%20The%20tree%20is%20intricate%2C%20with%20branches%20and%20leaves%20represented%20by%20various%20electronic%20components%20.png"
+  },
+  {
     "slug": "sarvam-ocr",
     "title": "A Second Pair of Eyes: Skrutable adds Sarvam Vision OCR",
     "date": "July 8, 2026",
