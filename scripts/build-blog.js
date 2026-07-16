@@ -37,7 +37,6 @@ function build() {
         const html = template
             .replaceAll('{{TITLE}}', post.title)
             .replaceAll('{{DATE}}', post.date)
-            .replaceAll('{{BANNER_IMAGE}}', post.bannerImage)
             .replace('{{CONTENT}}', content)
             .replace('{{POST_NAV}}', postNav);
 
