@@ -1,33 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalpataru Grove - Kalpataru Diaries</title>
-    <script>
-        (function() {
-            var t = localStorage.getItem('theme');
-            if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', t);
-        })();
-    </script>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="icon" href="../images/dall-e/favicon_light.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" href="../images/dall-e/favicon_dark.png" media="(prefers-color-scheme: dark)">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <script src="../header.js"></script>
-
-    <div class="page-header page-header-blog">
-        <h1>Kalpataru Grove</h1>
-        <p style="margin-top: 1rem; opacity: 0.9;">February 6, 2026</p>
-    </div>
-
-    <article class="page-content">
-        <div class="container blog-post-content">
             <p>People who visit this personal website of mine and its <a href="/projects">Projects page</a> might have a decent idea of the range of what I'm working on, but I know it's a lot and hard to keep track of. Meanwhile, the various projects have been coming together and forming more of a coherent ecosystem than I had consciously planned for.</p>
 
             <p>I hereby dub this emerging vision "Kalpataru Grove", using the same <a href="first-post">metaphor</a> that illustrates this blog. And because I seem to love making new websites, I made one to illustrate the idea and link everything together:</p>
@@ -41,13 +11,3 @@
             <p>Go ahead and check it out! It's basically links and one-line descriptions, plus a system diagram that spells out how things connect. I'll probably add an intro video before very long, to talk up the vision itself.</p>
 
             <p>Oh, and I've also included a link (password-protected, but the hint is right there) to a new tool called <strong>Firewatch</strong> which I've built to help me keep an eye on the "grove" and make sure bot-traffic problems don't get out of hand. It basically just does some clever analytics on Nginx's detailed access logs — probably nothing that serious programmers will find useful for their purposes, but you never know, so I'm sharing access to both the interface and the code. I also think that giving people access to my usage statistics is a rad way to promote project transparency. I've never seen anyone do it before, but why not?</p>
-            <div class="post-nav">
-                <a href="hansel">&larr; HANSEL<span class="post-nav-date">December 19, 2025</span></a>
-                <a href="2026-q1-quarterly" class="post-nav-next">2026 Q1 Quarterly &rarr;<span class="post-nav-date">April 5, 2026</span></a>
-            </div>
-        </div>
-    </article>
-
-    <script src="../footer.js"></script>
-</body>
-</html>

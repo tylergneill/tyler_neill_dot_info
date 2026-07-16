@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Sanskrit and Tech with Tyler</title>
+    <script>
+        (function() {
+            var t = localStorage.getItem('theme');
+            if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/dall-e/favicon_light.png" media="(prefers-color-scheme: light)">
     <link rel="icon" href="images/dall-e/favicon_dark.png" media="(prefers-color-scheme: dark)">
@@ -12,22 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-content">
-            <a href="/" class="site-title">Sanskrit and Tech with Tyler</a>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="main-nav">
-                <a href="about">About</a>
-                <a href="projects">Projects</a>
-                <a href="contact">Contact</a>
-                <a href="kalpataru-diaries">Blog: Kalpataru Diaries</a>
-            </nav>
-        </div>
-    </header>
+    <script src="header.js"></script>
 
     <div class="page-header" style="background: url('images/dall-e/DALL%C2%B7E%202024-02-01%2014.48.07%20-%20Starting%20over%20with%20a%20new%20design_%20A%20very%20flat%20and%20wide%20woodcut-style%20landscape%20illustration.%20On%20the%20left%2C%20a%20male%20character%20with%20dark%20hair%20styled%20in%20a%20p%20copy.png') center/cover no-repeat;">
         <h1>Contact</h1>
@@ -35,7 +27,7 @@
 
     <section class="page-content">
         <div class="container" style="text-align: center;">
-            <p>What can I do for you? I love tutoring of all sorts, for example! Or maybe you have a one-off task you need some expert help with. Get in touch, we'll chat.</p>
+            <p>Can I help you or your group? I can provide tutoring, give a presentation, consult on your project/research idea, or anything in between. Get in touch, we'll chat.</p>
         </div>
     </section>
 
@@ -73,16 +65,7 @@
         </div>
     </section>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2025 Tyler Neill.</p>
-            <div class="footer-links">
-                <a href="https://github.com/tylergneill" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://www.linkedin.com/in/tyler-g-neill" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="https://uni-leipzig1.academia.edu/TylerNeill" target="_blank" rel="noopener">Academia</a>
-            </div>
-        </div>
-    </footer>
+    <script src="footer.js"></script>
 
     <script>
         document.getElementById('contact-form').addEventListener('submit', function(e) {
@@ -98,21 +81,6 @@
             }).then(function() {
                 document.getElementById('contact-form').style.display = 'none';
                 document.getElementById('contact-thanks').style.display = 'block';
-            });
-        });
-
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mainNav = document.querySelector('.main-nav');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            mainNav.classList.toggle('active');
-        });
-
-        mainNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                mainNav.classList.remove('active');
             });
         });
     </script>
