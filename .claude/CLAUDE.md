@@ -10,6 +10,11 @@ Always running: `npx http-server -p 4999`. Base URL: http://127.0.0.1:4999/
 
 Posts live in `blog/*.html` (accessed without `.html` extension via links). The canonical ordered list is `kalpataru-diaries.html` — the topmost non-commented `<li>` is always the newest post.
 
+### Post series
+
+- **Quarterly updates** (`YYYY-qN-quarterly`): banner is `images/dall-e/kalpataru-tree-logo.png`
+- **Tidbits roundups** (`tidbits-N`): banner is the "motherboard" image, `images/dall-e/DALL·E 2024-02-12 22.33.51 - Envision a motherboard like no other, where the wonders of nature and technology intertwine. This motherboard is meticulously crafted from a solid pie.webp` (same file used as the `tools-of-the-trade` thumbnail)
+
 ### Adding a new post — checklist
 
 1. Create `blog/new-slug.html` (copy a recent post as a template)
@@ -27,7 +32,7 @@ Posts live in `blog/*.html` (accessed without `.html` extension via links). The 
     <div class="blog-item-content">
         <h3><a href="blog/slug">Post Title</a></h3>
         <p class="blog-date">Month D, YYYY</p>
-        <p class="blog-excerpt">One-sentence description.</p>
+        <p class="blog-excerpt">PLACEHOLDER: excerpt</p>
     </div>
 </li>
 ```
@@ -71,7 +76,7 @@ All references use `../` to reach root: `../styles.css`, `../images/...`, `../ab
 
 ### Images
 
-- `../images/dall-e/` — AI-generated artwork; the circuit-tree image is the default banner for posts without a distinctive screenshot
+- `../images/dall-e/` — AI-generated artwork; `kalpataru-tree-logo.png` (the "circuit-tree" image) is the default banner for posts without a distinctive screenshot
 - `../images/my_project_screenshots/` — project screenshots (used as thumbnails in index)
 - `../images/misc_screenshots/` — other screenshots
 - Banner image: use circuit-tree DALL-E or another decorative image — **not** the same screenshot used as the thumbnail
@@ -79,6 +84,8 @@ All references use `../` to reach root: `../styles.css`, `../images/...`, `../ab
 ## Writing
 
 Tyler writes all blog post prose. Claude handles only structure, HTML mechanics, and wiring (nav links, index entries). Claude Code is still quite bad at writing, so do not draft or suggest prose.
+
+This includes the `blog-excerpt` line in the index entry (`kalpataru-diaries.html`) — it is prose, not mechanics. Never compose it. Leave it as `PLACEHOLDER: excerpt` and tell Tyler it needs writing, even when the post content makes a summary easy to infer.
 
 ### Importing prose from a Google Doc
 
