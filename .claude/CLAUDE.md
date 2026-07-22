@@ -1,6 +1,6 @@
 # tyler_neill_dot_info
 
-Static personal website. Pure HTML + CSS, no templating. Hosted via GitHub Pages.
+Static personal website. Pure HTML + CSS. Hosted via GitHub Pages. Blog posts are the one part of the site that goes through a small build step (see below) — everything else is hand-written HTML with no templating.
 
 ## Local dev server
 
@@ -8,19 +8,29 @@ Always running: `npx http-server -p 4999`. Base URL: http://127.0.0.1:4999/
 
 ## Blog posts
 
-Posts live in `blog/*.html` (accessed without `.html` extension via links). The canonical ordered list is `kalpataru-diaries.html` — the topmost non-commented `<li>` is always the newest post.
+`blog/*.html` (accessed without `.html` extension via links) are **generated files** — do not hand-edit them. They're built from:
 
-### Post series
+- `blog/src/<slug>.html` — the post's inner content only (everything that goes inside `.blog-post-content`: `<p>`, `<figure>`, `<h2>`, etc. — no `<head>`, header, page-header, or `post-nav`)
+- `blog/posts-data.json` — ordered array (newest first) of `{ slug, title, navTitle?, date }` for every post; this list is also what drives `post-nav` prev/next wiring
+- `blog/_template.html` — the shared shell (`{{TITLE}}`, `{{DATE}}`, `{{CONTENT}}`, `{{POST_NAV}}` placeholders)
+- `scripts/build-blog.js`, run via `make blog` — reads the three inputs above and writes `blog/<slug>.html` for every entry in `posts-data.json`
 
-- **Quarterly updates** (`YYYY-qN-quarterly`): banner is `images/dall-e/kalpataru-tree-logo.png`
-- **Tidbits roundups** (`tidbits-N`): banner is the "motherboard" image, `images/dall-e/DALL·E 2024-02-12 22.33.51 - Envision a motherboard like no other, where the wonders of nature and technology intertwine. This motherboard is meticulously crafted from a solid pie.webp` (same file used as the `tools-of-the-trade` thumbnail)
+A pre-push git hook (`scripts/hooks`, wired via `make install-hooks`) rejects the push if `blog/*.html` is stale relative to the template/data/src inputs — run `make blog` and commit the result before pushing.
+
+The banner image on every post is fixed by the template (`page-header-blog` CSS class → `images/dall-e/kalpataru-tree-logo.png`); there is no per-post custom banner. The old per-post `background-image` style is a pre-refactor pattern — don't add it to new posts.
+
+The canonical ordered list for the index page is `blog/posts-data.json`, not `kalpataru-diaries.html` directly — but `kalpataru-diaries.html`'s `<li>` list is **not** currently generated from it and must still be hand-edited to match (see below).
 
 ### Adding a new post — checklist
 
-1. Create `blog/new-slug.html` (copy a recent post as a template)
-2. Add a `<li class="blog-item">` entry at the **top** of the list in `kalpataru-diaries.html`
-3. Update the previously-newest post's `.post-nav` to add a forward link to the new post
-4. Check `projects.html` — if the post mentions a project that isn't already listed there, add a "mentioned in blog post" entry
+1. Write `blog/src/new-slug.html` with just the post's inner content
+2. Add an entry for it at the **top** of the array in `blog/posts-data.json` (`slug`, `title`, optional `navTitle` for the shorter prev/next label, `date`)
+3. Run `make blog` to generate `blog/new-slug.html` and to rewire the previously-newest post's `post-nav` automatically
+4. Add a `<li class="blog-item">` entry at the **top** of the list in `kalpataru-diaries.html` (this step is still manual — not covered by `make blog`)
+5. Check `projects.html` — if the post mentions a project that isn't already listed there, add a "mentioned in blog post" entry
+6. Commit the `blog/src/`, `posts-data.json`, and generated `blog/*.html` changes together
+
+Never hand-edit `post-nav` links in a generated `blog/<slug>.html` file — edit `posts-data.json` and rerun `make blog` instead; a manual edit will just be silently overwritten (or flagged stale by the pre-push hook) the next time the build runs.
 
 ### `kalpataru-diaries.html` — index entry format
 
@@ -39,47 +49,31 @@ Posts live in `blog/*.html` (accessed without `.html` extension via links). The 
 
 Posts can be hidden by wrapping the `<li>` in an HTML comment.
 
-### Individual post file structure
+### `blog/src/<slug>.html` — content file structure
+
+Just the inner content, indented to match `.blog-post-content`:
 
 ```
-<head>
-  title: "Post Title - Kalpataru Diaries"
-  ../styles.css, Google Fonts
-  favicon links (optional — some newer posts omit them)
-
-<header> — standard site nav with ../ paths
-
-<div class="page-header" style="background-image: url('../images/...');">
-  <h1>Post Title</h1>
-  <p style="margin-top: 1rem; opacity: 0.9;">Month D, YYYY</p>
-</div>
-
-<article class="page-content">
-  <div class="container blog-post-content">
-    ... <p>, <figure>/<figcaption>, <a> ...
-    <div class="post-nav">
-      <a href="prev-slug">&larr; Prev Title<span class="post-nav-date">Date</span></a>
-      <a href="next-slug">Next Title &rarr;<span class="post-nav-date">Date</span></a>
-    </div>
-  </div>
-</article>
-
-<footer> — standard
-<script> — hamburger menu toggle (copy verbatim)
+            <p>...</p>
+            <figure>
+                <img src="../images/...">
+                <figcaption>...</figcaption>
+            </figure>
+            <h2>...</h2>
+            <p>...</p>
 ```
 
-Use `<span></span>` as a placeholder in `.post-nav` when there is no prev or next post.
+No `<head>`, no header/footer, no `page-header`, no `post-nav` — the template and build script supply all of that from `posts-data.json`.
 
-### Paths inside `blog/*.html`
+### Paths inside `blog/src/*.html`
 
-All references use `../` to reach root: `../styles.css`, `../images/...`, `../about`, etc.
+All references use `../` to reach root: `../styles.css`, `../images/...`, `../about`, etc. (this carries through unchanged into the generated `blog/*.html`).
 
 ### Images
 
-- `../images/dall-e/` — AI-generated artwork; `kalpataru-tree-logo.png` (the "circuit-tree" image) is the default banner for posts without a distinctive screenshot
+- `../images/dall-e/` — AI-generated artwork
 - `../images/my_project_screenshots/` — project screenshots (used as thumbnails in index)
 - `../images/misc_screenshots/` — other screenshots
-- Banner image: use circuit-tree DALL-E or another decorative image — **not** the same screenshot used as the thumbnail
 
 ## Writing
 
