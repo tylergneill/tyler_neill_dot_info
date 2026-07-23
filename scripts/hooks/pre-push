@@ -1,9 +1,9 @@
 #!/bin/sh
-# Blocks push if blog/*.html is stale relative to _template.html/posts-data.json/content/.
+# Blocks push if blog/*.html or kalpataru-diaries.html is stale relative to the templates/posts-data.json/src.
 node scripts/build-blog.js > /dev/null
 
-if ! git diff --quiet -- blog/*.html; then
-    echo "error: blog/*.html is out of date with blog/_template.html, blog/posts-data.json, or blog/content/."
+if ! git diff --quiet -- blog/*.html kalpataru-diaries.html; then
+    echo "error: blog/*.html or kalpataru-diaries.html is out of date with blog/_post-template.html, blog/_index-template.html, blog/posts-data.json, or blog/src/."
     echo "Run 'make blog' and commit the result before pushing."
     exit 1
 fi

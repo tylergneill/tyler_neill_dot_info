@@ -11,28 +11,34 @@ Always running: `npx http-server -p 4999`. Base URL: http://127.0.0.1:4999/
 `blog/*.html` (accessed without `.html` extension via links) are **generated files** — do not hand-edit them. They're built from:
 
 - `blog/src/<slug>.html` — the post's inner content only (everything that goes inside `.blog-post-content`: `<p>`, `<figure>`, `<h2>`, etc. — no `<head>`, header, page-header, or `post-nav`)
-- `blog/posts-data.json` — ordered array (newest first) of `{ slug, title, navTitle?, date }` for every post; this list is also what drives `post-nav` prev/next wiring
-- `blog/_template.html` — the shared shell (`{{TITLE}}`, `{{DATE}}`, `{{CONTENT}}`, `{{POST_NAV}}` placeholders)
-- `scripts/build-blog.js`, run via `make blog` — reads the three inputs above and writes `blog/<slug>.html` for every entry in `posts-data.json`
+- `blog/posts-data.json` — ordered array (newest first) of `{ slug, title, navTitle?, date, thumb, thumbAlt, excerpt, unpublished? }` for every post; this list is also what drives `post-nav` prev/next wiring and the `kalpataru-diaries.html` index list
+- `blog/_post-template.html` — the shared post shell (`{{TITLE}}`, `{{DATE}}`, `{{CONTENT}}`, `{{POST_NAV}}` placeholders)
+- `blog/_index-template.html` — the index page shell (`{{BLOG_LIST}}` placeholder), used to generate `kalpataru-diaries.html`
+- `scripts/build-blog.js`, run via `make blog` — reads the inputs above and writes `blog/<slug>.html` for every entry in `posts-data.json`, plus `kalpataru-diaries.html`
 
-A pre-push git hook (`scripts/hooks`, wired via `make install-hooks`) rejects the push if `blog/*.html` is stale relative to the template/data/src inputs — run `make blog` and commit the result before pushing.
+A pre-push git hook (`scripts/hooks`, wired via `make install-hooks`) rejects the push if `blog/*.html` or `kalpataru-diaries.html` is stale relative to the template/data/src inputs — run `make blog` and commit the result before pushing.
+
+`kalpataru-diaries.html` itself is a **generated file** too, just like `blog/*.html` — do not hand-edit it. It's built from `blog/_index-template.html` (the page shell — header, intro paragraph — plus a `{{BLOG_LIST}}` placeholder) and `posts-data.json` (which supplies the list of `<li>` entries). To change the shell (intro text, header), edit `blog/_index-template.html`; to change a post's index entry, edit `posts-data.json` and rerun `make blog`.
 
 The banner image on every post is fixed by the template (`page-header-blog` CSS class → `images/dall-e/kalpataru-tree-logo.png`); there is no per-post custom banner. The old per-post `background-image` style is a pre-refactor pattern — don't add it to new posts.
 
-The canonical ordered list for the index page is `blog/posts-data.json`, not `kalpataru-diaries.html` directly — but `kalpataru-diaries.html`'s `<li>` list is **not** currently generated from it and must still be hand-edited to match (see below).
+The canonical ordered list for the index page is `blog/posts-data.json` — `kalpataru-diaries.html`'s `<li>` list is generated from it by `make blog`.
 
 ### Adding a new post — checklist
 
 1. Write `blog/src/new-slug.html` with just the post's inner content
-2. Add an entry for it at the **top** of the array in `blog/posts-data.json` (`slug`, `title`, optional `navTitle` for the shorter prev/next label, `date`)
-3. Run `make blog` to generate `blog/new-slug.html` and to rewire the previously-newest post's `post-nav` automatically
-4. Add a `<li class="blog-item">` entry at the **top** of the list in `kalpataru-diaries.html` (this step is still manual — not covered by `make blog`)
-5. Check `projects.html` — if the post mentions a project that isn't already listed there, add a "mentioned in blog post" entry
-6. Commit the `blog/src/`, `posts-data.json`, and generated `blog/*.html` changes together
+2. Add an entry for it at the **top** of the array in `blog/posts-data.json`: `slug`, `title`, optional `navTitle` for the shorter prev/next label, `date`, `thumb` (path to thumbnail image, relative to site root, e.g. `images/my_project_screenshots/foo.png`), `thumbAlt`, and `excerpt` (prose — see Writing section below; leave as `PLACEHOLDER: excerpt` until Tyler writes it)
+3. Run `make blog` to generate `blog/new-slug.html`, rewire the previously-newest post's `post-nav`, and regenerate the `<ul class="blog-list">` block in `kalpataru-diaries.html`
+4. Check `projects.html` — if the post mentions a project that isn't already listed there, add a "mentioned in blog post" entry
+5. Commit the `blog/src/`, `posts-data.json`, and generated `blog/*.html`/`kalpataru-diaries.html` changes together
+
+A post can be hidden from the index (but keep its `blog/src/` file and data entry) by setting `"unpublished": true` on its `posts-data.json` entry — `make blog` will skip generating its `blog/<slug>.html` page, its post-nav wiring, and its index `<li>`.
 
 Never hand-edit `post-nav` links in a generated `blog/<slug>.html` file — edit `posts-data.json` and rerun `make blog` instead; a manual edit will just be silently overwritten (or flagged stale by the pre-push hook) the next time the build runs.
 
 ### `kalpataru-diaries.html` — index entry format
+
+Generated by `make blog` from each `posts-data.json` entry's `slug`, `thumb`, `thumbAlt`, `title`, `date`, and `excerpt` fields:
 
 ```html
 <li class="blog-item">
@@ -47,7 +53,7 @@ Never hand-edit `post-nav` links in a generated `blog/<slug>.html` file — edit
 </li>
 ```
 
-Posts can be hidden by wrapping the `<li>` in an HTML comment.
+Do not hand-edit `kalpataru-diaries.html` — edit the corresponding entry in `posts-data.json` and rerun `make blog`. Posts are hidden from the index via `"unpublished": true` in `posts-data.json`, not HTML comments.
 
 ### `blog/src/<slug>.html` — content file structure
 

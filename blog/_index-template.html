@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog: Kalpataru Diaries - Sanskrit and Tech with Tyler</title>
+    <script>
+        (function() {
+            var t = localStorage.getItem('theme');
+            if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/dall-e/favicon_light.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="images/dall-e/favicon_dark.png" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="header.js"></script>
+
+    <div class="page-header" style="background-image: url('images/dall-e/kalpataru-tree-logo.png'); background-size: cover; background-position: center;">
+        <h1>Kalpataru Diaries</h1>
+    </div>
+
+    <section class="page-content">
+        <div class="container">
+            <p style="text-align: center; margin-bottom: 3rem; font-size: 1.1rem;">A blog on Sanskrit and tech, meant to share resources, identify gaps, and make new progress.<br>Come along!</p>
+
+            <ul class="blog-list">
+{{BLOG_LIST}}
+            </ul>
+
+        </div>
+    </section>
+
+    <script src="footer.js"></script>
+</body>
+</html>

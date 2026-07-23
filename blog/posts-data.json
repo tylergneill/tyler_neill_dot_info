@@ -3,100 +3,163 @@
     "slug": "tidbits-1",
     "title": "Sanskrit Tech Tidbits",
     "navTitle": "Sanskrit Tech Tidbits",
-    "date": "July 22, 2026"
+    "date": "July 22, 2026",
+    "thumb": "images/dall-e/DALL%C2%B7E%202024-02-12%2022.33.51%20-%20Envision%20a%20motherboard%20like%20no%20other%2C%20where%20the%20wonders%20of%20nature%20and%20technology%20intertwine.%20This%20motherboard%20is%20meticulously%20crafted%20from%20a%20solid%20pie.webp",
+    "thumbAlt": "Sanskrit Tech Tidbits",
+    "excerpt": "A quick roundup of new tools: Vāgdhenu TTS chanting, an unofficial Dharmamitra Telegram bot, Aksharamukha's Uchcharaka transcriber, and the new Cologne dictionary web app."
   },
   {
     "slug": "2026-q2-quarterly",
     "title": "Quarterly Update: Apr–Jun 2026",
     "navTitle": "2026 Q2 Quarterly",
-    "date": "July 16, 2026"
+    "date": "July 16, 2026",
+    "thumb": "images/dall-e/kalpataru-tree-logo.png",
+    "thumbAlt": "2026 Q2 Quarterly",
+    "excerpt": "Second quarterly update: mostly Skrutable upgrades, but also progress on HANSEL, Kalpataru Grove infra, Muktabodha, and the \"large e-text collections\" project, too."
   },
   {
     "slug": "sarvam-ocr",
     "title": "A Second Pair of Eyes: Skrutable adds Sarvam Vision OCR",
     "navTitle": "Sarvam Vision OCR",
-    "date": "July 8, 2026"
+    "date": "July 8, 2026",
+    "thumb": "images/my_project_screenshots/skrutable-ocr-comparison-triptych.png",
+    "thumbAlt": "A Second Pair of Eyes: Skrutable adds Sarvam Vision OCR",
+    "excerpt": "Promising performance notes and how-to."
   },
   {
     "slug": "skrutable-meter-id-upgrades",
     "title": "Skrutable Meter Identification Upgrades",
     "navTitle": "Skrutable Meter ID",
-    "date": "June 26, 2026"
+    "date": "June 26, 2026",
+    "thumb": "images/my_project_screenshots/skrutable-bmcm.png",
+    "thumbAlt": "Skrutable Meter Identification Upgrades",
+    "excerpt": "More accurate, more detailed, faster, and visual multi-verse browsing. Also, the Mahāsubhāṣitasaṃgraha as benchmark."
   },
   {
     "slug": "2026-q1-quarterly",
     "title": "Quarterly Update: Jan–Mar 2026",
     "navTitle": "2026 Q1 Quarterly",
-    "date": "April 5, 2026"
+    "date": "April 5, 2026",
+    "thumb": "images/dall-e/kalpataru-tree-logo.png",
+    "thumbAlt": "2026 Q1 Quarterly",
+    "excerpt": "A first quarterly update: Kalpataru Grove is born, Claude Code changes everything, Pāṇḍitya and Skrutable get UI updates, HANSEL gets new texts and capabilities, and I hint at a new project for keeping up with large e-text collections."
   },
   {
     "slug": "kalpataru-grove",
     "title": "Kalpataru Grove",
-    "date": "February 6, 2026"
+    "date": "February 6, 2026",
+    "thumb": "images/my_project_screenshots/kalpataru-grove.png",
+    "thumbAlt": "Kalpataru Grove",
+    "excerpt": "Articulating the vision of my ecosystem of Sanskrit digital tools and resources."
   },
   {
     "slug": "hansel",
     "title": "HANSEL: A companion to GRETIL",
     "navTitle": "HANSEL",
-    "date": "December 19, 2025"
+    "date": "December 19, 2025",
+    "thumb": "images/my_project_screenshots/hansel_screenshot_1b.png",
+    "thumbAlt": "HANSEL",
+    "excerpt": "A new platform to pick up where GRETIL left off, welcoming contributions of academic Sanskrit e-texts."
   },
   {
     "slug": "status-check-sept-2025",
     "title": "Status Check (mini-post)",
     "navTitle": "Status Check",
-    "date": "September 15, 2025"
+    "date": "September 15, 2025",
+    "thumb": "images/dall-e/ChatGPT%20Image%20Sep%2015%2C%202025%2C%2004_00_33%20PM%20progress%20behind%20the%20scenes.png",
+    "thumbAlt": "Status Check",
+    "excerpt": "A brief update on what's been happening behind the scenes and what's coming next."
+  },
+  {
+    "slug": "e-text-icebergs",
+    "title": "E-Text Icebergs, Part 1: Sanskrit Wikisource",
+    "date": "March 9, 2026",
+    "thumb": "images/downloads/wikisource.png",
+    "thumbAlt": "E-Text Icebergs",
+    "excerpt": "Diving into the hidden depths of Sanskrit digital resources available through Wikisource, Sanskrit Documents, Wisdom Library, and more.",
+    "unpublished": true
   },
   {
     "slug": "seti",
     "title": "SETI: The New Register for Sanskrit E-Texts",
     "navTitle": "SETI",
-    "date": "April 23, 2025"
+    "date": "April 23, 2025",
+    "thumb": "images/my_project_screenshots/seti.png",
+    "thumbAlt": "SETI",
+    "excerpt": "Introducing an index of Sanskrit electronic texts to help scholars discover digitized materials across major collections."
   },
   {
     "slug": "panditya",
     "title": "Pāṇḍitya: A New Visual Exploration Tool for Sanskrit Intellectual Networks",
     "navTitle": "Pāṇḍitya",
-    "date": "February 7, 2025"
+    "date": "February 7, 2025",
+    "thumb": "images/my_project_screenshots/panditya_new.png",
+    "thumbAlt": "Pāṇḍitya",
+    "excerpt": "Exploring connections between Sanskrit scholars, texts, and traditions through interactive network visualization."
   },
   {
     "slug": "splitter-options",
     "title": "Splitter Options",
-    "date": "October 31, 2024"
+    "date": "October 31, 2024",
+    "thumb": "images/misc_screenshots/vidyut-lekh%C4%81.png",
+    "thumbAlt": "Splitter Options",
+    "excerpt": "Comparing Sanskrit word-splitting tools, especially model-based tools like ByT5-Sanskrit, with accuracy and speed benchmarks."
   },
   {
     "slug": "gretil-past-and-present",
     "title": "GRETIL: Past and Present",
     "navTitle": "GRETIL",
-    "date": "July 6, 2024"
+    "date": "July 6, 2024",
+    "thumb": "images/misc_screenshots/gretil!.png",
+    "thumbAlt": "GRETIL",
+    "excerpt": "The history and current state of one of the most important repositories of digitized Sanskrit texts."
   },
   {
     "slug": "ocr-options",
     "title": "OCR Options",
-    "date": "May 5, 2024"
+    "date": "May 5, 2024",
+    "thumb": "images/dall-e/DALL%C2%B7E%202024-01-06%2014.01.32%20-%20A%20modern%2C%20stylized%20woodcut%20representation%20of%20a%20South%20Asian%20pandit%20or%20scribe%2C%20sitting%20cross-legged%20on%20the%20floor%2C%20writing%20on%20a%20large%20page%20with%20a%20stylus%20copy.png",
+    "thumbAlt": "OCR Options",
+    "excerpt": "A practical guide to optical character recognition tools for Sanskrit (and other) documents, from Google Cloud Vision to Tesseract."
   },
   {
     "slug": "vatayana",
     "title": "Vātāyana",
-    "date": "April 7, 2024"
+    "date": "April 7, 2024",
+    "thumb": "images/my_project_screenshots/vatayana_new.jpeg",
+    "thumbAlt": "Vātāyana",
+    "excerpt": "A novel system for extracting expert philological insights from a corpus of Sanskrit philosophy texts, combining LDA topic modeling, TF-IDF, and local text alignment."
   },
   {
     "slug": "pramana-nlp",
     "title": "Pramāṇa NLP",
-    "date": "March 24, 2024"
+    "date": "March 24, 2024",
+    "thumb": "images/my_project_screenshots/Pram%C4%81%E1%B9%87a%20NLP.png",
+    "thumbAlt": "Pramāṇa NLP",
+    "excerpt": "A curated corpus of Sanskrit philosophy texts designed for natural language processing, with five key design principles."
   },
   {
     "slug": "skrutable",
     "title": "Skrutable",
-    "date": "March 10, 2024"
+    "date": "March 10, 2024",
+    "thumb": "images/my_project_screenshots/skrutable3.png",
+    "thumbAlt": "Skrutable",
+    "excerpt": "The story of my Sanskrit text processing toolkit: transliteration, meter analysis, word splitting, and OCR."
   },
   {
     "slug": "tools-of-the-trade",
     "title": "Tools of the Trade",
-    "date": "February 25, 2024"
+    "date": "February 25, 2024",
+    "thumb": "images/dall-e/DALL%C2%B7E%202024-02-12%2022.33.51%20-%20Envision%20a%20motherboard%20like%20no%20other%2C%20where%20the%20wonders%20of%20nature%20and%20technology%20intertwine.%20This%20motherboard%20is%20meticulously%20crafted%20from%20a%20solid%20pie.webp",
+    "thumbAlt": "Tools of the Trade",
+    "excerpt": "Preferred coding tech: Python, PyEnv, Flask, GitHub, Digital Ocean, and more."
   },
   {
     "slug": "first-post",
     "title": "First post!",
-    "date": "February 11, 2024"
+    "date": "February 11, 2024",
+    "thumb": "images/dall-e/kalpataru-tree-logo.png",
+    "thumbAlt": "First post!",
+    "excerpt": "The idea behind the blog: subject matter, purpose, and connection."
   }
 ]
