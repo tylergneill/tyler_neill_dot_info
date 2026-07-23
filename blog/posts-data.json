@@ -3,9 +3,8 @@
     "slug": "tidbits-1",
     "title": "Sanskrit Tech Tidbits",
     "navTitle": "Sanskrit Tech Tidbits",
-    "date": "July 22, 2026",
-    "thumb": "images/dall-e/DALL%C2%B7E%202024-02-12%2022.33.51%20-%20Envision%20a%20motherboard%20like%20no%20other%2C%20where%20the%20wonders%20of%20nature%20and%20technology%20intertwine.%20This%20motherboard%20is%20meticulously%20crafted%20from%20a%20solid%20pie.webp",
     "date": "July 23, 2026",
+    "thumb": "images/dall-e/tool-board.png",
     "thumbAlt": "Sanskrit Tech Tidbits",
     "excerpt": "A quick roundup of new tools: Vāgdhenu TTS chanting, an unofficial Dharmamitra Telegram bot, Aksharamukha's Uchcharaka transcriber, and the new Cologne dictionary web app."
   },
@@ -67,7 +66,7 @@
     "title": "Status Check (mini-post)",
     "navTitle": "Status Check",
     "date": "September 15, 2025",
-    "thumb": "images/dall-e/ChatGPT%20Image%20Sep%2015%2C%202025%2C%2004_00_33%20PM%20progress%20behind%20the%20scenes.png",
+    "thumb": "images/dall-e/behind_the_scenes.png",
     "thumbAlt": "Status Check",
     "excerpt": "A brief update on what's been happening behind the scenes and what's coming next."
   },
@@ -102,7 +101,7 @@
     "slug": "splitter-options",
     "title": "Splitter Options",
     "date": "October 31, 2024",
-    "thumb": "images/misc_screenshots/vidyut-lekh%C4%81.png",
+    "thumb": "images/misc_screenshots/vidyut_lekha.png",
     "thumbAlt": "Splitter Options",
     "excerpt": "Comparing Sanskrit word-splitting tools, especially model-based tools like ByT5-Sanskrit, with accuracy and speed benchmarks."
   },
@@ -119,7 +118,7 @@
     "slug": "ocr-options",
     "title": "OCR Options",
     "date": "May 5, 2024",
-    "thumb": "images/dall-e/DALL%C2%B7E%202024-01-06%2014.01.32%20-%20A%20modern%2C%20stylized%20woodcut%20representation%20of%20a%20South%20Asian%20pandit%20or%20scribe%2C%20sitting%20cross-legged%20on%20the%20floor%2C%20writing%20on%20a%20large%20page%20with%20a%20stylus%20copy.png",
+    "thumb": "images/dall-e/ocr_scribe.png",
     "thumbAlt": "OCR Options",
     "excerpt": "A practical guide to optical character recognition tools for Sanskrit (and other) documents, from Google Cloud Vision to Tesseract."
   },
@@ -135,7 +134,7 @@
     "slug": "pramana-nlp",
     "title": "Pramāṇa NLP",
     "date": "March 24, 2024",
-    "thumb": "images/my_project_screenshots/Pram%C4%81%E1%B9%87a%20NLP.png",
+    "thumb": "images/my_project_screenshots/pramana_nlp.png",
     "thumbAlt": "Pramāṇa NLP",
     "excerpt": "A curated corpus of Sanskrit philosophy texts designed for natural language processing, with five key design principles."
   },
@@ -151,7 +150,7 @@
     "slug": "tools-of-the-trade",
     "title": "Tools of the Trade",
     "date": "February 25, 2024",
-    "thumb": "images/dall-e/DALL%C2%B7E%202024-02-12%2022.33.51%20-%20Envision%20a%20motherboard%20like%20no%20other%2C%20where%20the%20wonders%20of%20nature%20and%20technology%20intertwine.%20This%20motherboard%20is%20meticulously%20crafted%20from%20a%20solid%20pie.webp",
+    "thumb": "images/dall-e/tool-board.png",
     "thumbAlt": "Tools of the Trade",
     "excerpt": "Preferred coding tech: Python, PyEnv, Flask, GitHub, Digital Ocean, and more."
   },
