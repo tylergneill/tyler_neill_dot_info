@@ -12,15 +12,15 @@
             </figure>
 
             <p>
-                Sanskrit text-to-speech (TTS) has existed in some form for a while — e.g., on <a href="https://sri.auroville.org/projects/sanskrit-text-to-speech" target="_blank">sanskritdictionary.com</a>, although it doesn't seem to be working for me there at the moment — and of course you can now ask AI to try, too. Meter identification is similar: I've written extensively about options, most recently <a href="skrutable-meter-id-upgrades">here</a>. In turn, it makes sense that the combination of these two would be more niche and difficult to realize. Now we have such an attempt at this use case of text in, chanted audio out.
+                Sanskrit text-to-speech (TTS) has existed in some form for a while — e.g., on <a href="https://sri.auroville.org/projects/sanskrit-text-to-speech" target="_blank">sanskritdictionary.com</a> (although as it happens, it's not working for me there at the moment) — and of course you can now ask AI to try, too. Meter identification is similar: I've written extensively about options, most recently <a href="skrutable-meter-id-upgrades">here</a>. In turn, it makes sense that combining TTS and meter identification would be more niche and difficult to realize. Now we have such an attempt at this use case of text in, chanted audio out.
             </p>
 
             <p>
-                The model-based tool, a solo project by Prof. Prathosh A. P. at IISc Bengaluru, attempts to figure out meter on its own &mdash; not a great design decision, in my opinion &mdash; and then sing it in a traditional melody. It's free and open, and there's a live demo online you can try, limited to a few attempts per day.
+                The model-based tool, a solo project by Prof. Prathosh A. P. at IISc Bengaluru, attempts to figure out meter on its own &mdash; not a great design decision, in my opinion &mdash; and then sing the verse in a traditional melody. It's free and open, and there's a live demo online you can try, limited to a few attempts per day.
             </p>
 
             <p>
-                As with all things nowadays, you should also try asking AI to do it as a baseline. Gemini and Sarvam appear to be best at present.
+                As with all things nowadays, you should also try asking AI to do the same task as a baseline. Gemini and Sarvam appear to be best at this at present.
             </p>
 
             <hr>
@@ -29,14 +29,14 @@
 
             <figure>
                 <img src="../images/misc_screenshots/telegram-dharmamitra-bot.png" alt="@Dharmamitrabot analyzing a Sanskrit line inside Telegram">
-                <figcaption>Telegram Dharmamitra bot analyzing a verse</figcaption>
+                <figcaption>Unofficial Telegram Dharmamitra bot analyzing a verse</figcaption>
             </figure>
 
             <p>
-                The idea here is that you want to use Dharmamitra's grammatical analysis feature, but you don't want to use the <a href="https://dharmamitra.org/translate" target="_blank">website UI</a>, nor the browser extension (e.g., <a href="https://chromewebstore.google.com/detail/dharmamitra-language-tool/jlmleoklbpdehnokplffodjomekoiadl?hl=en-GB" target="_blank">for Chrome</a>), nor do you want to interact more programmatically — there's also an API, a Python package, and an Emacs extension. Instead, you want to "chat at" a specialized bot on a messaging platform — an increasingly common software interface style encountered on social platforms ranging from Slack and Discord to X and Instagram. This particular bot is on Telegram, which North American readers may not be familiar with, but which enjoys high usage in India, second only to WhatsApp.
+                The idea here is that you want to use Dharmamitra's grammatical analysis feature — not its machine translation, which is a different model altogther — but you don't want to use the official <a href="https://dharmamitra.org/translate" target="_blank">website UI</a>, nor the official browser extension (e.g., <a href="https://chromewebstore.google.com/detail/dharmamitra-language-tool/jlmleoklbpdehnokplffodjomekoiadl?hl=en-GB" target="_blank">for Chrome</a>), nor do you want to interact more programmatically (there is also an API, a Python package, and an Emacs extension — all official, as well). Instead, you want to "chat at" a specialized bot on a messaging platform — an increasingly common software interface style encountered on social platforms ranging from Slack and Discord to X and Instagram. Telegram, the relevant platform here, may not be familiar to North American readers, but it is widely used in India, second only to WhatsApp.
             </p>
             <p>
-                In short, you "@" the bot in a chat message and give it the chunk of Sanskrit you want analyzed. The bot then goes off, hits the Dharmamitra API serving ByT5-Sanskrit, does a bunch of post-processing on the response — NB! — and gives you the result. In contrast to <a href="https://skrutable.info" target="_blank">Skrutable</a>, which takes care to clearly retain compound information when using the Dharmamitra API for word splitting, this one is a bit more rough-and-ready. Basic inflection info is provided, e.g., case/gender/number for substantives. And instead of Dharmamitra's own integrated dictionary data, it directs the user to <a href="https://kosha.app/" target="_blank">kosha.app</a>, part of the <a href="https://sanskrit.today/" target="_blank">Sanskrit.Today</a> project ecosystem by Ashok CM. Overall, not something I see myself using, but interesting as an interaction style I was personally less aware of.
+                To use this unofficial bot, first you must have installed the Telegram app. Then, you "@" the bot in a chat message and give it the chunk of Sanskrit you want analyzed. The bot then goes off, hits the Dharmamitra API serving the specialized grammar model (ByT5-Sanskrit), does a bunch of post-processing on the response — NB! — and gives you the result. Words are split and inflection info is provided, e.g., case/gender/number for substantives (although also "परस्मैपद" — a bug). And instead of Dharmamitra's own integrated dictionary data, it directs the user to <a href="https://kosha.app/" target="_blank">kosha.app</a>, part of the <a href="https://sanskrit.today/" target="_blank">Sanskrit.Today</a> project ecosystem by Ashok CM. Overall, not something I see myself using, but interesting as an interaction style I was personally less aware of.
             </p>
             <p>
                 The bot's author is Shantanu Oak, who is super-online: <a href="https://github.com/shantanuo" target="_blank">https://github.com/shantanuo</a>, <a href="https://oksoft.blogspot.com/" target="_blank">https://oksoft.blogspot.com/</a>, <a href="https://linktr.ee/shantanuo" target="_blank">https://linktr.ee/shantanuo</a>.
@@ -52,7 +52,7 @@
             </figure>
 
             <p>
-                Aksharamukha is still mainly focused on being a <em>transliteration</em> tool that converts <em>Indic text</em> from one phonetic writing scheme to another. In a closely related move — for fun! — creator Vinodh added an independent tool on the same site, called "Transcriber" or "Uchcharaka", which converts text from <em>any</em> language, in whatever <em>non-phonetic</em> writing system it uses, into a phonetic rendering in Indic scripts. In other words, you input, e.g., something in French ("Est-ce qu'on joue ensemble?") and it can show you how best to represent that in, e.g., Devan&#257;gar&#299; ("ऎस कॉँ ॹु आँसाँब्ल"). This is done with the nifty software library <code>espeak</code> — Python library easily available, btw — which understands how to convert natural language input from many languages into IPA. From there, it's just a hop, skip, and a jump to representing the same in Indic scripts, most of which are used quite phonetically &mdash; and it doesn't hurt that Aksharamukha is fully conversant with alphabetic extensions for loanwords, like Hindi ॉ.
+                Aksharamukha is still mainly focused on being a <em>transliteration</em> tool that converts <em>Indic text</em> from one phonetic writing scheme to another. In a closely related move — for fun! — creator Vinodh added an independent tool on the same site, called "Transcriber" or "Uchcharaka", which converts text from <em>any</em> language, in whatever <em>non-phonetic</em> writing system it uses, into a phonetic rendering in Indic scripts. In other words, you input, e.g., something in French ("Est-ce qu'on joue ensemble?") and it can show you how best to represent that in, e.g., Devan&#257;gar&#299; ("ऎस कॉँ ॹु आँसाँब्ल"). This is done with the nifty software <code>espeak</code> — easily available in Python, btw — which understands how to convert natural language input from many languages into IPA. From there, it's just a hop, skip, and a jump to representing the same in Indic scripts, most of which are used quite phonetically &mdash; and it doesn't hurt that Aksharamukha is fully conversant with alphabetic extensions for representing sounds outside of normal Indic phonology, like all the extra nasalization seen in the French example above.
             </p>
             <p>
                 Very clever, and a great party trick for the classroom. Nice work, Vinodh!
@@ -68,10 +68,10 @@
             </figure>
 
             <p>
-                The Cologne Digital Sanskrit Dictionaries dictionaries have been a go-to for online Sanskrit lookup for ages. There's a "basic display," e.g. for <a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/MWScan/2020/web/webtc/indexcaller.php" target="_blank">Monier-Williams</a>, and for a few years now also the <a href="https://sanskrit-lexicon.uni-koeln.de/simple/" target="_blank">"simple search,"</a> which is actually a more powerful interface that sports autocomplete and supports easily switching between the various dictionary sources.
+                The Cologne Digital Sanskrit Dictionaries have been a go-to for online Sanskrit lookup for ages. There's a "basic display," e.g. for <a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/MWScan/2020/web/webtc/indexcaller.php" target="_blank">Monier-Williams</a>, and for a few years now also the <a href="https://sanskrit-lexicon.uni-koeln.de/simple/" target="_blank">"simple search,"</a> which is actually a more powerful interface that autocomplets search terms and supports easily switching between the various dictionary sources.
             </p>
             <p>
-                Now, yet another new, also official interface has quietly appeared. If you're using it only on a desktop with a fast connection to the internet, it's basically just more slick and user-friendly, including tabs for your preferred dictionary sources. But also, it works offline! That will very much come in handy when working in low-connectivity areas, as Sanskrit folks often do.
+                Now, yet another official interface has quietly appeared. If you're using it only on a desktop with a fast connection to the internet, it's basically just more slick and user-friendly, including tabs for your preferred dictionary sources. But also, it works great on a phone — and even offline! That will very much come in handy when working in low-connectivity situations, as Sanskrit folks often do.
             </p>
             <p>
                 <em>Pro-tip: Look up and follow instructions for how to set up a "progressive web app" (PWA) on your mobile device. In my case, I had to do the following on my iOS Chrome:</em>
@@ -85,5 +85,5 @@
                 </ul>
             </p>
             <p>
-                Many thanks to Dhaval Patel for continuing his diligent work on this.
+                Many thanks to Dhaval Patel for his continued diligent work on this.
             </p>
