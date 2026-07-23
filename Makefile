@@ -6,7 +6,8 @@ install-hooks:
 	git config core.hooksPath scripts/hooks
 	@echo "git hooks installed (core.hooksPath -> scripts/hooks)"
 
-# Regenerate blog/<slug>.html from blog/_template.html + blog/posts-data.json
+# Regenerate blog/<slug>.html and kalpataru-diaries.html from
+# blog/_post-template.html + blog/_index-template.html + blog/posts-data.json
 # + blog/src/<slug>.html. Run after editing any of those, before committing.
 blog:
 	node scripts/build-blog.js
