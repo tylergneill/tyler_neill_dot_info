@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Braving the Sanskrit Wikisource Iceberg - Kalpataru Diaries</title>
+    <script>
+        (function() {
+            var t = localStorage.getItem('theme');
+            if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
     <link rel="stylesheet" href="../styles.css">
     <link rel="icon" href="../images/dall-e/favicon_light.png" media="(prefers-color-scheme: light)">
     <link rel="icon" href="../images/dall-e/favicon_dark.png" media="(prefers-color-scheme: dark)">
@@ -12,31 +19,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-content">
-            <a href="../" class="site-title">Sanskrit and Tech with Tyler</a>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="main-nav">
-                <a href="../about">About</a>
-                <a href="../projects">Projects</a>
-                <a href="../contact">Contact</a>
-                <a href="../kalpataru-diaries">Blog: Kalpataru Diaries</a>
-            </nav>
-        </div>
-    </header>
+    <script src="../header.js"></script>
 
-    <div class="page-header" style="background-image: url('../images/dall-e/DALL%C2%B7E%202024-01-08%2023.47.40%20-%20An%20abstract%20tree%20composed%20entirely%20of%20computer%20circuits.%20The%20tree%20is%20intricate%2C%20with%20branches%20and%20leaves%20represented%20by%20various%20electronic%20components%20.png');">
+    <div class="page-header page-header-blog">
         <h1>Braving the Sanskrit Wikisource Iceberg</h1>
-        <p style="margin-top: 1rem; opacity: 0.9;">July 10, 2026</p>
+        <p style="margin-top: 1rem; opacity: 0.9;">July 25, 2026</p>
     </div>
 
     <article class="page-content">
         <div class="container blog-post-content">
-
             <p>A set of questions came up recently <a href="https://list.indology.info/pipermail/indology/2026-July/062125.html" target="_blank">on the Indology mailing list</a> about <a href="https://sa.wikisource.org" target="_blank">Sanskrit Wikisource</a> — what is it, who made it, and how useful is it? I've spent some time working this out, so here's what I know.</p>
 
             <p>Wikisource is part of the Wikimedia family — same foundation as Wikipedia — and like its siblings, it is a crowdsourced project with public revision history and no single creator. The Sanskrit subdomain has been used by motivated individuals to work on and share material they might not have otherwise, which is something to be genuinely thankful for. On multiple occasions, I've found very interesting things there, like full texts of both Gaṅgeśa's Tattvacintāmaṇi and Śrīharṣa's Naiṣadhīyacarita. But Wikisource was simply not built to host e-text collections. As a result, it can be very hard to plumb the depths of its contained materials — a fact ironically reinforced by the Wikisource logo itself.</p>
@@ -54,41 +45,39 @@
 
             <figure>
                 <img src="../images/misc_screenshots/skt-wikisource-birds-eye-view.png" alt="Wikisource's home page">
-                <figcaption>Bird's-eye view of the home page</figcaption>
+                <figcaption>Bird's-eye view of the Sanskrit Wikisource home page</figcaption>
             </figure>
 
             <p>First, not everyone is comfortable with an all-Sanskrit, all-Devanagari interface. Second, it's a cluttered mess. If you look past the less useful stuff, the वर्गसर्वस्वम् section offers some links to category pages, but clicking them gives you only a narrow view of one category at a time.</p>
 
-            <p><em>Pro tip:</em> There's a separate <a href="https://sa.wikisource.org/wiki/वर्गः:वर्गसर्वस्वम्" target="_blank">https://sa.wikisource.org/wiki/वर्गः:वर्गसर्वस्वम्</a> page quasi-hidden a few wiki-clicks away, which has a dynamic dropdown tree structure that is already much better for browsing.</p>
+            <p><em>Pro tip:</em> There's a separate <a href="https://sa.wikisource.org/wiki/वर्गः:वर्गसर्वस्वम्" target="_blank">https://sa.wikisource.org/wiki/वर्गः:वर्गसर्वस्वम्</a> page a few wiki-clicks away, if you know what you're looking for. There, you find a dynamic dropdown tree structure that is already much better for browsing.</p>
 
             <figure>
                 <img src="../images/misc_screenshots/wikisource-vargasarvasvam.png" alt="Sanskrit Wikisource's hidden Vargasarvasvam page">
-                <figcaption>Sanskrit Wikisource's hidden Vargasarvasvam page, its best way to browse</figcaption>
+                <figcaption>The somewhat hidden Vargasarvasvam page, Sanskrit Wikisource's best way to browse</figcaption>
             </figure>
 
-            <p>As for the categorical breakdown itself, it’s mostly unobjectionable, but as is always the case, there can be a learning curve if you come from a different taxonomic perspective. And there is unnecessary mess here, too: poor धर्मशास्त्रम् is for some reason stranded and alone outside of the otherwise top-level ग्रन्थाः ("books"), and there are several wiki-internal categories of no importance for most users, e.g., अनिर्दिष्टानि पुटानि and निष्कासनाय — modern-Sanskrit calques that I personally don’t understand right away when I see them, adding to the fatigue.</p>
+            <p>As for the categorical breakdown itself, it’s mostly unobjectionable, but as is always the case, there can be a learning curve if you come from a different taxonomic perspective. And there is unnecessary mess here, too: poor धर्मशास्त्रम् is for some reason stranded and alone outside of the otherwise top-level ग्रन्थाः ("books"? "texts"?), and there are several wiki-internal categories of no importance for most users, e.g., अनिर्दिष्टानि पुटानि and निष्कासनाय — modern-Sanskrit calques that I personally don’t understand right away when I see them, adding to the fatigue.</p>
 
-            <p>Granted, there are other access options, as well: a search bar, and an alphabetical index (e.g., <a href="https://sa.wikisource.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%87%E0%A4%B7%E0%A4%83:%E0%A4%B8%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%AA%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A0%E0%A4%BE%E0%A4%A8%E0%A4%BF/%E0%A4%AB" target="_blank">फ</a>). But I find both of these to be myopically restrictive in their own ways, too. My bet is that, even after trying all of the above, a typical user may still be shrugging their shoulders about whether this collection has material that might be useful to them. After all the work that went in, that's a shame.</p>
+            <p>Granted, there are other access options, as well: a search bar, and an alphabetical index (e.g., <a href="https://sa.wikisource.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%87%E0%A4%B7%E0%A4%83:%E0%A4%B8%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%AA%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A0%E0%A4%BE%E0%A4%A8%E0%A4%BF/%E0%A4%AB" target="_blank">फ</a>). But I find both of these to be myopically restrictive in their own ways, too. My bet is that, even after trying all of the above, a typical user may still be shrugging their shoulders about whether this collection has material that might be useful to them. After all the work that went in, by so many people, that's a shame.</p>
 
             <h2>A Better Interface</h2>
 
-            <p>This much, at least, is not hard to improve. After cobbling together a rough understanding of the site's structure, I made an alternate interface to its data that I personally find much more user-friendly.</p>
+            <p>Fortunately, it's possible to create a better way in, without disrupting the project itself. After cobbling together an understanding of the site's structure, I made an alternate interface to its data that I personally find much more user-friendly.</p>
+
+            <h3 style="text-align: center;"><a href="https://tylergneill.github.io/sanskrit-wikisource-mirror" target="_blank">https://tylergneill.github.io/sanskrit-wikisource-mirror</a></h3>
 
             <figure>
                 <img src="../images/my_project_screenshots/sanskrit-wikisource-mirror.png" alt="My Sanskrit Wikisource Mirror">
             </figure>
 
-            <h3 style="text-align: center;"><a href="https://tylergneill.github.io/sanskrit-wikisource-mirror" target="_blank">https://tylergneill.github.io/sanskrit-wikisource-mirror</a></h3>
-
-            <p>Now, to be clear, this interface is a temporary solution. Going foward, I have in mind something better that I was hoping to have out by now, but I don't want perfect to be the enemy of the good, so here we are.</p>
-
-            <p>What this alternate interface gives you is: 1) cleaner browsing with context maintained in a sidebar, 2) no Wikimedia artifacts, 3) transliteration options, and 4) text sizes and page counts for context.</p>
+            <p>What this alternate interface gives you is: 1) cleaner browsing with context maintained in a sidebar, 2) no Wikimedia artifacts, 3) transliteration options, 4) better rolling up and abstraction to a composite "text" level, and 5) clearer stats: page and text counts, plus size and last-updated info.</p>
 
             <p>The way I did it was by 1) scraping the full content to analyze structure and to estimate scope, 2) boiling that info down to <a href="https://github.com/tylergneill/sanskrit-wikisource-mirror/tree/main/docs/data" target="_blank">a single file</a>, and then 3) building a simple single-page app on top of that file, which GitHub Pages easily hosts for free.</p>
 
-            <p>This web app only organizes and presents links to the source Sanskrit Wikisource data. What it does <em>not</em> do is re-host that material, since the collection is demonstrably still living and growing — see its <a href="https://sa.wikisource.org/wiki/विशेषः:नूतनपरिवर्तनानि" target="_blank">“सद्यपरिवर्तनानि,” i.e., Recent Changes page</a> if you're curious — and I am not presuming to unilaterally declare myself its leader. Like <a href="../projects#panditya">Pāṇḍitya's use of Pandit Project</a>, this mirror is simply a snapshot in time which points to its source, and it needs to be periodically refreshed to stay current (<a href="https://github.com/tylergneill/sanskrit-wikisource-mirror" target="_blank">pipeline here in Git</a>).</p>
+            <p>This web app only organizes and presents links to the source Sanskrit Wikisource data. What it does <em>not</em> do is re-host that material, since the collection is demonstrably still living and growing, as the last-updated info clearly shows — there's also a <a href="https://sa.wikisource.org/wiki/विशेषः:नूतनपरिवर्तनानि" target="_blank">“सद्यपरिवर्तनानि,” i.e., Recent Changes page</a>. Like <a href="../projects#panditya">Pāṇḍitya's use of Pandit Project</a>, this mirror is simply a snapshot in time which points to its source, and it needs to be periodically refreshed to stay current (<a href="https://github.com/tylergneill/sanskrit-wikisource-mirror" target="_blank">pipeline here in Git</a>).</p>
 
-            <p>What the snapshot numbers from Spring 2026 reveal: Sanskrit Wikisource holds over 250mb of plain-text content across roughly 4,700 individual web pages. For comparison, GRETIL is around 350mb before controlling for duplication, roughly 175mb after (see <a href="gretil-past-and-present">previous post</a>). In short, it is definitely huge, and it's very interesting.</p>
+            <p>What the snapshot numbers from Summer 2026 reveal: Sanskrit Wikisource holds about 390mb of plain-text content in 2,200 texts across roughly 22,000 individual web pages. For comparison, GRETIL is around 350mb before controlling for duplication, roughly 175mb after (see <a href="gretil-past-and-present">previous post</a>). In short, it is definitely huge, and it's very interesting.</p>
 
             <h2>Data Problems</h2>
 
@@ -102,8 +91,6 @@
 
             <p>Returning to the  as a third structural problem, this category tree is far from trustworthy, because categories must be added as tags, manually each time, and there's no clear signal when this has not been done. If things are miscategorized, they will fall through the cracks, being findable basically only via the Devanagari search bar. How big of a problem is this? When I counted, there were 32,279 pages — most of which are individual sub-pages of larger works — and only 1,195 pages had a category. Simply put, it takes considerable research to figure out what's covered by categories and what's not.</p>
 
-
-
             <p>The above duplication issue is more understandable when you learn more about the inherent inertia of the wiki format. Pages are very hard to delete or move once created, which means that vicious duplication accumulates. A text project gets copied so someone can take it in a new direction; the old version lingers; nothing clarifies which is more reliable.</p>
 
             <p>As a crowdsourced project, Sanskrit Wikisource has no central oversight, thus lots of diffusion of responsibility. Users may have obscure handles on the platform, and there's no clear way how to get in touch with anyone. In short, anyone can come along and post things, like a bulletin board — with cryptic  little signatures to indicate that a human was in fact there — and some other users may understand enough to push back on certain aspects of certain items, but for the most part things are just growing organically, like graffiti. No one ever comes along to clean the bulletin board. No one ensures that it's organized properly. That's all ok if we KNOW clearly that it's a bulletin board.</p>
@@ -113,38 +100,13 @@
             <p>Given the above metadata problems, I hope no one tries to take the data, duplicate it, and ingest it for use elsewhere. This will only compound the existing confusion. Instead, my opinion is that we as a scholarly community should approach items one-by-one, study them carefully, and where possible, improve them and transplant them onto platforms where they can receive proper scholarly curation. <a href="https://sanskritsahitya.org/naishadhiyacaritam" target="_blank">sanskritsahitya.org's Naiṣadhīyacaritam</a> is an example of this. My strong opinion is that bulk ingestion of this material in its current condition would only compound the existing confusion.</p>
 
             <p>There are several other similar cases. Once I extend the alternate-interface treatment to them, I intend to maintain this as an additional Kalpataru Grove project, under a unified interface called Sāgarasaṅgama. As the collections can be more understood, the metadata can be further ingested into SETI so that it can be visualized in Pāṇḍitya. And in individual cases, I will transplant some individual items of high potential value to HANSEL, and I hope others follow suit with similar platforms.</p>
-
             <div class="post-nav">
-                <a href="sarvam-ocr">&larr; A Second Pair of Eyes: Skrutable adds Sarvam Vision OCR<span class="post-nav-date">July 8, 2026</span></a>
+                <a href="mohit-links">&larr; It's Raining Links Again<span class="post-nav-date">July 24, 2026</span></a>
                 <span></span>
             </div>
         </div>
     </article>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2025 Tyler Neill.</p>
-            <div class="footer-links">
-                <a href="https://github.com/tylergneill" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://www.linkedin.com/in/tyler-g-neill" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="https://uni-leipzig1.academia.edu/TylerNeill" target="_blank" rel="noopener">Academia</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mainNav = document.querySelector('.main-nav');
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            mainNav.classList.toggle('active');
-        });
-        mainNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                mainNav.classList.remove('active');
-            });
-        });
-    </script>
+    <script src="../footer.js"></script>
 </body>
 </html>
