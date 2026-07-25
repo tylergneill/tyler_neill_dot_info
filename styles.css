@@ -815,13 +815,19 @@ img {
 }
 
 .blog-post-content img {
-    margin: 2rem 0;
+    display: block;
+    margin: 2rem auto;
     border-radius: 4px;
     box-shadow: 0 4px 15px var(--card-shadow);
 }
 
 .blog-post-content figure {
     margin: 1.5rem 0 2.5rem;
+}
+
+.blog-post-content ul.no-marker {
+    list-style: none;
+    padding-left: 0;
 }
 
 .blog-post-content figcaption {
