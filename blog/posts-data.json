@@ -1,5 +1,14 @@
 [
   {
+    "slug": "sanskrit-wikisource-and-mirror",
+    "title": "Braving the Sanskrit Wikisource Iceberg",
+    "navTitle": "Sanskrit Wikisource Iceberg",
+    "date": "July 25, 2026",
+    "thumb": "images/my_project_screenshots/sanskrit-wikisource-and-mirror.png",
+    "thumbAlt": "My Sanskrit Wikisource Mirror",
+    "excerpt": "Fresh perspective and tooling to help make the most of a gigantic Sanskrit e-text collection."
+  },
+  {
     "slug": "mohit-links",
     "title": "It's Raining Links Again",
     "navTitle": "It's Raining Links Again",
