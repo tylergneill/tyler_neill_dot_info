@@ -1,15 +1,15 @@
             <p>A set of questions came up recently <a href="https://list.indology.info/pipermail/indology/2026-July/062125.html" target="_blank">on the Indology mailing list</a> about <a href="https://sa.wikisource.org" target="_blank">Sanskrit Wikisource</a> — what is it, who made it, and how useful is it? I've spent some time working this out, so here's what I know.</p>
 
-            <p>Wikisource is part of the Wikimedia family — same foundation as Wikipedia — and like its siblings, it is a crowdsourced project with public revision history and no single creator. The Sanskrit subdomain has been used by motivated individuals to work on and share material they might not have otherwise, which is something to be genuinely thankful for. On multiple occasions, I've found very interesting things there, like full texts of both Gaṅgeśa's Tattvacintāmaṇi and Śrīharṣa's Naiṣadhīyacarita. But Wikisource was simply not built to host e-text collections. As a result, it can be very hard to plumb the depths of its contained materials — a fact ironically reinforced by the Wikisource logo itself.</p>
+            <p>Wikisource is part of the Wikimedia family — same foundation as Wikipedia — and like its siblings, it is a radically open, crowdsourced project with public revision history and no single creator. The Sanskrit subdomain has been used by motivated individuals to work on and share material they might not have otherwise, which is something to be genuinely thankful for. On multiple occasions, I've found very interesting things there, like full texts of both Gaṅgeśa's Tattvacintāmaṇi and Śrīharṣa's Naiṣadhīyacarita. But Wikisource in general was simply not built to host e-text collections, and the Sanskrit space in particular lacks curatorial vision. As a result, it can be very hard to plumb the depths of its contained materials — a fact ironically reinforced by the Wikisource logo itself.</p>
 
             <figure>
                 <img src="../images/downloads/wikisource.png" alt="Wikisource's iceberg logo">
                 <figcaption>Wikisource's iceberg logo</figcaption>
             </figure>
 
-            <p>Did you know that Sanskrit Wikisource has hundreds of megabytes of text data? If you’ve ever tried to browse it, did you succeed? No? You're not alone.</p>
+            <p>Did you know that Sanskrit Wikisource has <strong>hundreds of megabytes</strong> of text data? If you’ve ever tried to browse it, did you succeed? No? You're not alone.</p>
 
-            <h2>Structural Problems</h2>
+            <h2>Access Problems</h2>
 
             <p>The best way to navigate Sanskrit Wikisource is not clear from its home page.</p>
 
@@ -33,7 +33,7 @@
 
             <h2>A Better Interface</h2>
 
-            <p>Fortunately, it's possible to create a better way in, without disrupting the project itself. After cobbling together an understanding of the site's structure, I made an alternate interface to its data that I personally find much more user-friendly.</p>
+            <p>Fortunately, it's possible to create a better way in, even without modifying Wikisource. Based on my understanding of the collection's structure, I made an alternate interface to the same exact data that I personally find much more user-friendly.</p>
 
             <h3 style="text-align: center;"><a href="https://tylergneill.github.io/sanskrit-wikisource-mirror" target="_blank">https://tylergneill.github.io/sanskrit-wikisource-mirror</a></h3>
 
@@ -41,32 +41,76 @@
                 <img src="../images/my_project_screenshots/sanskrit-wikisource-mirror.png" alt="My Sanskrit Wikisource Mirror">
             </figure>
 
-            <p>What this alternate interface gives you is: 1) cleaner browsing with context maintained in a sidebar, 2) no Wikimedia artifacts, 3) transliteration options, 4) better rolling up and abstraction to a composite "text" level, and 5) clearer stats: page and text counts, plus size and last-updated info.</p>
+            <p>What this alternate interface gives you is: 1) cleaner browsing and search in a single-page display with a sidebar; 2) no Wikimedia artifacts; 3) transliteration options; 4) more intuitive abstraction to tbe "text" level; and 5) clearer stats, specifically page and text counts, plus size and last-updated info.</p>
 
-            <p>The way I did it was by 1) scraping the full content to analyze structure and to estimate scope, 2) boiling that info down to <a href="https://github.com/tylergneill/sanskrit-wikisource-mirror/tree/main/docs/data" target="_blank">a single file</a>, and then 3) building a simple single-page app on top of that file, which GitHub Pages easily hosts for free.</p>
+            <p>The way I did it: 1) download the full data; 2) process it to calculate relationships and counts; 3) boil that info down to <a href="https://github.com/tylergneill/sanskrit-wikisource-mirror/tree/main/docs/data" target="_blank">a single file</a>; and then 4) build a simple single-page app on top of that file, which GitHub Pages easily hosts for free.</p>
 
-            <p>This web app only organizes and presents links to the source Sanskrit Wikisource data. What it does <em>not</em> do is re-host that material, since the collection is demonstrably still living and growing, as the last-updated info clearly shows — there's also a <a href="https://sa.wikisource.org/wiki/विशेषः:नूतनपरिवर्तनानि" target="_blank">“सद्यपरिवर्तनानि,” i.e., Recent Changes page</a>. Like <a href="../projects#panditya">Pāṇḍitya's use of Pandit Project</a>, this mirror is simply a snapshot in time which points to its source, and it needs to be periodically refreshed to stay current (<a href="https://github.com/tylergneill/sanskrit-wikisource-mirror" target="_blank">pipeline here in Git</a>).</p>
+            <p>This web app only organizes and presents links to the source data on Sanskrit Wikisource itself. It does <em>not</em> re-host the data, since the collection is demonstrably still living and growing. The mirror's last-updated info for each item clearly shows this, as does Wikisource's own <a href="https://sa.wikisource.org/wiki/विशेषः:नूतनपरिवर्तनानि" target="_blank">“सद्यपरिवर्तनानि,” i.e., Recent Changes page</a>. Like <a href="../projects#panditya">Pāṇḍitya's use of Pandit Project</a>, this mirror starts from a data snapshot, builds functionality on top, and points back to the source. That does mean that it needs to be periodically refreshed to stay current (<a href="https://github.com/tylergneill/sanskrit-wikisource-mirror/tree/main/pipeline" target="_blank">pipeline here in Git</a>).</p>
 
             <p>What the snapshot numbers from Summer 2026 reveal: Sanskrit Wikisource holds about 390mb of plain-text content in 2,200 texts across roughly 22,000 individual web pages. For comparison, GRETIL is around 350mb before controlling for duplication, roughly 175mb after (see <a href="gretil-past-and-present">previous post</a>). In short, it is definitely huge, and it's very interesting.</p>
 
-            <h2>Data Problems</h2>
+            <h2>It's Actually More Complicated...</h2>
 
-            <p>Getting back to assessment, as mentioned above, some works may be spread across dozens or hundreds of sub-pages, while others are confined to just one. On top of that, given the crowdsourced nature of the data, duplications do occur, with nothing to tell you which version may be preferable for a given purpose. I mentioned Naiṣadhīyacarita above. As it turns out, there are <em>three</em> versions of it on Wikisource. By my reckoning, one... one... and one is clearly superior ...</p>
+            <p>The mirror is almost <em>too</em> user-friendly. Under the hood, it's doing a lot to compensate for Sanskrit Wikisource's structural problems. I'll explain a little of that here. For more detail, see the <a href="https://tylergneill.github.io/sanskrit-wikisource-mirror/" target="_blank">About page</a>.</p>
 
-            <p><em>In fact, that was my entry point into this exploration. I was looking to digitize Śrīharṣa's Naiṣadhīyacarita (one of the traditional five <em>mahākāvyas</em>) for <a href="hansel">HANSEL</a>, learned that sanskritsahitya.org already had a version derived from Wikisource, and then struggled to find it there, ultimately finding multiple versions and the host of other issues discussed here. One day of trying to understand how Wikisource even works later, I was convinced the right move was to clarify the collection for others before doing anything else. Hopefully this post saves you that day.</em></p>
+            <p><em>TL;DR</em>: Wikisource relies on a surprising amount of manual work to ensure navigability, and unsurprisingly then, there are a lot of issues.</p>
 
-            <p>Finally, perhaps best emblematic of neglect at the corpus-level of curation is the near complete lack of metadata. With the exception of the subset of texts directly linked to source images by virtue of being produced through the Wikisource-internal OCR pipeline called "..." (using out-of-the-box Tesseract, I believe), there is frequently no mention of what edition or editions the text is based, no explanation of who made it, under what terms the data is being shared, whether the item can be considered finished, or anything else to keep in mind when using it. In short, in my experience, Sanskrit Wikisource is absolutely abysmal for metadata.</p>
+            <h3>Inherent Structural Issues</h3>
 
-            <h2>Structural problems directly contributing to curation problems</h2>
+            Diverse ways of using the structure: Some works may be spread across dozens or hundreds of sub-pages, while others are confined to just one. Some are typed in by hand, some are created using OCR, and some are imported from other text collections.
 
-            <p>Returning to the  as a third structural problem, this category tree is far from trustworthy, because categories must be added as tags, manually each time, and there's no clear signal when this has not been done. If things are miscategorized, they will fall through the cracks, being findable basically only via the Devanagari search bar. How big of a problem is this? When I counted, there were 32,279 pages — most of which are individual sub-pages of larger works — and only 1,195 pages had a category. Simply put, it takes considerable research to figure out what's covered by categories and what's not.</p>
+            Pages relate to each other only through connections a human sets up by hand, either a "breadcrumb" parent/child link (naming a subpage "Parent/Child") or a Category tag applied directly to a page. Nothing computes these relationships automatically, and nothing enforces that they're applied consistently. Things get lost
 
-            <p>The above duplication issue is more understandable when you learn more about the inherent inertia of the wiki format. Pages are very hard to delete or move once created, which means that vicious duplication accumulates. A text project gets copied so someone can take it in a new direction; the old version lingers; nothing clarifies which is more reliable.</p>
+            <h3>Curation Issues</h3>
 
-            <p>As a crowdsourced project, Sanskrit Wikisource has no central oversight, thus lots of diffusion of responsibility. Users may have obscure handles on the platform, and there's no clear way how to get in touch with anyone. In short, anyone can come along and post things, like a bulletin board — with cryptic  little signatures to indicate that a human was in fact there — and some other users may understand enough to push back on certain aspects of certain items, but for the most part things are just growing organically, like graffiti. No one ever comes along to clean the bulletin board. No one ensures that it's organized properly. That's all ok if we KNOW clearly that it's a bulletin board.</p>
+            As a fully crowdsourced project, Sanskrit Wikisource has no central oversight and a lot of diffusion of responsibility — anyone can come along and post things, like a bulletin board, and no one necessarily comes along afterward to clean it up or keep it organized. That can still be fine, as long as we're clear that this is s a bulletin board and not a curated collection.
+
+            no metadata!
+
+            given navigability problems, and the anonymous nature of decentralized, crowdsourced work, of course duplications do occur, with nothing to tell users which version of a given Sanskrit work may be preferable for a given purpose.
+
+            <em>For example, my entry point into this exploration was a desire to digitize Śrīharṣa's Naiṣadhīyacarita, one of the traditional five <em>mahākāvyas</em>, for <a href="hansel">HANSEL</a>, learned that sanskritsahitya.org already had a version derived from Wikisource, and then struggled to find it there, ultimately finding multiple versions and the host of other issues discussed here. One day of trying to understand how Wikisource even works later, I was convinced the right move was to clarify the collection for others before doing anything else. Hopefully this post saves you that day.</em>
+
+            <h3>Enter the Interpretive Pipeline</h3>
+
+            Since I want to keep the mirror fresh, I've built it to rely on a pipeline that's easy to rerun regularly. That pipeline can compensate for the above issues, interpreting data in order to present it in more user-friendly ways.
+
+            <h3>Change Over Time</h3>
+
+            Nobody likes reading wikipedia revision history. Similarly, most Sanskritists are not going to read Wikisource revision history. If you know where to look, Wikisource has some automated tooling pages that can give you an idea. But for most users, there's basically no practical changelog.
+
+            <h3>Suggested Improvements</h3>
+
+            <p>The mirror's About page also shows both how Sanskrit Wikisource has changed over time and how we can improve it going forward. But you don't really need to care about that to profit from the main-page browsing and search interface.</p>
+
+            <h2>Structural Problems, Quantified</h2>
+
+            <p>Building this mirror meant an audit pipeline to surface where that structure breaks down in practice, and the numbers are worth sitting with: 60 categories are orphaned from the tree entirely; 16 are wrongly filed under more than one parent; 36 are referenced but were never actually created, leaving red links; and 200 Mainspace pages look like missed breadcrumb subpages — titled with a space where a "/" should be, so the parent/child link never got made. (Full tables, again, on the <a href="https://tylergneill.github.io/sanskrit-wikisource-mirror/about.html" target="_blank">About page</a>.)</p>
+
+            <p>The upshot is exactly what I ran into browsing by hand: anything not correctly wired into this structure becomes findable only via full-text search, or not at all unless you already know its exact title. Duplication is a related symptom of the same wiki-format inertia — pages are hard to delete or move once created, so old and new versions of a text just coexist, with nothing to indicate which is preferable. And provenance is a wrinkle I hadn't expected: at least 226 pages appear to be imported wholesale from other online Sanskrit collections (sanskritdocuments.org, muktalib7.com, GRETIL, and others), almost always without a note to that effect on the page itself.</p>
 
             <h2>How to Proceed</h2>
 
-            <p>Given the above metadata problems, I hope no one tries to take the data, duplicate it, and ingest it for use elsewhere. This will only compound the existing confusion. Instead, my opinion is that we as a scholarly community should approach items one-by-one, study them carefully, and where possible, improve them and transplant them onto platforms where they can receive proper scholarly curation. <a href="https://sanskritsahitya.org/naishadhiyacaritam" target="_blank">sanskritsahitya.org's Naiṣadhīyacaritam</a> is an example of this. My strong opinion is that bulk ingestion of this material in its current condition would only compound the existing confusion.</p>
+            <h3>Without Modifying Wikisource</h3>
 
-            <p>There are several other similar cases. Once I extend the alternate-interface treatment to them, I intend to maintain this as an additional Kalpataru Grove project, under a unified interface called Sāgarasaṅgama. As the collections can be more understood, the metadata can be further ingested into SETI so that it can be visualized in Pāṇḍitya. And in individual cases, I will transplant some individual items of high potential value to HANSEL, and I hope others follow suit with similar platforms.</p>
+            <p>As mentioned, this mirror functions as an epiphenomenal stop-gap while several of the above issues can be gradually worked out.</p>
+
+            <p>Another strategy people sometimes use in this sort of a situation is to just copy all of a project's data and do their own thing with it somewhere else, changing it as they see fit, and presenting it as the better version. In some situations, that's fine, and Wikisource's own default is Creative Commons BY-SA 4.0 (in Sanskrit: “भिन्नोल्लेखः यावत् न भवेत्, तावत् CC BY-SA 4.0 इत्यत्र उल्लेखो भवति ।”) But I hope to have shown in this post why that is NOT a good idea. The collection is so riddled with issues, it's very liable to be misunderstood. AND it's still being edited all the time, so any copy-pasted snapshot will be misleadingly stale before long.</p>
+
+            <p>Instead, my opinion is that we as a scholarly community should approach items one by one, study them carefully, and where possible, improve them and transplant them onto platforms built for proper scholarly curation. <a href="https://sanskritsahitya.org/naishadhiyacaritam" target="_blank">sanskritsahitya.org's Naiṣadhīyacaritam</a> is an example of just such a transplant.</p>
+
+            <h3>With Modifying Wikisource</h3>
+
+            <p>Of course, we can also improve Sanskrit Wikisource itself. I voiced a lot of dissatisfaction with the home page, for example, but I could also try to change it. While making the mirror, I came across a half-dozen or so systematic issues that warrant a systematic cleanup effort. My pipeline code includes an "audit" pathway which generates specific suggestions, surfaced on the About page's <a href="">Data Quality section</a>.</p>
+
+            <p>My experience with editing Wikipedia, however, is that this kind of collaborative, anonymous work can be socially tricky. I'd rather not bank on being able to make whatever changes I think are best. Maybe I'm wrong about some things. Maybe people who have been contributing to the site for years will see me as an annoying upstart trying to rock the bock — and not a native-speaker of Sanskrit to boot! Finally, it also just takes a lot of time to do cleanup in individual cases, for relatively little reward.</p>
+
+            <p>That's why my first order of business was to make a mirror, so that I and others can start making better use of the collection as a whole, now. I'd also like to work on the gradual cleanup job, time permitting, but now others can hopefully see the issues and be motivated to get involved, too.</p>
+
+            <h2>Coming Back to the Surface</h2>
+
+            <p>As intriguing as I found this Sanskrit Wikisource case, it's actually just the beginning. There are several other similarly underestimated text collections out there. My plan is to extend the alternate-interface treatment to them, and to consolidate these interfaces into a single portal, which I will maintain as an additional Kalpataru Grove project named Sāgarasaṅgama, "Meeting of the Oceans." As these collections become better understood, their metadata can then be ingested into SETI, and their prosopographical aspects represented in Pandit Projec. Once the latter two are done, the items can finally be visualized in Pāṇḍitya. That's the big-picture side of the plan.</p>
+
+            <p>At the finer-grained scale, I'll also plan to adopt and transplant individual items of high potential value into HANSEL, and I hope others do the same on that or similar platforms.</p>
+
+            <p>I'd love to hear your thoughts on any of this, please be in touch.</p>
