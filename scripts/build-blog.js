@@ -32,7 +32,7 @@ function renderIndexItem(post) {
                     <div class="blog-item-content">
                         <h3><a href="blog/${post.slug}">${post.title}</a></h3>
                         <p class="blog-date">${post.date}</p>
-                        <p class="blog-excerpt">${post.excerpt}</p>
+                        <p class="blog-summary">${post.summary}</p>
                     </div>
                 </li>`;
 }

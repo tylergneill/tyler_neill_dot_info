@@ -803,7 +803,7 @@ img {
     margin-bottom: 0.5rem;
 }
 
-.blog-excerpt {
+.blog-summary {
     color: var(--muted-text);
     font-size: 1.875rem;
 }
@@ -1164,7 +1164,7 @@ img {
         font-size: 1.25rem;
     }
 
-    .blog-excerpt {
+    .blog-summary {
         font-size: 1.25rem;
     }
 
