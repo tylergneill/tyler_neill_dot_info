@@ -28,16 +28,26 @@
 
     <article class="page-content">
         <div class="container blog-post-content">
-            <p>A set of questions came up recently <a href="https://list.indology.info/pipermail/indology/2026-July/062125.html" target="_blank">on the Indology mailing list</a> about <a href="https://sa.wikisource.org" target="_blank">Sanskrit Wikisource</a> — what is it, who made it, and how useful is it? I've spent some time working this out, so here's what I know.</p>
+            <p>A set of questions came up recently <a href="https://list.indology.info/pipermail/indology/2026-July/062125.html" target="_blank">on the Indology mailing list</a> about <a href="https://sa.wikisource.org" target="_blank">Sanskrit Wikisource</a> — what is it, who made it, and how useful is it? As it happens, I had spent time earlier this year investigating this very thing, and I came up with a prototype solution that addresses some of the obstacles to understanding. As a result of the Indology exchange, I dug in deeper and developed the prototype further, which I'm ready to share more widely now. First thing's first, though. Let's start by answering those questions.</p>
 
-            <p>Wikisource is part of the Wikimedia family — same foundation as Wikipedia — and like its siblings, it is a radically open, crowdsourced project with public revision history and no single creator. The Sanskrit subdomain has been used by motivated individuals to work on and share material they might not have otherwise, which is something to be genuinely thankful for. On multiple occasions, I've found very interesting things there, like full texts of both Gaṅgeśa's Tattvacintāmaṇi and Śrīharṣa's Naiṣadhīyacarita. But Wikisource in general is simply not designed well to host evolving e-text collections like this, and the Sanskrit space in particular lacks curatorial vision. As a result, it can be very hard to plumb the depths of its contained materials — a fact ironically reinforced by the Wikisource logo itself.</p>
+            <h3>What is it?</h3>
+            <p>Wikisource is part of the Wikimedia family — same foundation as Wikipedia — and like its siblings, it is a radically open, crowdsourced project with public revision history and no single creator.</p>
+
+            <h3>Who made it?</h3>
+            <p>Since 2004, the Sanskrit subdomain of Wikisource has been used by motivated individuals and groups to work on and share Sanskrit e-text material they might not have otherwise for lack of a usable platform. These contributors are noted in the item revision histories, but you have to go looking for them. To take a random example, on the page <a href="https://sa.wikisource.org/wiki/याज्ञवल्क्यस्मृतिः/आचाराध्यायः/उपोद्घातप्रकरणम्" target="_blank">याज्ञवल्क्यस्मृतिः/आचाराध्यायः/उपोद्घातप्रकरणम्</a>, clicking "इतिहासः दृश्यताम्" shows you the <a href="https://sa.wikisource.org/w/index.php?title=याज्ञवल्क्यस्मृतिः/आचाराध्यायः/उपोद्घातप्रकरणम्&action=history" target="_blank">revision history</a>, and you can click on the specific username <a href="https://sa.wikisource.org/wiki/सदस्यः:Sbblr0803" target="_blank">Sbblr0803</a> to learn that this is a person named Abhiram, see <a href="https://sa.wikisource.org/wiki/विशेषः:योगदानानि/sbblr0803" target="_blank">what else he has done</a>, etc.</p>
+
+            <h3>How useful is it?</h3>
+            <p>On multiple occasions, I've found very interesting things there, like first-online postings of full texts of both Gaṅgeśa's Tattvacintāmaṇi and Śrīharṣa's Naiṣadhīyacarita. I think it is much more potentially useful than many people in my circles (in Euro-American academia) realize.</p>
+
+            <h3>But.</h3>
+            <p>The Wikisource platform has inherent pros and cons for hosting evolving e-text collections like this, and on balance, I think the cons win out. It's hard enough to keep a sprawling, decentralized project like this on track, but the Sanskrit space in particular seems to lack curatorial vision. There is just a lot of mess, which I'll discuss more below. As a result, it can be very hard to plumb the depths of its contained materials — a fact ironically reinforced by the Wikisource logo itself.</p>
 
             <figure>
                 <img src="../images/downloads/wikisource.png" alt="Wikisource's iceberg logo">
                 <figcaption>Wikisource's iceberg logo</figcaption>
             </figure>
 
-            <p>Did you know that Sanskrit Wikisource has <strong>hundreds of megabytes</strong> of text data? If you’ve ever tried to browse it, did you succeed? No? You're not alone.</p>
+            <p>Did you know that Sanskrit Wikisource has <strong>hundreds of megabytes</strong> of text data? If you’ve ever tried to browse it, did you feel inspired to come back again the next time you need something? No? You're not alone.</p>
 
             <h2>Access Problems</h2>
 
@@ -59,7 +69,7 @@
 
             <p>As for the categorical breakdown itself, it’s mostly unobjectionable, but as is always the case, there can be a learning curve if you come from a different taxonomic perspective. And there is undoubtedly mess here, too. By convention on Wikisource, categories are supposed to form a single, cohesive tree covering everything, but some things are misplaced (e.g., धर्मशास्त्रम् at the top-level), some are unhelpfully separated due to naming differences (ज्योतिष्यम् 9.9 MB and ज्यौतिषम् 1.6 MB), some are orphaned (ज्यौतिषम् is within वेदाङ्गानि, but ज्योतिष्यम् is free-floating), and many items lack categories altogether.</p>
 
-            <p>And what is an "item" deserving of categorization anyway? It's quite subtle, actually. Abstraction to a "text" level is purely manual on Wikisource and can be done in various ways. One Wikisource editor may choose to put an entire large text on a single page. Another may choose to spread it across dozens or hundreds of pages connected by nested tables of contents. Sometimes, the top-level table of contents page is not labeled with a Category, but the second-tier (e.g., chapter) pages are. Furthermore, an editor may sometimes wish to rename one or more pages, but because it's hard to chase down and fix all inbound connections, one option they have is to just set up redirect pages, adding further layers of navigational complexity. Users are at the mercy of all this curatorial diversity when trying to browse.</p>
+            <p>And what is an "item" deserving of categorization anyway? It's quite subtle, actually. Abstraction to a "text" level is purely manual on Wikisource and can be done in various ways. One Wikisource editor may choose to put an entire large text on a single page. Another may choose to spread it across dozens or hundreds of pages connected by nested tables of contents. Sometimes, the top-level table of contents page is not labeled with a Category, but the second-tier (e.g., chapter) pages are. Furthermore, an editor may sometimes wish to rename one or more pages, but because it's hard to chase down and fix all inbound connections, one option they have is to just set up redirect pages, adding further layers of navigational complexity. Users are at the mercy of all this curatorial diversity, which may or may not be implemented correctly.</p>
 
             <p>Granted, there are other, non-categorical access options, as well: a search bar, and an alphabetical index (e.g., <a href="https://sa.wikisource.org/wiki/विशेषः:सर्वपृष्ठानि/फ" target="_blank">फ</a>). But I find both of these to be myopically restrictive in their own ways, too. My bet is that, even after trying all of the above, a typical user may still be shrugging their shoulders about whether this collection has material that might be useful to them. After all the work that went in, by so many people, that's a shame.</p>
 
@@ -79,7 +89,7 @@
 
             <p>This web app only organizes and presents links to the source data on Sanskrit Wikisource itself. It does <em>not</em> re-host the data, since the collection is demonstrably still living and growing. The mirror's last-updated info for each item clearly shows this, as does Wikisource's own <a href="https://sa.wikisource.org/wiki/विशेषः:नूतनपरिवर्तनानि" target="_blank">“सद्यपरिवर्तनानि,” i.e., Recent Changes page</a>. Like <a href="../projects#panditya">Pāṇḍitya's use of Pandit Project</a>, this mirror starts from a data snapshot, builds functionality on top, and points back to the source. That does mean that it needs to be periodically refreshed to stay current (<a href="https://github.com/tylergneill/sanskrit-wikisource-mirror/tree/main/pipeline" target="_blank">pipeline here in Git</a>).</p>
 
-            <p>What the snapshot numbers from Summer 2026 reveal: Sanskrit Wikisource holds about 390mb of plain-text content in 2,200 texts across roughly 22,000 individual web pages. For comparison, GRETIL is around 350mb before controlling for duplication, roughly 175mb after (see <a href="gretil-past-and-present">previous post</a>). In short, it is definitely huge, and it's very interesting.</p>
+            <p>What the snapshot numbers from Summer 2026 reveal: Sanskrit Wikisource holds over 700 MB of plain-text content (measured in IAST) in something like 2,000–3,000 texts across roughly 26,000 individual web pages. For comparison, GRETIL is around 350 MB before controlling for duplication, roughly 175 MB and 700 unique works after (see <a href="gretil-past-and-present">previous post</a>). In short, it is definitely huge, and it's very interesting.</p>
 
             <h2>It's Actually More Complicated...</h2>
 
@@ -95,11 +105,11 @@
 
             <p>In addition to the option to simply type or copy-paste material in manually, Wikisource also includes its own OCR-based pipeline, called "Proofreading." The process starts with a user uploading a PDF, say. Wikiksource creates a central page for the project, then auto-generates individual pages for each page of the PDF. Page-by-page, Wikisource gets the ball rolling with Tesseract OCR, and then users manually improve the text in a facing-page editing interface. Through a process called "transclusion," the editor can connect a normal page to this gradual proofreading process, such that updates are automatically reflected.</p>
 
-            <p>The big advantage of this method of data input is that source images are automatically preserved on Wikimedia Commons and findable from the text page. There are pitfalls: not every editor chooses to transclude properly, and material may remain in an unproofread state for a long time. The mirror does its best to surface deviations from best practices and still surface material in a usable way.</p>
+            <p>The big advantage of this method of data input is that source images are automatically preserved on Wikimedia Commons and findable from the text page. There are pitfalls: not every editor chooses to transclude properly, and material may remain in an unproofread state for a long time. The mirror does its best to notice deviations from best practices and still surface material in a usable way.</p>
 
             <h3>Limited metadata</h3>
 
-            <p>With the exception of the OCR-based texts mentioned above, when they successfully link to, e.g., a source title page, most Sanskrit e-text content on Wikisource lacks any usable metadata at all over and above revision history. Most importantly, not knowing what edition or editions a given text is based on can make it extremely difficult to use responsibly. Users are left with the implicit claim that, e.g., this just <em>is <strong>the</strong></em> Pañcadaśi by Vidyāraṇya. An enterprising researcher may well figure it out. But why the guessing game?</p>
+            <p>With the exception of the OCR-based texts mentioned above, when they successfully link to, e.g., a source title page, most Sanskrit e-text content on Wikisource lacks any usable metadata at all over and above revision history. Most importantly, not knowing what edition or editions a given text is based on can make it extremely difficult to use responsibly. Users are left with the implicit claim that, e.g., this just <em>is <strong>the</strong></em> Pañcadaśi by Vidyāraṇya. An enterprising researcher may well figure it out by comparing against available printed editions. But why the guessing game?</p>
 
             <p>Better than nothing, Wikisource's default to <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank">CC BY-SA 4.0</a> where not specified otherwise (“भिन्नोल्लेखः यावत् न भवेत्, तावत्  इत्यत्र उल्लेखो भवति ।”) at least clarifies terms of use.</p>
 
@@ -113,7 +123,7 @@
 
             <h2>Different Ways Forward</h2>
 
-            <h2>Option 1: Mirror</h2>
+            <h3>Option 1: Mirror</h3>
 
             <p>Obviously, this mirror is itself a light-touch approach to mitigating problems with the collection.</p>
 
@@ -123,19 +133,19 @@
 
             <p>That all said, I hope to have shown in this post why doing this — especially without further contextualization — is NOT a good idea from a scholarly perspective. The collection is so riddled with issues, it's very liable to be misunderstood. AND it's still being edited all the time, so any copy-pasted snapshot will be misleadingly stale before long.</p>
 
-            <p><em>Aside: Interestingly, in the audit pipeline, I was able to add a separate informational component LINK that shows where Sanskrit Wikisource has itself borrowed from other collections — at least 226 pages (about 5% of the total collection by content size) from sanskritdocuments.org, Muktabodha, GRETIL, and others. In the case of Muktabodha specifically, the relevant datestamp info shows that these borrowings happened against the wishes of the source collection’s organizers (Muktabodha only recently switched to BY-SA 4.0).</em></p>
+            <p><em>Aside: Interestingly, in the audit pipeline, I was able to add a separate informational component LINK that shows where Sanskrit Wikisource has itself borrowed from other collections — at least 226 pages (about 5% of the total collection by content size) from sanskritdocuments.org, Muktabodha, GRETIL, and others.</em></p>
 
             <h3>Option 3: Adopt the Best, Clean Up the Rest</h3>
 
             <p>Instead, my opinion is that we as a scholarly community should approach items one by one, study them carefully, and where possible, improve them and transplant them onto platforms built for proper scholarly curation. That is what I intend to do in select cases with HANSEL LINK .</p>
 
-            <p>AND, of course, we CAN also improve Sanskrit Wikisource itself, either at the top, navigational level, or lower levels like mid- and low-tier categories. For example, I voiced a lot of dissatisfaction with the home page, but I could also try to change it. Similarly, if I see something miscategorized, why not just submit an edit and see what happens? My honest answer: Before having this mirror as a tool, I did not feel very motivated to do this on any sort of scale. I didn’t know how Sisyphean the task may be — will my changes just be reverted? — and I didn’t have enough perspective to know whether my effort would make a difference.</p>
+            <p>AND, of course, we CAN also improve Sanskrit Wikisource itself, either at the top, navigational level, or lower levels like mid- and low-tier categories. For example, I voiced a lot of dissatisfaction with the home page, but I could also try to change it. Similarly, if I see something miscategorized, why not just submit an edit and see what happens? My honest answer: Before having this mirror as a tool, I did not feel very motivated to do this on any sort of scale. Not yet being a part of the editing community myself, but having had certain experiences on Wikipedia, I know that it's possible that my changes will just be reverted. More crucially, though, I didn't have enough perspective to know whether my effort would make a difference.</p>
 
             <p>That's why my first order of business was to make a mirror, so that I and others can start making better use of the collection as a whole, now. But in doing so, I found it was possible to systematically identify, categorize, and surface the finite number of low-hanging-fruit edits that would be needed to fix the site’s major problems. See the About page's Data Quality section. Only now, with this tool in hand, do I feel like it would be a good use of my time to start an improvement campaign. Because now I know the extent of the job — when I’ll be able to say my cleanup is done — and what each step consists in. Also, by making it public, now it doesn’t have to be just me who works on this. Anyone who is interested can immediate get the full perspective and be motivated to pitch in, too.</p>
 
             <h2>Coming Back to the Surface</h2>
 
-            <p>As intriguing as I find this Sanskrit Wikisource case, it's actually just the beginning. There are several other similarly underestimated Sanskrit icebergs out there. My plan is to extend the alternate-interface treatment to them, and to consolidate these interfaces into a single portal, which I will maintain as an additional Kalpataru Grove project named Sāgarasaṅgama, "Meeting of the Oceans." As these collections become better understood, their metadata can then be ingested into SETI, and their prosopographical aspects represented in Pandit Projetc. Once the latter two are done, the items can finally be visualized in Pāṇḍitya. That's the big-picture side of the plan.</p>
+            <p>As intriguing as I find this Sanskrit Wikisource case, it's actually just the beginning. There are several other similarly underestimated Sanskrit icebergs out there. My plan is to extend the alternate-interface treatment to them, and to consolidate these interfaces into a single portal, which I will maintain as an additional Kalpataru Grove project named Sāgarasaṅgama, "Meeting of the Oceans." As these collections become better understood, their metadata can then be ingested into SETI, and their prosopographical aspects represented in Pandit Projetc. Once the latter two are done, the items can finally be visualized in Pāṇḍitya. That's my big-picture goal, and I think it's doable in three to five years.</p>
             <div class="post-nav">
                 <a href="mohit-links">&larr; It's Raining Links Again<span class="post-nav-date">July 24, 2026</span></a>
                 <span></span>
