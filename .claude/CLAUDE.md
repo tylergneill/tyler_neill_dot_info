@@ -87,6 +87,10 @@ Tyler writes all blog post prose. Claude handles only structure, HTML mechanics,
 
 This includes the `blog-summary` line in the index entry (`kalpataru-diaries.html`) — it is prose, not mechanics. Never compose it. Leave it as `PLACEHOLDER: summary` and tell Tyler it needs writing, even when the post content makes a summary easy to infer.
 
+**The above is the default, not an absolute.** When Tyler explicitly asks for writing help on a specific piece of text — proofreading, editing, tightening, or even drafting — do it. The rule exists to stop Claude from volunteering prose unprompted, not to refuse Tyler when he asks. Ask-first still applies to *unrequested* prose.
+
+When asked to proofread, default to reporting rather than rewriting: list the issues found (typos, grammar, broken markup, factual/internal inconsistencies, awkward phrasing) with the suggested fix, and let Tyler decide. Apply edits directly only when he says to. Keep his voice — flag genuine errors, not stylistic choices that are simply his register.
+
 ### Importing prose from a Google Doc
 
 Tyler drafts post prose in Google Docs. If a doc is shared ("anyone with the link can view"), fetch its Markdown export directly — no auth needed:
