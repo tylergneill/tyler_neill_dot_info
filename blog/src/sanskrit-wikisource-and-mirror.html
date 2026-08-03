@@ -19,7 +19,15 @@
 
             <p>Did you know that Sanskrit Wikisource has <strong>hundreds of megabytes</strong> of text data? If you've ever tried to browse it, did you feel inspired to come back again the next time you need something? No? You're not alone.</p>
 
-            <h2>Access Problems</h2>
+            <h2>Metadata Problems</h2>
+
+            <p>The discerning user will not take long to notice that, with the exception of items based on Wikisource's in-built OCR-pipeline which sometimes link to a source PDF title page, most Sanskrit Wikisource content lacks any usable metadata at all beyond revision history. Specifically, not knowing what edition or editions a given text is based on can make it extremely difficult to use responsibly. Users are left with the implicit claim that "this just <em>is <strong>the</strong></em> Pañcadaśī by Vidyāraṇya." An enterprising researcher may well figure it out by comparing against available printed editions. But why the guessing game?</p>
+
+            <p>This is a big problem. If it's going to be fixed anywhere, I think it should be done on-platform, in collaboration with the contributors who continue to add content.</p>
+
+            <h2>Navigation Problems</h2>
+
+            <p>Now we get to something we can solve more quickly with technology.</p>
 
             <p>The best way to navigate Sanskrit Wikisource isn't clear from its home page.</p>
 
@@ -28,7 +36,7 @@
                 <figcaption>Bird's-eye view of the Sanskrit Wikisource home page</figcaption>
             </figure>
 
-            <p>First, not everyone is comfortable with an all-Sanskrit, all-Devanagari interface. Second, this page is a cluttered mess. If you look past the less useful stuff, the वर्गसर्वस्वम् section offers some links to category pages, but clicking them gives you only a narrow view of one category at a time.</p>
+            <p>First, not everyone is comfortable with an all-Sanskrit, all-Devanāgarī interface. Second, this page is a cluttered mess. If you look past the less useful stuff, the वर्गसर्वस्वम् section offers some links to category pages, but clicking them gives you only a narrow view of one category at a time.</p>
 
             <p><em>Pro tip:</em> There's a separate <a href="https://sa.wikisource.org/wiki/वर्गः:वर्गसर्वस्वम्" target="_blank">वर्गः:वर्गसर्वस्वम्</a> page a few wiki-clicks away. There, you'll find a dynamic dropdown tree structure that is already much better for browsing.</p>
 
@@ -41,7 +49,7 @@
 
             <p>And what is an "item" deserving of categorization anyway? It's quite subtle, actually. Abstraction to a "text" level is purely manual on Wikisource and can be done in various ways. One Wikisource editor may choose to put an entire Sanskrit text on a single page. Another may choose to spread it across dozens or hundreds of pages connected by nested tables of contents. Sometimes, the top-level table of contents page is not labeled with a Category, but the second-tier (e.g., chapter) pages are. Furthermore, an editor may sometimes wish to rename one or more pages, but because it's hard to chase down and fix all inbound connections, they can just set up redirect pages, adding further layers of navigational complexity. Users are at the mercy of all this curatorial diversity, which may or may not be implemented correctly.</p>
 
-            <p>Granted, there are other, non-categorical access options, as well: a search bar, and an alphabetical index (e.g., <a href="https://sa.wikisource.org/wiki/विशेषः:सर्वपृष्ठानि/फ" target="_blank">फ</a>). But I find both of these to be myopically restrictive in their own ways, too. My bet is that, even after trying all of the above, a typical user may still be shrugging their shoulders about whether this collection has material that might be useful to them. After all the work that went in, by so many people, that's a shame.</p>
+            <p>Granted, there are other, non-categorical access options, as well: a search bar, and an alphabetical index (e.g., <a href="https://sa.wikisource.org/wiki/विशेषः:सर्वपृष्ठानि/फ" target="_blank">फ</a>). But I find both of these to be myopically restrictive and disorienting in their own ways, too. My bet is that, even after trying all of the above, a typical user may still be shrugging their shoulders about whether this collection has material that might be useful to them. After all the work that went in, by so many people, that's a shame.</p>
 
             <h2>A Better Interface</h2>
 
@@ -53,7 +61,7 @@
                 <img src="../images/my_project_screenshots/sanskrit-wikisource-mirror.png" alt="My Sanskrit Wikisource Mirror">
             </figure>
 
-            <p>This alternate interface is purely an augmented navigational tool, so all of its links bring you to sa.wikisource.org. It understands and compensates for many of the issues listed above, giving you: 1) cleaner browsing and search in a single-page display with a sidebar; 2) no distracting Wikimedia artifacts (e.g., "निष्कासनाय", "to be deleted"); 3) transliteration options; 4) more intuitive abstraction to the "text" level; and 5) clearer stats, specifically page and text counts, plus size and last-updated info throughout.</p>
+            <p>This alternate interface is purely a navigational layer — it hosts no text of its own, so all of its links bring you to sa.wikisource.org. It understands and compensates for many of the issues listed above, giving you: 1) cleaner browsing and search in a single-page display with a sidebar; 2) no distracting Wikimedia artifacts (e.g., "निष्कासनाय", "to be deleted"); 3) transliteration options; 4) more intuitive abstraction to the "text" level; and 5) clearer stats, specifically page and text counts, plus size and last-updated info throughout.</p>
 
             <p>The way I did it: 1) download the full data; 2) process it to calculate relationships and counts; 3) boil that info down to <a href="https://github.com/tylergneill/sanskrit-wikisource-mirror/tree/main/docs/data" target="_blank">a single main data file</a>; and then 4) build a simple single-page app on top of that file, which GitHub Pages easily hosts for free.</p>
 
@@ -79,19 +87,15 @@
                 <figcaption>Data reports — understanding past and present to make a better future</figcaption>
             </figure>
 
-            <h2>The Main Caveat: Lack of Metadata</h2>
-
-            <p>The discerning user will not take long to notice that, with the exception of items based on Wikisource's in-built OCR-pipeline (see <a href="https://tylergneill.github.io/sanskrit-wikisource-mirror/about.html#proofreading" target="_blank">"Proofreading"</a>) which sometimes link to a source PDF title page, most Sanskrit Wikisource content lacks any usable metadata at all beyond revision history. Most importantly, not knowing what edition or editions a given text is based on can make it extremely difficult to use responsibly. Users are left with the implicit claim that "this just <em>is <strong>the</strong></em> Pañcadaśi by Vidyāraṇya." An enterprising researcher may well figure it out by comparing against available printed editions. But why the guessing game?</p>
-
             <h2>Different Ways Forward</h2>
 
             <p>Apart from making a light-touch mirror like I've done, I foresee two other ways excited newcomers to Sanskrit Wikisource are going to want to improve upon it.</p>
 
             <h3>Option 1: Duplicate the Data and Don't Look Back</h3>
 
-            <p>I'm sure that some people are going to want to take lots or all of the data in the form of a static copy and then just do what they want with it, such as aggregating it with data from other sources. To be sure, this does open up interesting possibilities for federated processing, like search. Examples are Vishvas Vasuki's <a href="https://github.com/sanskrit/raw_etexts" target="_blank">raw_etexts GitHub repo</a> and Harry Spier's <a href="https://www.searchable-sanskrit-library.org/" target="_blank">Searchable Aggregate Library of Sanskrit</a>. Wikisource's default license is <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank">CC BY-SA 4.0</a>, so legally, this is all kosher, as long as one makes a proper and respectful acknowledgment.</p>
+            <p>Some people will see the value of Sanskrit Wikisource as content they can take and add to their aggregation effort. To be sure, doing so does open up interesting possibilities for federated processing, like search. Examples are Vishvas Vasuki's <a href="https://github.com/sanskrit/raw_etexts" target="_blank">raw_etexts GitHub repo</a> and Harry Spier's <a href="https://www.searchable-sanskrit-library.org/" target="_blank">Searchable Aggregate Library of Sanskrit</a>. And obviously, it's easier to not be burdened with maintaining material in-place. Wikisource's default license is <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank">CC BY-SA 4.0</a>, so legally, this is all kosher, as long as one makes a properly detailed acknowledgment.</p>
 
-            <p>That all said, I hope to have shown in this post why doing this — especially without further contextualization — is NOT a good idea from a scholarly perspective. The collection is so riddled with issues, it's very liable to be misunderstood. AND it's still being edited all the time, so any copy-pasted snapshot will be misleadingly stale before long.</p>
+            <p>That all said, I hope to have shown in this post why doing this — especially without further contextualization — is not a good idea from a scholarly perspective. As a whole, the collection is riddled with organizational issues, with the result that an extraction effort will inevitably make interpretive mistakes. Individually, each item is badly in need of metadata to make it more trustworthy, and that should be done at the source, rather than re-derived privately by each person who copies it. AND the collection is still being edited all the time, so any copy-pasted snapshot will be misleadingly stale before long.</p>
 
             <p><em>As an interesting aside, the mirror system pipeline also surfaces <a href="https://tylergneill.github.io/sanskrit-wikisource-mirror/about.html#provenance-insights" target="_blank">provenance insights</a>; for at least 226 pages (about 5% of the total collection by content size), Sanskrit Wikisource has itself directly borrowed from other collections, including sanskritdocuments.org, Muktabodha, GRETIL, and others.</em></p>
 
