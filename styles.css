@@ -803,7 +803,7 @@ img {
     margin-bottom: 0.5rem;
 }
 
-.blog-excerpt {
+.blog-summary {
     color: var(--muted-text);
     font-size: 1.875rem;
 }
@@ -822,7 +822,13 @@ img {
 }
 
 .blog-post-content figure {
-    margin: 1.5rem 0 2.5rem;
+    margin: 1.5rem auto 2.5rem;
+    text-align: center;
+}
+
+.blog-post-content figure img {
+    display: block;
+    margin: 0 auto;
 }
 
 .blog-post-content ul.no-marker {
@@ -1158,7 +1164,7 @@ img {
         font-size: 1.25rem;
     }
 
-    .blog-excerpt {
+    .blog-summary {
         font-size: 1.25rem;
     }
 

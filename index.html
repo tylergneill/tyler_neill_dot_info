@@ -104,6 +104,12 @@
                                 <h4>Kalpataru Grove</h4>
                             </a>
                         </div>
+                        <div class="showcase-item">
+                            <a href="projects#sanskrit-wikisource-atlas">
+                                <img src="images/my_project_screenshots/sanskrit-wikisource-atlas.png" alt="Sanskrit Wikisource Atlas">
+                                <h4>Sanskrit Wikisource Atlas</h4>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -196,9 +202,12 @@
         const nextBtn = document.querySelector('.carousel-next');
         const totalItems = originalItems.length;
 
-        // Clone all items and append/prepend for seamless looping
+        // Clone all items and append/prepend for seamless looping.
+        // The prepended copy must be inserted back-to-front: each insertBefore
+        // targets the current firstChild, so iterating forward would reverse
+        // the block and put a duplicate at the boundary with the real set.
         originalItems.forEach(item => track.appendChild(item.cloneNode(true)));
-        originalItems.forEach(item => track.insertBefore(item.cloneNode(true), track.firstChild));
+        originalItems.slice().reverse().forEach(item => track.insertBefore(item.cloneNode(true), track.firstChild));
 
         // currentIndex is relative to the original set (0-based), offset by totalItems clones prepended
         let currentIndex = totalItems; // start at first real item
