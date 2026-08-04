@@ -21,3 +21,6 @@ serve:
 
 ngrok:
 	ngrok http 4999
+
+free-server-port:
+	kill $$(lsof -ti tcp:4999)
