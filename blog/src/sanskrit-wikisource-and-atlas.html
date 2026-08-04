@@ -1,33 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Braving the Sanskrit Wikisource Iceberg - Kalpataru Diaries</title>
-    <script>
-        (function() {
-            var t = localStorage.getItem('theme');
-            if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', t);
-        })();
-    </script>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="icon" href="../images/dall-e/favicon_light.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" href="../images/dall-e/favicon_dark.png" media="(prefers-color-scheme: dark)">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <script src="../header.js"></script>
-
-    <div class="page-header page-header-blog">
-        <h1>Braving the Sanskrit Wikisource Iceberg</h1>
-        <p style="margin-top: 1rem; opacity: 0.9;">August 3, 2026</p>
-    </div>
-
-    <article class="page-content">
-        <div class="container blog-post-content">
             <p>A set of questions came up recently <a href="https://list.indology.info/pipermail/indology/2026-July/062125.html" target="_blank">on the Indology mailing list</a> about <a href="https://sa.wikisource.org" target="_blank">Sanskrit Wikisource</a> — what is it, who made it, and how useful is it? As it happens, I spent some time a few months ago investigating this very thing, and I came up with a prototype solution that addresses some of the obstacles to understanding. As a result of the Indology exchange, I dug in deeper and developed the prototype further, which I'm now ready to share more widely. First things first, though. Let's try to answer those basic questions.</p>
 
             <h3>What is it?</h3>
@@ -85,41 +55,41 @@
 
             <p>Fortunately, it's possible to create a better way in, even without modifying Wikisource. Based on my understanding of the collection's structure, I made such an alternate interface to the exact same data that I personally find much more user-friendly.</p>
 
-            <h3 style="text-align: center;"><a href="https://tylergneill.github.io/sanskrit-wikisource-mirror" target="_blank">https://tylergneill.github.io/sanskrit-wikisource-mirror</a></h3>
+            <h3 style="text-align: center;"><a href="https://tylergneill.github.io/sanskrit-wikisource-atlas" target="_blank">https://tylergneill.github.io/sanskrit-wikisource-atlas</a></h3>
 
             <figure>
-                <img src="../images/my_project_screenshots/sanskrit-wikisource-mirror.png" alt="My Sanskrit Wikisource Mirror">
+                <img src="../images/my_project_screenshots/sanskrit-wikisource-atlas.png" alt="My Sanskrit Wikisource Atlas">
             </figure>
 
             <p>This alternate interface is purely a navigational layer — it hosts no text of its own, so all of its links bring you to sa.wikisource.org. It understands and compensates for many of the issues listed above, giving you: 1) cleaner browsing and search in a single-page display with a sidebar; 2) no distracting Wikimedia artifacts (e.g., "निष्कासनाय", "to be deleted"); 3) transliteration options; 4) more intuitive abstraction to the "text" level; and 5) clearer stats, specifically page and text counts, plus size and last-updated info throughout.</p>
 
-            <p>The way I did it: 1) download the full data; 2) process it to calculate relationships and counts; 3) boil that info down to <a href="https://github.com/tylergneill/sanskrit-wikisource-mirror/tree/main/docs/data" target="_blank">a single main data file</a>; and then 4) build a simple single-page app on top of that file, which GitHub Pages easily hosts for free.</p>
+            <p>The way I did it: 1) download the full data; 2) process it to calculate relationships and counts; 3) boil that info down to <a href="https://github.com/tylergneill/sanskrit-wikisource-atlas/tree/main/docs/data" target="_blank">a single main data file</a>; and then 4) build a simple single-page app on top of that file, which GitHub Pages easily hosts for free.</p>
 
-            <p>The main reason I do not re-host the full text data myself is that the collection is demonstrably still living and growing. The mirror's last-updated info for each item clearly shows this, as does Wikisource's own <a href="https://sa.wikisource.org/wiki/विशेषः:नूतनपरिवर्तनानि" target="_blank">“सद्यपरिवर्तनानि,” i.e., Recent Changes page</a>. Like <a href="../projects#panditya">Pāṇḍitya's use of Pandit Project</a>, this mirror starts from a data snapshot, builds functionality on top, and points back to the source. That does mean that it needs to be periodically refreshed to stay current. Fortunately, an <a href="https://github.com/tylergneill/sanskrit-wikisource-mirror/tree/main/pipeline" target="_blank">automated pipeline</a> makes that simple.</p>
+            <p>The main reason I do not re-host the full text data myself is that the collection is demonstrably still living and growing. The atlas's last-updated info for each item clearly shows this, as does Wikisource's own <a href="https://sa.wikisource.org/wiki/विशेषः:नूतनपरिवर्तनानि" target="_blank">“सद्यपरिवर्तनानि,” i.e., Recent Changes page</a>. Like <a href="../projects#panditya">Pāṇḍitya's use of Pandit Project</a>, this atlas starts from a data snapshot, builds functionality on top, and points back to the source. That does mean that it needs to be periodically refreshed to stay current. Fortunately, an <a href="https://github.com/tylergneill/sanskrit-wikisource-atlas/tree/main/pipeline" target="_blank">automated pipeline</a> makes that simple.</p>
 
             <p>What the snapshot numbers from Summer 2026 reveal: Sanskrit Wikisource holds over <strong>700 MB</strong> of plain-text content (measured in IAST) in something like 2,000–3,000 texts across roughly 26,000 individual web pages. For comparison, GRETIL is around 350 MB before controlling for duplication, roughly 175 MB and 700 unique works after (see <a href="gretil-past-and-present">previous post</a>). In short, Sanskrit Wikisource is definitely huge — roughly <strong>2–4x the size of GRETIL</strong> — and it's very interesting.</p>
 
             <h2>It's Actually More Complicated...</h2>
 
-            <p>This is the part where I could digress badly trying to communicate all the rough edges that the mirror is smoothing out — it's almost <em>too</em> user-friendly in that respect. But I'm going to resist the urge. If you really want, you can go read the mirror's comprehensive <a href="https://tylergneill.github.io/sanskrit-wikisource-mirror/about.html" target="_blank">About page</a>. Here's what I give there:</p>
+            <p>This is the part where I could digress badly trying to communicate all the rough edges that the atlas is smoothing out — it's almost <em>too</em> user-friendly in that respect. But I'm going to resist the urge. If you really want, you can go read the atlas's comprehensive <a href="https://tylergneill.github.io/sanskrit-wikisource-atlas/about.html" target="_blank">About page</a>. Here's what I give there:</p>
 
             <ul>
-                <li>A practical intro to Wikisource structure as used by the mirror;</li>
-                <li>An overview of how the mirror obtains and represents the data;</li>
-                <li>A "data quality" report that surfaces structural errors and provenance insights from the mirror's pipeline system; and</li>
-                <li>A "data quantity" report that extends the mirror's view back in time to show how the collection has changed over the years.</li>
+                <li>A practical intro to Wikisource structure as used by the atlas;</li>
+                <li>An overview of how the atlas obtains and represents the data;</li>
+                <li>A "data quality" report that surfaces structural errors and provenance insights from the atlas's pipeline system; and</li>
+                <li>A "data quantity" report that extends the atlas's view back in time to show how the collection has changed over the years.</li>
             </ul>
 
             <p>A screenshot of those last two, which I honestly think are pretty cool:</p>
 
             <figure>
-                <img src="../images/my_project_screenshots/sa-wiki-mirror-data-reports.png" alt="Sanskrit Wikisource Mirror About page data reports">
+                <img src="../images/my_project_screenshots/sa-wiki-atlas-data-reports.png" alt="Sanskrit Wikisource Atlas About page data reports">
                 <figcaption>Data reports — understanding past and present to make a better future</figcaption>
             </figure>
 
             <h2>Different Ways Forward</h2>
 
-            <p>Apart from making a light-touch mirror like I've done, I foresee two other ways excited newcomers to Sanskrit Wikisource are going to want to improve upon it.</p>
+            <p>Apart from making a light-touch atlas like I've done, I foresee two other ways excited newcomers to Sanskrit Wikisource are going to want to improve upon it.</p>
 
             <h3>Option 1: Duplicate the Data and Don't Look Back</h3>
 
@@ -127,26 +97,16 @@
 
             <p>That all said, I hope to have shown in this post why doing this — especially without further contextualization — is not a good idea from a scholarly perspective. As a whole, the collection is riddled with organizational issues, with the result that an extraction effort will inevitably make interpretive mistakes. Individually, each item is badly in need of metadata to make it more trustworthy, and that should be done at the source, rather than re-derived privately by each person who copies it. AND the collection is still being edited all the time, so any copy-pasted snapshot will be misleadingly stale before long.</p>
 
-            <p><em>As an interesting aside, the mirror system pipeline also surfaces <a href="https://tylergneill.github.io/sanskrit-wikisource-mirror/about.html#provenance-insights" target="_blank">provenance insights</a>; for at least 226 pages (about 5% of the total collection by content size), Sanskrit Wikisource has itself directly borrowed from other collections, including sanskritdocuments.org, Muktabodha, GRETIL, and others.</em></p>
+            <p><em>As an interesting aside, the atlas system pipeline also surfaces <a href="https://tylergneill.github.io/sanskrit-wikisource-atlas/about.html#provenance-insights" target="_blank">provenance insights</a>; for at least 226 pages (about 5% of the total collection by content size), Sanskrit Wikisource has itself directly borrowed from other collections, including sanskritdocuments.org, Muktabodha, GRETIL, and others.</em></p>
 
             <h3>Option 2: Adopt the Best, Clean Up the Rest</h3>
 
             <p>Instead, my opinion is that we as a scholarly community should approach items one by one, study them carefully, and where possible, improve them and transplant them onto platforms built for proper scholarly curation. That is what I intend to do in select cases with <a href="https://hansel-library.info" target="_blank">HANSEL</a>.</p>
 
-            <p>AND I believe we should invest effort improving Sanskrit Wikisource in-place, as well, either at the top, navigational level, or at lower levels like mid- and low-tier categories. For example, I voiced a lot of dissatisfaction with the home page, but I could also try to change it. Similarly, if I see something miscategorized, why not just submit an edit and see what happens? My honest answer: Before having this mirror as a tool, I did not feel very motivated to do this on any sort of scale. Not yet being a part of the editing community myself, but having had certain experiences on Wikipedia, I know that it's possible that my changes may (and should!) be reverted if I don't approach things properly. More crucially, though, I didn't have enough perspective to know whether my effort would make a difference.</p>
+            <p>AND I believe we should invest effort improving Sanskrit Wikisource in-place, as well, either at the top, navigational level, or at lower levels like mid- and low-tier categories. For example, I voiced a lot of dissatisfaction with the home page, but I could also try to change it. Similarly, if I see something miscategorized, why not just submit an edit and see what happens? My honest answer: Before having this atlas as a tool, I did not feel very motivated to do this on any sort of scale. Not yet being a part of the editing community myself, but having had certain experiences on Wikipedia, I know that it's possible that my changes may (and should!) be reverted if I don't approach things properly. More crucially, though, I didn't have enough perspective to know whether my effort would make a difference.</p>
 
-            <p>Now though, with the mirror as an illumination tool, I have much more confidence that I understand the finite number of low-hanging-fruit edits that would be needed to fix the site's major problems. Now, I can proceed with a concerted improvement campaign because I know the extent of the job: what each step consists in, when I'll be able to say that I'm done. Also, since the tool is public and didactic in nature, anyone else who is curious can immediately get the full perspective and be motivated to pitch in, too.</p>
+            <p>Now though, with the atlas as an illumination tool, I have much more confidence that I understand the finite number of low-hanging-fruit edits that would be needed to fix the site's major problems. Now, I can proceed with a concerted improvement campaign because I know the extent of the job: what each step consists in, when I'll be able to say that I'm done. Also, since the tool is public and didactic in nature, anyone else who is curious can immediately get the full perspective and be motivated to pitch in, too.</p>
 
             <h2>Coming Back to the Surface</h2>
 
             <p>As intriguing as I find this Sanskrit Wikisource case, it's actually just the beginning. There are several other similarly underestimated Sanskrit icebergs out there. My plan is to extend the alternate-interface treatment to them, and to consolidate these interfaces into a single portal, which I will maintain as an additional Kalpataru Grove project named Sāgarasaṅgama, "Meeting of the Oceans." As these collections become better understood, their metadata can then be ingested into SETI, and their prosopographical aspects represented in Pandit Project. Once the latter two are done, the items can finally be visualized in Pāṇḍitya. That's my big-picture goal, and I'll try to get there over the next three to five years.</p>
-            <div class="post-nav">
-                <a href="mohit-links">&larr; It's Raining Links Again<span class="post-nav-date">July 24, 2026</span></a>
-                <span></span>
-            </div>
-        </div>
-    </article>
-
-    <script src="../footer.js"></script>
-</body>
-</html>
