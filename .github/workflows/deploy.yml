@@ -1,0 +1,63 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Lets you re-run a deploy from the Actions tab without pushing a commit —
+  # the escape hatch the legacy Pages builder never gave us.
+  workflow_dispatch:
+
+# Least privilege: read the repo, mint an OIDC token, publish to Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let an in-flight deploy finish rather than cancelling it, but never run two
+# at once. A stuck run here can be cancelled from the UI, unlike the legacy builder.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # Guards the same invariant as scripts/hooks/pre-push, for commits that got
+  # here without it: a web-UI merge, or a push with --no-verify.
+  verify-blog-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Regenerate blog pages
+        run: node scripts/build-blog.js
+
+      - name: Fail if generated pages are stale
+        run: |
+          if ! git diff --quiet -- blog/*.html kalpataru-diaries.html; then
+            echo "::error::blog/*.html or kalpataru-diaries.html is out of date with blog/_post-template.html, blog/_index-template.html, blog/posts-data.json, or blog/src/. Run 'make blog' and commit the result."
+            git diff --stat -- blog/*.html kalpataru-diaries.html
+            exit 1
+          fi
+
+  deploy:
+    needs: verify-blog-build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      # The site is hand-written static HTML, so the repo root ships as-is.
+      # .nojekyll and CNAME are committed and travel with it.
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
