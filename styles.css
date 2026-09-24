@@ -843,6 +843,23 @@ img {
     margin-top: 0.5rem;
 }
 
+.blog-post-content img.inline-logo {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    margin: 0 0.1em;
+    vertical-align: -0.25em;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.blog-post-content blockquote {
+    font-family: 'Tiro Devanagari Sanskrit', serif;
+    font-size: 1.25rem;
+    line-height: 1.9;
+    margin: 2rem auto;
+}
+
 .blog-post-content table {
     border-collapse: collapse;
     margin: 2rem auto;
